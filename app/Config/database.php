@@ -72,9 +72,9 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'database_name',
+		'login' => 'root',
+		'password' => '',
+		'database' => 'euro_qa_report',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
