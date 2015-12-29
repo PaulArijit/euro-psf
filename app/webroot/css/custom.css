@@ -1,0 +1,44 @@
+.panel-heading a:after {
+    font-family:'Glyphicons Halflings';
+    content:"\e114";
+    float: right;
+    color: grey;
+}
+.panel-heading a.collapsed:after {
+    content:"\e080";
+}
+.logo{
+    font-family: Old English Text MT;
+    color: #FFF;
+}
+.login-bg{
+    /*background:  url('../img/login_bg.png') repeat center;*/
+    background:   #DDD url('../img/login-bg.jpg') no-repeat fixed center center / cover;
+    height: 50% !important;
+}
+.login-panel-body{
+    background:  #FFF;
+    width: 360px;
+    margin: auto;
+    margin-top: 170px;
+    box-shadow: 5px 5px 30px #555; 
+    border-radius: 5px;
+    padding: 20px;
+}
+.control{
+    margin-bottom: 10px;
+}
+.pos{
+    position: fixed;
+    top: 280px;
+    left: 330px;
+
+}
+.pos1{
+    position: fixed;
+    top: 405px;
+
+}
+.shadow {
+    box-shadow: 5px 5px 30px #AAA;
+}
