@@ -1,24 +1,48 @@
-<div class="users form">
-<?php echo $this->Form->create('User'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit User'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
-		echo $this->Form->input('role');
-		echo $this->Form->input('status');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Logs'), array('controller' => 'logs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Log'), array('controller' => 'logs', 'action' => 'add')); ?> </li>
-	</ul>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <div class="title">Add New User</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <?php echo $this->Form->create('User', array('class' => 'form-horizontal')); ?>
+                            <?php echo $this->Form->input('id'); ?>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="">Username</label>
+                                <div class="col-sm-6">
+                                    <?php echo $this->Form->input('username', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                </div>
+                            </div>
+<!--                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="">Password</label>
+                                <div class="col-sm-6">
+                                    <?php echo $this->Form->input('password', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                </div>
+                            </div>-->
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="">Role</label>
+                                <div class="col-sm-6">
+                                    <?php echo $this->Form->input('role', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="">Status</label>
+                                <div class="col-sm-6">
+                                    <?php echo $this->Form->input('status', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer text-right">
+                            <button class="btn btn-success" type="submit">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

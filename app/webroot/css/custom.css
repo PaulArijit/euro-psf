@@ -42,3 +42,27 @@
 .shadow {
     box-shadow: 5px 5px 30px #AAA;
 }
+dl {
+	line-height: 2em;
+	margin: 0em 0em;
+	width: 60%;
+}
+dl dd:nth-child(4n+2),
+dl dt:nth-child(4n+1) {
+	background: #f4f4f4;
+}
+
+dt {
+	font-weight: bold;
+	padding-left: 4px;
+        padding: 2px;
+	vertical-align: top;
+	width: 10em;
+}
+dd {
+	margin-left: 10em;
+        padding: 2px;
+        color: #285e8e;
+	margin-top: -24px;
+	vertical-align: top;
+}
