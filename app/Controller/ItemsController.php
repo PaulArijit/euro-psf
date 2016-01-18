@@ -45,7 +45,7 @@ class ItemsController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($id = null, $tab = null) {
 		if ($this->request->is('post')) {
 			$this->Item->create();
 			if ($this->Item->save($this->request->data)) {
@@ -55,6 +55,9 @@ class ItemsController extends AppController {
 				$this->Session->setFlash(__('The item could not be saved. Please, try again.'));
 			}
 		}
+                
+                $this->set('tab', $tab);
+                $this->set('itemId', $id);
 	}
 
 /**
