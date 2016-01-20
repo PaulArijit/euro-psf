@@ -21,13 +21,25 @@
                     </thead>
                     <tbody>
                         <?php foreach ($users as $user): ?>
+                            <?php                            
+                            $conf_roles = Configure::read('ROLES');
+                            $role = $conf_roles[$user['User']['role']];
+
+                            if ($user['User']['status'] == 1) {
+                                $status = 'Active';
+                            } elseif ($user['User']['status'] == 0) {
+                                $status = 'Inactive';
+                            } else {
+                                $status = 'Not Defined';
+                            }
+                            ?>
                             <tr>
                                 <td><?php echo h($user['User']['id']); ?>&nbsp;</td>
                                 <td><?php echo h($user['User']['username']); ?>&nbsp;</td>
-                                <td><?php echo h($user['User']['role']); ?>&nbsp;</td>
+                                <td><?php echo $role; ?>&nbsp;</td>
                                 <td><?php echo h($user['User']['created']); ?>&nbsp;</td>
                                 <td><?php echo h($user['User']['modified']); ?>&nbsp;</td>
-                                <td><?php echo h($user['User']['status']); ?>&nbsp;</td>
+                                <td><?php echo $status; ?>&nbsp;</td>
                                 <td class="actions">
                                     <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?></span>
                                     <span class="label label-warning"><?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id'])); ?></span>

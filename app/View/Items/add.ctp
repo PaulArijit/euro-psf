@@ -20,7 +20,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="">Product Category</label>
                                 <div class="col-sm-6">
-                                    <?php echo $this->Form->input('category', array('class' => 'form-control', 'placeholder' => 'Please enter category', 'label' => FALSE)); ?>
+                                    <?php echo $this->Form->input('category', array('options' => Configure::read('CATEGORY'),'class' => 'form-control', 'placeholder' => 'Please enter category', 'label' => FALSE)); ?>
                                 </div>
                             </div>
                             <div class="form-group">

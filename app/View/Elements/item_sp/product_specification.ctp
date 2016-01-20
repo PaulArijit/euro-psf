@@ -1,4 +1,3 @@
-
 <div class="row">
     <h1 class="text-center">Product</h1>
     <div class="col-lg-10">

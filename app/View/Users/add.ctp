@@ -26,13 +26,13 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="">Role</label>
                                 <div class="col-sm-6">
-                                    <?php echo $this->Form->input('role', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                    <?php echo $this->Form->input('role', array('options' => Configure::read('ROLES'), 'class' => 'form-control', 'label' => FALSE)); ?>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="">Status</label>
                                 <div class="col-sm-6">
-                                    <?php echo $this->Form->input('status', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                    <?php echo $this->Form->input('status', array('options' => Configure::read('STATUS'), 'class' => 'form-control', 'label' => FALSE)); ?>
                                 </div>
                             </div>
                         </div>
