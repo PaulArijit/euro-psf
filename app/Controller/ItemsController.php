@@ -45,14 +45,14 @@ class ItemsController extends AppController {
  *
  * @return void
  */
-	public function add($id = null, $tab = null) {
+	public function add($id = 0, $tab = null) {
 		if ($this->request->is('post')) {
 			$this->Item->create();
 			if ($this->Item->save($this->request->data)) {
-				$this->Session->setFlash(__('The item has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('The item has been saved.'), 'flash_success');
+				return $this->redirect(array('action' => 'add', $id));
 			} else {
-				$this->Session->setFlash(__('The item could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The item could not be saved. Please, try again.'), 'flash_warning');
 			}
 		}
                 
@@ -98,9 +98,9 @@ class ItemsController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Item->delete()) {
-			$this->Session->setFlash(__('The item has been deleted.'));
+			$this->Session->setFlash(__('The item has been deleted.'), 'flash_danger');
 		} else {
-			$this->Session->setFlash(__('The item could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The item could not be deleted. Please, try again.'), 'flash_warning');
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

@@ -21,10 +21,14 @@
                     </thead>
                     <tbody>
                         <?php foreach ($items as $item): ?>
+                            <?php
+                            $conf_categories = Configure::read('CATEGORY');
+                            $category = $conf_categories[$item['Item']['category']];
+                            ?>
                             <tr>
                                 <td><?php echo h($item['Item']['id']); ?>&nbsp;</td>
                                 <td><?php echo h($item['Item']['description']); ?>&nbsp;</td>
-                                <td><?php echo h($item['Item']['category']); ?>&nbsp;</td>
+                                <td><?php echo $category; ?>&nbsp;</td>
                                 <td><?php echo h($item['Item']['sapcode']); ?>&nbsp;</td>
                                 <td><?php echo h($item['Item']['created']); ?>&nbsp;</td>
                                 <td><?php echo h($item['Item']['modified']); ?>&nbsp;</td>

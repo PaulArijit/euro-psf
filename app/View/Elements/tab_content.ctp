@@ -20,7 +20,9 @@
         echo $this->element('item_sp/wicket_specification');
     } else if ($current_tab == 'quality form') {
         echo $this->element('item_sp/quality_form_specification');
-    } else{
+    } else if($current_tab == 'product'){
         echo $this->element('item_sp/product_specification');
+    }else{
+        
     }
 ?>
