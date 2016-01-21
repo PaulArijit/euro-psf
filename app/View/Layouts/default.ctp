@@ -113,6 +113,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                 <li>
                                     <?php echo $this->Html->link('<span class="icon fa fa-list"></span>' . '<span class="title">Items List</span>', array('controller' => 'items', 'action' => 'index'), array('escape' => FALSE)); ?>
                                 </li>
+                                <li>
+                                    <?php echo $this->Html->link('<span class="icon fa fa-list"></span>' . '<span class="title">QC Lab Report</span>', array('controller' => 'QcLabReportDetails', 'action' => 'add'), array('escape' => FALSE)); ?>
+                                </li>
                                 <!-- Dropdown-->
                                 <li class="panel panel-default dropdown">
                                     <a data-toggle="collapse" href="#dropdown-example">
