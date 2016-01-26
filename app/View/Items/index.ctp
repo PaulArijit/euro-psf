@@ -7,6 +7,27 @@
                 </div>
             </div>
             <div class="card-body">
+                <?php $url = array('controller' => 'Items', 'action' => 'index'); ?>
+                <?php echo $this->Form->create('Filter', array('url' => $url)); ?>
+                <div class="src-area">
+                    <ul class="filters">
+                        <li>
+                            <?php
+                            $options = array(10 => 10, 25 => 25, 50 => 50, 75 => 75, 100 => 100, 500 => 500, 1000 => 1000, 10000 => 10000);
+                            echo $this->Form->input('limit', array('class' => 'form-control input-sm', 'label' => false, 'options' => $options));
+                            ?>
+                        </li>
+                        <li><?php echo $this->Form->input('cal_from', array('class' => 'date form-control input-sm', 'label' => false, 'placeholder' => 'From')); ?></li>
+                        <li><?php echo $this->Form->input('cal_to', array('class' => 'date form-control input-sm', 'label' => false, 'placeholder' => 'To')); ?></li>
+                        <li><?php echo $this->Form->input('category', array('options' => Configure::read('CATEGORY'), 'label' => false, 'class' => 'form-control input-sm')); ?></li>
+                        <li><?php echo $this->Form->input('value', array('class' => 'date form-control input-sm', 'label' => false, 'placeholder' => 'Search')); ?></li>
+                        <li><?php echo $this->Form->input('field', array('options' => array('sapcode' => 'Sapcode', 'description' => 'Description', 'id' => 'ID'), 'label' => false, 'class' => 'form-control input-sm')); ?></li>
+                        <li><button type="submit" class="btn btn-sm btn-info"><i class="fa fa-search"></i></button></li>
+                    </ul>
+                    <div class="input-group srch-btn">
+
+                    </div>
+                </div>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -59,3 +80,10 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#FilterCalFrom').datepicker({format: 'dd-mm-yyyy'});
+        $('#FilterCalTo').datepicker({format: 'dd-mm-yyyy'});
+    });
+</script>

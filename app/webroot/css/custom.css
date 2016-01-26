@@ -118,3 +118,22 @@ a.bg-danger:hover {
 }
 
 /*Panels*/
+.filters{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.filters li{
+    display: inline-block;    
+}
+.filters li input{
+    margin-bottom:  -11px;
+}
+.srch-btn button{
+    margin-top: -5px;
+}
+.src-area{
+    background: #EEE;
+    width: 100%;
+    text-align: right;
+}

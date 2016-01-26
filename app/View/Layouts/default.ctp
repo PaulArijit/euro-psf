@@ -35,15 +35,23 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         echo $this->Html->css('jquery.dataTables.min.css');
         echo $this->Html->css('dataTables.bootstrap.css');
         echo $this->Html->css('select2.min.css');
+        echo $this->Html->css('datepicker3');
         echo $this->Html->css('style.css');
         echo $this->Html->css('themes.css');
         echo $this->Html->css('custom-table.css');
         echo $this->Html->css('custom.css');
+        echo $this->Html->css('jquery-ui.min');
+
+        echo $this->Html->script('jquery-1.11.2.min');
+        echo $this->Html->script('jquery-ui.min');
 
         echo $this->fetch('meta');
         echo $this->fetch('css');
         echo $this->fetch('script');
         ?>
+        <script type="text/javascript">
+            var SITE_URL = '<?= SITE_URL ?>';
+        </script>
         <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
     </head>
@@ -97,7 +105,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                             <div class="navbar-header">
                                 <a class="navbar-brand" href="#">
                                     <div class="icon fa fa-paper-plane"></div>
-                                    <div class="title">Euro PSF</div>
+                                    <div class="title">Euro PSF Database</div>
                                 </a>
                                 <button type="button" class="navbar-expand-toggle pull-right visible-xs">
                                     <i class="fa fa-times icon"></i>
@@ -114,7 +122,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                     <?php echo $this->Html->link('<span class="icon fa fa-list"></span>' . '<span class="title">Items List</span>', array('controller' => 'items', 'action' => 'index'), array('escape' => FALSE)); ?>
                                 </li>
                                 <li>
-                                    <?php echo $this->Html->link('<span class="icon fa fa-list"></span>' . '<span class="title">QC Lab Report</span>', array('controller' => 'QcLabReportDetails', 'action' => 'add'), array('escape' => FALSE)); ?>
+                                    <?php echo $this->Html->link('<span class="icon fa fa-file"></span>' . '<span class="title">QC Lab Report</span>', array('controller' => 'QcLabReportDetails', 'action' => 'add'), array('escape' => FALSE)); ?>
                                 </li>
                                 <!-- Dropdown-->
                                 <li class="panel panel-default dropdown">
@@ -163,6 +171,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         echo $this->Html->script('jquery.min.js');
         echo $this->Html->script('common.js');
         echo $this->Html->script('bootstrap.min.js');
+        echo $this->Html->script('bootstrap-datepicker');
         echo $this->Html->script('Chart.min.js');
         echo $this->Html->script('bootstrap-switch.min.js');
         echo $this->Html->script('jquery.matchHeight-min.js');
