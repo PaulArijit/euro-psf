@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xs-12">
-        <div class="card">
+        <div class="card" id="list-items">
             <div class="card-header">
                 <div class="card-title">
                     <div class="title">Items List</div>                    
@@ -9,7 +9,7 @@
             <div class="card-body">
                 <?php $url = array('controller' => 'Items', 'action' => 'index'); ?>
                 <?php echo $this->Form->create('Filter', array('url' => $url)); ?>
-                <div class="src-area">
+                <div class="src-area noprint">
                     <ul class="filters">
                         <li>
                             <?php
@@ -22,13 +22,14 @@
                         <li><?php echo $this->Form->input('category', array('options' => Configure::read('CATEGORY'), 'label' => false, 'class' => 'form-control input-sm')); ?></li>
                         <li><?php echo $this->Form->input('value', array('class' => 'date form-control input-sm', 'label' => false, 'placeholder' => 'Search')); ?></li>
                         <li><?php echo $this->Form->input('field', array('options' => array('sapcode' => 'Sapcode', 'description' => 'Description', 'id' => 'ID'), 'label' => false, 'class' => 'form-control input-sm')); ?></li>
-                        <li><button type="submit" class="btn btn-sm btn-info"><i class="fa fa-search"></i></button></li>
+                        <li><button type="submit" class="btn  btn-info"><i class="fa fa-search"></i></button></li>
+                        <li><a href="javascript:void(0)" onclick="printData('list-items')" class="btn  btn-success" rel="list-items"><i class="fa fa-print"></i></a></li>
                     </ul>
                     <div class="input-group srch-btn">
 
                     </div>
                 </div>
-                <table class="table table-hover">
+                <table class="table table-hover list">
                     <thead>
                         <tr>
                             <th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -37,7 +38,7 @@
                             <th><?php echo $this->Paginator->sort('sapcode'); ?></th>
                             <th><?php echo $this->Paginator->sort('created'); ?></th>
                             <th><?php echo $this->Paginator->sort('modified'); ?></th>
-                            <th class="actions"><?php echo __('Actions'); ?></th>
+                            <th class="actions noprint"><?php echo __('Actions'); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,7 +54,7 @@
                                 <td><?php echo h($item['Item']['sapcode']); ?>&nbsp;</td>
                                 <td><?php echo h($item['Item']['created']); ?>&nbsp;</td>
                                 <td><?php echo h($item['Item']['modified']); ?>&nbsp;</td>
-                                <td class="actions">
+                                <td class="actions noprint">
                                     <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'view', $item['Item']['id'])); ?></span>
                                     <span class="label label-warning"><?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $item['Item']['id'])); ?></span>
                                     <span class="label label-danger"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['Item']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $item['Item']['id']))); ?></span>
@@ -70,7 +71,7 @@
                     ?>	
                 </p>
                 <nav>
-                    <ul class="pagination">
+                    <ul class="pagination noprint">
                         <li><?php echo $this->Paginator->prev('<i class="fa fa-angle-double-left"></i>' . '&nbsp;' . __('previous'), array('escape' => FALSE), null, array('class' => 'prev disabled')); ?></li>
                         <li><?php echo $this->Paginator->numbers(array('separator' => '')); ?></li>                    
                         <li><?php echo $this->Paginator->next(__('next') . '&nbsp;' . ' <i class="fa fa-angle-double-right"></i>', array('escape' => FALSE), null, array('class' => 'next disabled')); ?></li>

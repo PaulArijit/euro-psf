@@ -170,6 +170,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         <?php
         echo $this->Html->script('jquery.min.js');
         echo $this->Html->script('common.js');
+        echo $this->Html->script('print.js');
         echo $this->Html->script('bootstrap.min.js');
         echo $this->Html->script('bootstrap-datepicker');
         echo $this->Html->script('Chart.min.js');
