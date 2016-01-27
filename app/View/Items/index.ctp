@@ -23,6 +23,7 @@
                         <li><?php echo $this->Form->input('value', array('class' => 'date form-control input-sm', 'label' => false, 'placeholder' => 'Search')); ?></li>
                         <li><?php echo $this->Form->input('field', array('options' => array('sapcode' => 'Sapcode', 'description' => 'Description', 'id' => 'ID'), 'label' => false, 'class' => 'form-control input-sm')); ?></li>
                         <li><button type="submit" class="btn  btn-info"><i class="fa fa-search"></i></button></li>
+                        <li><?php echo $this->Html->link('<i class="fa fa-refresh"></i>', array('action' => 'index'), array('escape' => FALSE, 'class' =>'btn btn-warning')); ?></li>
                         <li><a href="javascript:void(0)" onclick="printData('list-items')" class="btn  btn-success" rel="list-items"><i class="fa fa-print"></i></a></li>
                     </ul>
                     <div class="input-group srch-btn">

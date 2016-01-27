@@ -77,7 +77,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                 <i class="fa fa-times icon"></i>
                             </button>                            
                             <li class="dropdown danger">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-leaf"></i> Euro</a>                                
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $this->Html->image('logo.jpg', array('alt' => 'logo', 'class' => 'euro-logo', 'height' => '60')); ?></a>                                
                             </li>
                             <li class="dropdown profile">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php print ucfirst($this->Session->read('Auth.User.username')); ?><span class="caret"></span></a>

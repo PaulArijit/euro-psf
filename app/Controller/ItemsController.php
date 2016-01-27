@@ -103,19 +103,39 @@ class ItemsController extends AppController {
      *
      * @return void
      */
-    public function add($id = 0, $tab = null) {
+    public function add() {
         if ($this->request->is('post')) {
+            /*save blank data*/
+            $this->request->data['ProductSpecification'][0] = array('npi' => '-');
+            $this->request->data['CartonSpecification'][0]   = array('npi' => '-');
+            $this->request->data['CoreSpecification'][0]   = array('npi' => '-');
+            $this->request->data['CylinderSpecification'][0]   = array('npi' => '-');
+            $this->request->data['FlexoPlateSpecification'][0]   = array('npi' => '-');
+            $this->request->data['FussetSpecification'][0]   = array('npi' => '-');
+            $this->request->data['GrommetSpecification'][0]   = array('npi' => '-');            
+            $this->request->data['KnifeSpecification'][0]   = array('npi' => '-');
+            $this->request->data['LabelSpecification'][0]   = array('npi' => '-');
+            $this->request->data['WicketSpecification'][0]   = array('npi' => '-');
+            $this->request->data['QfBmQualityReportDetail'][0]   = array('npi' => '-');
+            $this->request->data['QfExtFirstOffDetail'][0]   = array('npi' => '-');
+            $this->request->data['QfExtFormDetail'][0]   = array('npi' => '-');
+            $this->request->data['QfFirstOffDetail'][0]   = array('npi' => '-');
+            $this->request->data['QfPositiveReleaseDetail'][0]   = array('npi' => '-');
+            
+            //pr($this->request->data);
+            
             $this->Item->create();
-            if ($this->Item->save($this->request->data)) {
+            if ($this->Item->saveAll($this->request->data)) {
+                $lastId = $this->Item->getLastInsertId();
+                
                 $this->Session->setFlash(__('The item has been saved.'), 'flash_success');
-                return $this->redirect(array('action' => 'add', $id));
+                return $this->redirect(array('action' => 'edit', $lastId));
             } else {
                 $this->Session->setFlash(__('The item could not be saved. Please, try again.'), 'flash_warning');
             }
         }
 
-        $this->set('tab', $tab);
-        $this->set('itemId', $id);
+        
     }
 
     /**
@@ -125,21 +145,24 @@ class ItemsController extends AppController {
      * @param string $id
      * @return void
      */
-    public function edit($id = null) {
+    public function edit($id = null, $tab = null) {
         if (!$this->Item->exists($id)) {
             throw new NotFoundException(__('Invalid item'));
         }
         if ($this->request->is(array('post', 'put'))) {
             if ($this->Item->save($this->request->data)) {
-                $this->Session->setFlash(__('The item has been saved.'));
-                return $this->redirect(array('action' => 'index'));
+                $this->Session->setFlash(__('The item has been saved.'), 'flash_success');
+                //return $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The item could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('The item could not be saved. Please, try again.'), 'flash_warning');
             }
         } else {
             $options = array('conditions' => array('Item.' . $this->Item->primaryKey => $id));
             $this->request->data = $this->Item->find('first', $options);
         }
+        
+        $this->set('tab', $tab);
+        $this->set('itemId', $id);
     }
 
     /**

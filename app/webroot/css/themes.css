@@ -32,7 +32,7 @@
       background-color: transparent;
       color: #FA2A00; }
     .flat-blue .navbar .navbar-nav > li.danger > a {
-      background-color: greenyellow;
+      background-color: none;
       color: #255625;
       font-size: 1.5em;
       font-family: Bauhaus 93;

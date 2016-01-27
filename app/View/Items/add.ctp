@@ -35,21 +35,7 @@
                         </div>
                     </div>
                 </div>
-            </div>	
-            <!--tab panel start-->									
-            <div class="card-body no-padding">               
-                <div role="tabpanel">
-                    <!-- Nav tabs -->
-                    <ul role="tablist" class="nav nav-tabs">
-                        <?php echo $this->element('tab_navigation'); ?>
-                    </ul>    
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <?php echo $this->element('tab_content'); ?>
-                    </div>
-                </div>
             </div>										
-            <!--tab panel end-->									
         </div>
     </div>
 </div>
