@@ -8,9 +8,7 @@
                 <label></label>
             </div>
         </div>
-    </div>
-    <?php echo $this->Form->create('KnifeSpecification', array('action' => 'edit', 'controller' => 'KnifeSpecifications')); ?>
-    
+    </div>    
     <div class="col-lg-2">
         <div class="panel fresh-color panel-success">
             <div class="panel-heading text-center">NPI</div>
@@ -23,7 +21,7 @@
         <table class="grommet-tab1" cellpadding="0" cellspacing="0">            
             <tr>
                 <td><label>Knife Size (mm)</label></td>
-                <td><?php echo $this->Form->input('KnifeSpecification.0.knife_size', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><input type="text" class="form-control"/></td>
                 <td rowspan="9" valign="top">
                     <label>Remarks:</label>
                     <textarea rows="8" class="form-control"></textarea>
@@ -75,7 +73,4 @@
             <button class="btn btn-success" type="submit">Save</button>
         </div>
     </div>
-    
-    <?php echo $this->Form->input('id', array('type' => 'hidden')); ?>
-    <?php $this->Form->end(); ?>
 </div>
