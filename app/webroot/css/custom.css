@@ -20,9 +20,9 @@
     background:  #FFF;
     width: 360px;
     margin: auto;
-    margin-top: 170px;
-    box-shadow: 5px 5px 30px #555; 
-    border-radius: 5px;
+    margin-top: 0px;
+    margin-right: 10px;
+    box-shadow: 5px 5px 30px #555;     
     padding: 20px;
 }
 .control{

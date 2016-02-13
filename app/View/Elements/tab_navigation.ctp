@@ -7,6 +7,8 @@ $active_class = 'active';
 
 foreach ($tabNames as $key => $value) {
     echo '<li class="' . ($current_tab == $value ? $active_class : '') . '"><a href="http://localhost/euro-psf/'. $controlName[$key] .'/edit/' . $itemId . '">' . ucwords($value) . '</a></li>';
+    
+    //echo '<li class="' . ($current_tab == $value ? $active_class : '') . '"><a href="http://devachieve.com/euro-psf/'. $controlName[$key] .'/edit/' . $itemId . '">' . ucwords($value) . '</a></li>';
 
 }
 ?>

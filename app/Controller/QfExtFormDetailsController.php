@@ -66,23 +66,26 @@ class QfExtFormDetailsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
-		if (!$this->QfExtFormDetail->exists($id)) {
+	public function edit($itemId = null) {
+            $this->loadModel('Item');
+		if (!$this->Item->exists($itemId)) {
 			throw new NotFoundException(__('Invalid qf ext form detail'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->QfExtFormDetail->save($this->request->data)) {
-				$this->Session->setFlash(__('The qf ext form detail has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('The qf ext form detail has been saved.'), 'flash_success');
+				return $this->redirect(array('action' => 'edit', $itemId));
 			} else {
-				$this->Session->setFlash(__('The qf ext form detail could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The qf ext form detail could not be saved. Please, try again.'), 'flash_warning');
 			}
 		} else {
-			$options = array('conditions' => array('QfExtFormDetail.' . $this->QfExtFormDetail->primaryKey => $id));
+                    $extForm = $this->QfExtFormDetail->findByItemId($itemId);
+            $extFormSpecId = $extForm['QfExtFormDetail']['id'];
+			$options = array('conditions' => array('QfExtFormDetail.' . $this->QfExtFormDetail->primaryKey => $extFormSpecId));
 			$this->request->data = $this->QfExtFormDetail->find('first', $options);
 		}
-		$items = $this->QfExtFormDetail->Item->find('list');
-		$this->set(compact('items'));
+		$this->set('itemId', $itemId);
+        $this->set('tab', 'qf three');
 	}
 
 /**

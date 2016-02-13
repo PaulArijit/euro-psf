@@ -63,9 +63,9 @@
   .flat-blue .side-menu {
     background-color: #EAEAEA; }
     .flat-blue .side-menu .navbar-header {
-      background-color: #363c46; }
+/*      background-color: #363c46; */ background-color: #AAA;}
       .flat-blue .side-menu .navbar-header .navbar-brand {
-        color: #19B5FE; }
+/*        color: #19B5FE; */ color: #d70600}
     .flat-blue .side-menu .navbar-nav {
       width: 100%; }
     .flat-blue .side-menu .navbar {

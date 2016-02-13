@@ -66,23 +66,26 @@ class QfFirstOffDetailsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
-		if (!$this->QfFirstOffDetail->exists($id)) {
+	public function edit($itemId = null) {
+            $this->loadModel('Item');
+		if (!$this->Item->exists($itemId)) {
 			throw new NotFoundException(__('Invalid qf first off detail'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->QfFirstOffDetail->save($this->request->data)) {
-				$this->Session->setFlash(__('The qf first off detail has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('The qf first off detail has been saved.'), 'flash_success');
+				return $this->redirect(array('action' => 'edit', $itemId));
 			} else {
-				$this->Session->setFlash(__('The qf first off detail could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The qf first off detail could not be saved. Please, try again.'), 'flash_warning');
 			}
 		} else {
-			$options = array('conditions' => array('QfFirstOffDetail.' . $this->QfFirstOffDetail->primaryKey => $id));
+                    $firstOff = $this->QfFirstOffDetail->findByItemId($itemId);
+            $firstOffSpecId = $firstOff['QfFirstOffDetail']['id'];
+			$options = array('conditions' => array('QfFirstOffDetail.' . $this->QfFirstOffDetail->primaryKey => $firstOffSpecId));
 			$this->request->data = $this->QfFirstOffDetail->find('first', $options);
 		}
-		$items = $this->QfFirstOffDetail->Item->find('list');
-		$this->set(compact('items'));
+		$this->set('itemId', $itemId);
+        $this->set('tab', 'qf four');
 	}
 
 /**
