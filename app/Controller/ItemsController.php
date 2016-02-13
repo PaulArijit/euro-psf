@@ -106,30 +106,30 @@ class ItemsController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             /*save blank data*/
-            $this->request->data['ProductSpecification'][0] = array('npi' => '-');
-            $this->request->data['CartonSpecification'][0]   = array('npi' => '-');
-            $this->request->data['CoreSpecification'][0]   = array('npi' => '-');
-            $this->request->data['CylinderSpecification'][0]   = array('npi' => '-');
-            $this->request->data['FlexoPlateSpecification'][0]   = array('npi' => '-');
-            $this->request->data['FussetSpecification'][0]   = array('npi' => '-');
-            $this->request->data['GrommetSpecification'][0]   = array('npi' => '-');            
-            $this->request->data['KnifeSpecification'][0]   = array('npi' => '-');
-            $this->request->data['LabelSpecification'][0]   = array('npi' => '-');
-            $this->request->data['WicketSpecification'][0]   = array('npi' => '-');
-            $this->request->data['QfBmQualityReportDetail'][0]   = array('npi' => '-');
-            $this->request->data['QfExtFirstOffDetail'][0]   = array('npi' => '-');
-            $this->request->data['QfExtFormDetail'][0]   = array('npi' => '-');
-            $this->request->data['QfFirstOffDetail'][0]   = array('npi' => '-');
-            $this->request->data['QfPositiveReleaseDetail'][0]   = array('npi' => '-');
+            $this->request->data['ProductSpecification'][0] = array('prepared_by' => $this->Session->read('Auth.User.username'));
+            $this->request->data['CartonSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['CoreSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['CylinderSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['FlexoPlateSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['FussetSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['GrommetSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));            
+            $this->request->data['KnifeSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['LabelSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['WicketSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['QfBmQualityReportDetail'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['QfExtFirstOffDetail'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['QfExtFormDetail'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['QfFirstOffDetail'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['QfPositiveReleaseDetail'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
             
             //pr($this->request->data);
             
             $this->Item->create();
             if ($this->Item->saveAll($this->request->data)) {
-                $lastId = $this->Item->getLastInsertId();
-                
+                $lastId = $this->Item->getLastInsertId(); //get last item id created. 
                 $this->Session->setFlash(__('The item has been saved.'), 'flash_success');
-                return $this->redirect(array('action' => 'edit', $lastId));
+                //$productId = $this->Item->ProductSpecification->getLastInsertID();                
+                return $this->redirect(array('action' => 'edit', 'controller' => 'ProductSpecifications', $lastId));
             } else {
                 $this->Session->setFlash(__('The item could not be saved. Please, try again.'), 'flash_warning');
             }
@@ -150,15 +150,17 @@ class ItemsController extends AppController {
             throw new NotFoundException(__('Invalid item'));
         }
         if ($this->request->is(array('post', 'put'))) {
-            if ($this->Item->save($this->request->data)) {
+            if ($this->Item->saveAll($this->request->data)) {
                 $this->Session->setFlash(__('The item has been saved.'), 'flash_success');
-                //return $this->redirect(array('action' => 'index'));
+                $curItemId = $this->request->data['Item']['id'];
+                return $this->redirect(array('action' => 'edit', 'controller' => 'ProductSpecifications', $curItemId));
             } else {
                 $this->Session->setFlash(__('The item could not be saved. Please, try again.'), 'flash_warning');
             }
         } else {
             $options = array('conditions' => array('Item.' . $this->Item->primaryKey => $id));
             $this->request->data = $this->Item->find('first', $options);
+            
         }
         
         $this->set('tab', $tab);

@@ -1,81 +1,129 @@
 .fusset-tab1, .grommet-tab1, .flexo-tab1, .flexo-tab2, .cylinder-tab1, .cylinder-tab2, .carton-tab1, 
-.carton-tab2, .product-tab1, .product-tab2, .product-tab3, .product-tab4, .product-tab5, .product-tab6, .core-tab1, .core-tab2{
-	width: 100%;
+.carton-tab2, .product-tab1, .product-tab2, .product-tab3, .product-tab4, .product-tab5, .product-tab6, .core-tab1, .core-tab2, .bm-first-off-tab1, .bm-first-off-tab2, .bm-first-off-tab3, .bm-quality-report-tab1, .ext-first-off-tab1, .ext-first-off-tab2, .ext-form-dfs-tab1, .positive-release-tab1{
+    width: 100%;
 }
 .fusset-tab1 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .grommet-tab1 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .flexo-tab1 td{
-	border: 1px solid silver;
-	padding: 5px;
-	text-align: center;
+    border: 1px solid silver;
+    padding: 5px;
+    text-align: center;
 }
 .flexo-tab2 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .cylinder-tab1 td{
-	border: 1px solid silver;
-	padding: 5px;
-	text-align: center;
+    border: 1px solid silver;
+    padding: 5px;
+    text-align: center;
 }
 .cylinder-tab2 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .carton-tab1 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .carton-tab2 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .core-tab1 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .core-tab2 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .product-tab1 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .product-tab2 th{
-	text-align: center;
-	border: 1px solid silver;
-	background: #DDD;
+    text-align: center;
+    border: 1px solid silver;
+    background: #DDD;
 }
 .product-tab2 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .product-tab3 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .product-tab4 td{
-	border-top: 1px solid silver;
-	padding: 5px;
+    border-top: 1px solid silver;
+    padding: 5px;
 }
 .ltd{
-	border-right: 1px solid silver;
+    border-right: 1px solid silver;
 }
 .product-tab5 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .product-tab6 td{
-	border: 1px solid silver;
-	padding: 5px;
+    border: 1px solid silver;
+    padding: 5px;
 }
 .top-td{
-	height: 150px;
+    height: 150px;
+}
+.bm-first-off-tab1{
+    border: 1px solid silver;
+}
+.bm-first-off-tab1 td{
+    padding: 5px;
+}
+.bm-first-off-tab2 td{
+    padding: 5px;
+    border: 1px solid silver;
+}
+.bm-first-off-tab3 td{
+    padding: 5px;
+    border: 1px solid silver;
+}
+.color-td{
+    background: #DDD; 
+}
+.lab-color-td{
+    background: #badede; 
+}
+.lab-color-tr{
+    background: #badede; 
+}
+.color-tr{
+    background: #DDD; 
+}
+.bm-quality-report-tab1 td{
+    padding: 5px;
+    border: 1px solid silver;
+}
+.ext-first-off-tab1{
+    border: 1px solid silver;
+}
+.ext-first-off-tab1 td{
+    padding: 5px;
+}
+.ext-first-off-tab2 td{
+    padding: 5px;
+    border: 1px solid silver;
+}
+.ext-form-dfs-tab1 td{
+    padding: 5px;
+    border: 1px solid silver;
+}
+.positive-release-tab1 td{
+    padding: 5px;
+    border: 1px solid silver; 
 }

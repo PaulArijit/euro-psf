@@ -20,7 +20,7 @@
                         <li><?php echo $this->Form->input('cal_from', array('class' => 'date form-control input-sm', 'label' => false, 'placeholder' => 'From')); ?></li>
                         <li><?php echo $this->Form->input('cal_to', array('class' => 'date form-control input-sm', 'label' => false, 'placeholder' => 'To')); ?></li>
                         <li><?php echo $this->Form->input('category', array('options' => Configure::read('CATEGORY'), 'label' => false, 'class' => 'form-control input-sm')); ?></li>
-                        <li><?php echo $this->Form->input('value', array('class' => 'date form-control input-sm', 'label' => false, 'placeholder' => 'Search')); ?></li>
+                        <li><?php echo $this->Form->input('value', array('class' => 'form-control input-sm', 'label' => false, 'placeholder' => 'Search')); ?></li>
                         <li><?php echo $this->Form->input('field', array('options' => array('sapcode' => 'Sapcode', 'description' => 'Description', 'id' => 'ID'), 'label' => false, 'class' => 'form-control input-sm')); ?></li>
                         <li><button type="submit" class="btn  btn-info"><i class="fa fa-search"></i></button></li>
                         <li><?php echo $this->Html->link('<i class="fa fa-refresh"></i>', array('action' => 'index'), array('escape' => FALSE, 'class' =>'btn btn-warning')); ?></li>

@@ -31,8 +31,9 @@
                             </div>
                         </div>
                         <div class="panel-footer text-right">
-                            <button class="btn btn-success" type="submit">Save</button>
+                            <button class="btn btn-success" type="submit">Save & Continue</button>
                         </div>
+                        <?php $this->Form->end(); ?>
                     </div>
                 </div>
             </div>										
