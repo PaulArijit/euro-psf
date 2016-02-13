@@ -33,7 +33,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             </dl>
                         </div>
                         <div class="panel-footer text-right">
-                            <button class="btn btn-success" type="submit">Edit</button>
+                            <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', 'controller' => 'Items', $this->request->data['Item']['id']), array('type' => 'button', 'class' => 'btn btn-success')); ?>
                         </div>
                     </div>
                 </div>
