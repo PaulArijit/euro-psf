@@ -112,7 +112,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                 </button>
                             </div>
                             <ul class="nav navbar-nav">
-                                <li class="active">
+                                <li>
                                     <?php echo $this->Html->link('<span class="icon fa fa-search"></span>' . '<span class="title">Search</span>', array('controller' => 'pages', 'action' => 'index'), array('escape' => FALSE)); ?>
                                 </li>
                                 <li>
