@@ -372,7 +372,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             </div>
                             <div class="col-lg-12 ">
                                 <div class="pull-right">
-                                    <button class="btn btn-success" type="submit">Save</button>
+                                    <button class="btn btn-success" type="submit" onclick="return confirm('Are you sure you want to continue')">Save</button>
                                 </div>
                             </div>	
                         </div>

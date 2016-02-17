@@ -81,7 +81,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             </div>
                             <div class="col-lg-2">                                
                                 <div class="panel fresh-color panel-success">
-                                    <div class="panel-heading text-center">NPI</div>
+                                    <div class="panel-heading text-center">User</div>
                                     <div class="panel-body text-center">
                                         <?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?>
                                     </div>
@@ -142,7 +142,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             </div>
                             <div class="col-lg-12 ">
                                 <div class="pull-right">
-                                    <button class="btn btn-success" type="submit">Save</button>
+                                    <button id="opener" class="btn btn-success" type="submit" onclick="return confirm('Are you sure you want to continue')" >Save</button>
                                 </div>
                             </div>
                             <?php $this->Form->end(); ?>
@@ -154,6 +154,25 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         </div>
     </div>
 </div>
+  <script>
+    $(function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+ 
+    $( "#opener" ).click(function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  });
+  </script>
 
 
 <!--<div class="cartonSpecifications form">
