@@ -48,6 +48,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="row">
+                            <?php echo $this->Form->create('QfPositiveReleaseDetail'); ?>
+                            <?php echo $this->Form->input('id'); ?>
+                            <?php echo $this->Form->input('item_id', array('type' => 'hidden')); ?>
                             <h1 class="text-center">POSITIVE RELEASE TEST REPORT</h1>
                             <div class="col-lg-12">
                                 <div class="panel panel-info">
@@ -89,9 +92,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td" colspan="2"><label>Bag Weight</label></td>
                                         <td class="text-center lab-color-td">g</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('bag_weight_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('bag_weight_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('bag_weight_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -107,9 +110,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td" colspan="2"><label>Vacuum Pack Weight</label></td>
                                         <td class="text-center lab-color-td">kg</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('vac_pack_weight_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('vac_pack_weight_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('vac_pack_weight_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -126,9 +129,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td class="text-center lab-color-td" rowspan="2"><label>Thickness</label></td>
                                         <td class="text-center lab-color-td"><label>Average Thickness</label></td>
                                         <td class="text-center lab-color-td">mu</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('average_thickness_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('average_thickness_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('average_thickness_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -144,9 +147,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Spot Thickness</label></td>
                                         <td class="text-center lab-color-td">mu</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('spot_thickness_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('spot_thickness_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('spot_thickness_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -161,9 +164,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td" colspan="2"><label>Opacity</label></td>
                                         <td class="text-center lab-color-td">%</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('opacity_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('opacity_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('opacity_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -180,9 +183,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td class="text-center lab-color-td"><label>Dart impact</label></td>
                                         <td class="text-center lab-color-td"><label>Weight</label></td>
                                         <td class="text-center lab-color-td">g</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('dart_impact_weight_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('dart_impact_weight_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('dart_impact_weight_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -199,9 +202,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td class="text-center lab-color-td" rowspan="2"><label>Tensile Strength</label></td>
                                         <td class="text-center lab-color-td"><label>MD</label></td>
                                         <td class="text-center lab-color-td">N/15mm</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('tensile_strength_md_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('tensile_strength_md_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('tensile_strength_md_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -217,9 +220,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td"><label>CD</label></td>
                                         <td class="text-center lab-color-td">N/15mm</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('tensile_strength_cd_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('tensile_strength_cd_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('tensile_strength_cd_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -234,7 +237,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td" colspan="2"><label>Tape Test*</label></td>
                                         <td class="text-center lab-color-td">Pass/Fail</td>
-                                        <td colspan="3"><input type="text" class="form-control"/></td>
+                                        <td colspan="3"><?php echo $this->Form->input('tape_test', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -250,9 +253,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td" colspan="2"><label>Hot Pin Collection</label></td>
                                         <td class="text-center lab-color-td">mm</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('hotpin_collection_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('hotpin_collection_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('hotpin_collection_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -268,7 +271,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td" colspan="2"><label>Barcode Scanner</label></td>
                                         <td class="text-center lab-color-td">Scanable</td>
-                                        <td colspan="3"><input type="text" class="form-control"/></td>
+                                        <td colspan="3"><?php echo $this->Form->input('barcode_scanner', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -285,7 +288,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td class="text-center lab-color-td" rowspan="2"><label>Printing Perform</label></td>
                                         <td class="text-center lab-color-td"><label>Surface Treatment</label></td>
                                         <td class="text-center lab-color-td">38 Dyne</td>
-                                        <td colspan="3"><input type="text" class="form-control"/></td>
+                                        <td colspan="3"><?php echo $this->Form->input('surface_treatment', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -301,7 +304,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Color Fastness</label></td>
                                         <td class="text-center lab-color-td">Pass/Fail</td>
-                                        <td colspan="3"><input type="text" class="form-control"/></td>
+                                        <td colspan="3"><?php echo $this->Form->input('color_fastness', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -320,9 +323,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td class="text-center lab-color-td"><label>Jog Test Intertek</label></td>
                                         <td class="text-center lab-color-td"><label>10kg, 10 minutes, 120 rpm, 1200cycles</label></td>
                                         <td class="text-center lab-color-td">kg</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('jog_test_intertek_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('jog_test_intertek_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('jog_test_intertek_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -338,9 +341,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td" colspan="2"><label>Ultimate lift</label></td>
                                         <td class="text-center lab-color-td">kg</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('ultimate_lift_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('ultimate_lift_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('ultimate_lift_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -357,9 +360,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td class="text-center lab-color-td" rowspan="6"><label>Bag Dimension</label></td>
                                         <td class="text-center lab-color-td"><label>Handle length</label></td>
                                         <td class="text-center lab-color-td">mm</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('handle_length_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('handle_length_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('handle_length_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -375,9 +378,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Handle width</label></td>
                                         <td class="text-center lab-color-td">mm</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('handle_width_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('handle_width_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('handle_width_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -392,9 +395,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Bag length</label></td>
                                         <td class="text-center lab-color-td">mm</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('bag_length_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('bag_length_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('bag_length_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -409,9 +412,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Open width</label></td>
                                         <td class="text-center lab-color-td">mm</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('open_width_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('open_width_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('open_width_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -426,9 +429,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Closed width</label></td>
                                         <td class="text-center lab-color-td">mm</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('closed_width_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('closed_width_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('closed_width_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -443,9 +446,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Gusset fold(opened)</label></td>
                                         <td class="text-center lab-color-td">mm</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('gusset_fold_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('gusset_fold_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('gusset_fold_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -461,9 +464,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td class="text-center lab-color-td" rowspan="3"><label>Tensile Seal Test</label></td>
                                         <td class="text-center lab-color-td"><label>Handle Seal</label></td>
                                         <td class="text-center lab-color-td">N/15mm</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('handle_seal_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('handle_seal_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('handle_seal_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -479,9 +482,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Bottom Gusset Seal</label></td>
                                         <td class="text-center lab-color-td">N/15mm</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('bottom_gusset_seal_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('bottom_gusset_seal_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('bottom_gusset_seal_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -496,9 +499,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Base Seal</label></td>
                                         <td class="text-center lab-color-td">N/15mm</td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
-                                        <td><input type="text" class="form-control"/></td>
+                                        <td><?php echo $this->Form->input('base_seal_std', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('base_seal_min', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('base_seal_max', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -511,6 +514,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                     </tr>
                                 </table>
+                                <br/>
                             </div>
                             <div class="col-lg-6">
                                 <table class="positive-release-tab1" cellpadding="0" cellspacing="0">
@@ -527,6 +531,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td><label>QA-Executive</label></td>
                                     </tr>
                                 </table>
+                                <br/>
                             </div>
                             <div class="col-lg-6">
                                 <table class="positive-release-tab1" cellpadding="0" cellspacing="0">
@@ -543,6 +548,11 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td><label>Factory Manager</label></td>
                                     </tr>
                                 </table>
+                            </div>
+                            <div class="col-lg-12 ">
+                                <div class="pull-right">
+                                    <button  class="btn btn-success" type="submit" onclick="return confirm('Are you sure you want to continue')" >Save</button>
+                                </div>
                             </div>
                         </div>
                     </div>
