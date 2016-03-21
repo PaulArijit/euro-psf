@@ -7,7 +7,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <div class="title">Add New Item</div>
+                    <div class="title">Add New Item <a href="javascript:void(0)" onclick="printData('core-details')" class="print print-btn1" rel="core-details"><i class="fa fa-print"></i>&nbsp;Print</a></div>
                 </div>
             </div>
             <div class="card-body">
@@ -46,7 +46,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                         <?php echo $this->element('tab_navigation'); ?>
                     </ul>    
                     <!-- Tab panes -->
-                    <div class="tab-content">
+                    <div class="tab-content" id="core-details">
                         <div class="row">
                             <?php echo $this->Form->create('CoreSpecification'); ?>
                             <?php echo $this->Form->input('id'); ?>
@@ -118,6 +118,11 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     </tr>
                                 </table>
                             </div>
+                            <div class="col-lg-12 core-img">
+                                <div id="core-internal-dia">&nbsp;</div>
+                                <div id="core-length">&nbsp;</div>
+                                <div id="core-thickness">&nbsp;</div>
+                            </div>
                             <div class="col-lg-12 ">
                                 <div class="pull-right">
                                     <button class="btn btn-success" type="submit" onclick="return confirm('Are you sure you want to continue')">Save</button>
@@ -131,6 +136,25 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         </div>
     </div>
 </div>
+<script type="text/javascript">
+        $(document).ready(function() {
+            
+            $('#core-length').html($('#CoreSpecificationLength').val());
+            $('#core-internal-dia').html($('#CoreSpecificationInternalDiameter').val());
+            $('#core-thickness').html($('#CoreSpecificationThickness').val());
+            
+            $('#CoreSpecificationLength').keyup(function() {
+                $('#core-length').text($(this).val());
+            });
+            $('#CoreSpecificationInternalDiameter').keyup(function() {
+                $('#core-internal-dia').text($(this).val());
+            });
+            $('#CoreSpecificationThickness').keyup(function() {
+                $('#core-thickness').text($(this).val());
+            });
+                           
+        });
+</script>
 
 
 <!--<div class="coreSpecifications form">

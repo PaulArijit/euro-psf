@@ -1,6 +1,8 @@
 <?php
 $conf_categories = Configure::read('CATEGORY');
 $category = $conf_categories[$this->request->data['Item']['category']];
+
+$imgdirPath = 'app/webroot/img/uploaded/';
 ?>
 <div class="row">
     <div class="col-xs-12">
@@ -48,7 +50,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="row">
-                            <?php echo $this->Form->create('ProductSpecification'); ?>
+                            <?php echo $this->Form->create('ProductSpecification', array('enctype' => 'multipart/form-data')); ?>
                             <?php
                             echo $this->Form->input('id');
                             echo $this->Form->input('item_id', array('type' => 'hidden'));
@@ -204,16 +206,23 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td><?php echo $this->Form->input('cut_out_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td><?php echo $this->Form->input('cut_out_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                     </tr>
-                                </table>	
+                                </table>
+                                <br/>
                             </div>
                             <div class="col-lg-4">
                                 <div class="panel fresh-color panel-info">
-                                    <div class="panel-heading text-center"><label>Aditional Information</label></div>
-                                    <div style="height: 535px;" class="panel-body text-center">
-                                        upload
+                                    <div class="panel-heading text-center"><label>Additional Information</label></div>
+                                    <div style="height: 535px;"  class="panel-body text-center">
+                                        <?php
+                                            if($this->request->data['ProductSpecification']['additional_information'] == ''){
+                                                echo 'No preview available';
+                                            }else{
+                                                 echo '<img src="'.SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['additional_information'] .'" width="300" height="435">';                                  
+                                            }
+                                        ?>
                                     </div>
                                     <div class="panel-footer text-center">
-                                        <button class="btn btn-info" type="button">Upload</button>
+                                        <?php  echo $this->Form->file('additional_information'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -269,10 +278,16 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                 <div class="panel fresh-color panel-info">
                                     <div class="panel-heading text-center"><label>Bag Artwork</label></div>
                                     <div style="height: 475px;" class="panel-body text-center">
-                                        upload
+                                        <?php
+                                            if($this->request->data['ProductSpecification']['bag_artwork'] == ''){
+                                                echo 'No preview available';
+                                            }else{
+                                                 echo '<img src="'.SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['bag_artwork'] .'" width="300" height="435">';
+                                            }
+                                        ?>
                                     </div>
                                     <div class="panel-footer text-center">
-                                        <button class="btn btn-info" type="button">Upload</button>
+                                        <?php echo $this->Form->file('bag_artwork'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -280,10 +295,16 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                 <div class="panel fresh-color panel-info">
                                     <div class="panel-heading text-center"><label>Carton Artwork</label></div>
                                     <div style="height: 300px;" class="panel-body text-center">
-                                        upload
+                                        <?php 
+                                            if($this->request->data['ProductSpecification']['ctn_artwork'] == ''){
+                                                echo 'No preview available';
+                                            }else{
+                                                 echo '<img src="'.SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['ctn_artwork'] .'" width="435" height="235">';
+                                            }
+                                        ?>
                                     </div>
                                     <div class="panel-footer text-center">
-                                        <button class="btn btn-info" type="button">Upload</button>
+                                        <?php echo $this->Form->file('ctn_artwork'); ?>
                                     </div>
                                     <table class="product-tab4">
                                         <tr>
@@ -297,17 +318,23 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                 <div class="panel fresh-color panel-info">
                                     <div class="panel-heading text-center"><label>Label Artwork</label></div>
                                     <div style="height: 300px;" class="panel-body text-center">
-                                        upload
+                                        <?php 
+                                            if($this->request->data['ProductSpecification']['label_artwork'] == ''){
+                                                echo 'No preview available';
+                                            }else{
+                                                 echo '<img src="'.SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['label_artwork'] .'" width="435" height="235">';
+                                            }
+                                        ?>
                                     </div>
                                     <div class="panel-footer text-center">
-                                        <button class="btn btn-info" type="button">Upload</button>
+                                        <?php echo $this->Form->file('label_artwork'); ?>
                                     </div>
                                     <table class="product-tab4">
                                         <tr>
                                             <td class="ltd"><label>Placement</label></td>
                                             <td><?php echo $this->Form->input('placement_label', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         </tr>
-                                    </table>
+                                    </table>                                    
                                 </div>							
                             </div>
                             <div class="col-lg-12">
@@ -372,7 +399,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             </div>
                             <div class="col-lg-12 ">
                                 <div class="pull-right">
-                                    <button class="btn btn-success" type="submit" onclick="return confirm('Are you sure you want to continue')">Save</button>
+                                    <button class="btn btn-success" id="sbmtbtn" type="submit" onclick="return confirm('Are you sure you want to continue')">Save</button>
                                 </div>
                             </div>	
                         </div>
@@ -386,8 +413,57 @@ $category = $conf_categories[$this->request->data['Item']['category']];
 <script type="text/javascript">
     $(document).ready(function() {
         $('#productSpecificationDate').datepicker({format: 'dd-mm-yyyy'}).datepicker('setDate', new Date()).datepicker('update');
+        
+        
     });
+    
+    function delete_image(){
+      var status = confirm("Are you sure you want to delete ?");  
+      if(status==true)
+      {
+        var file = $("#delete_file").val();
+        $.ajax({
+          type:"POST",
+          url:"deleteImageFile",
+          data:{file:file},
+        });
+      }else{
+          
+      }
+     }
 </script>
+
+<!--<script>
+$("div#dropzonePreview").dropzone({  
+url: SITE_URL + 'ProductSpecifications/upload', 
+addRemoveLinks: true,
+autoProcessQueue: false, // this is important as you dont want form to be submitted unless you have clicked the submit button
+autoDiscover: false,
+paramName: 'pic', // this is optional Like this one will get accessed in php by writing $_FILE['pic'] // if you dont specify it then bydefault it taked 'file' as paramName eg: $_FILE['file'] 
+previewsContainer: '#dropzonePreview', // we specify on which div id we must show the files
+clickable: true, // this tells that the dropzone will not be clickable . we have to do it because v dont want the whole form to be clickable 
+accept: function(file, done) {
+    done();
+},
+error: function(file, msg){
+    //alert(msg);
+},
+init: function() {
+
+var myDropzone = this;
+//now we will submit the form when the button is clicked
+$("#sbmtbtn").on('click',function(e) {
+    
+//e.preventDefault();
+myDropzone.processQueue(); // this will submit your form to the specified action path
+// after this, your whole form will get submitted with all the inputs + your files and the php code will remain as usual 
+//REMEMBER you DON'T have to call ajax or anything by yourself, dropzone will take care of that
+});
+
+} // init end
+
+});
+</script>-->
 
 <!--<div class="productSpecifications form">
 

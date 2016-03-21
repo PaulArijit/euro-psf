@@ -16,6 +16,44 @@
     background:   #DDD url('../img/login-bg.jpg') no-repeat fixed center center / cover;
     height: 50% !important;
 }
+.core-img{
+    background: url('../img/core_img.png') no-repeat  center;
+    height: 222px;
+    margin-top:  20px;
+}
+#core-length{
+    border: 1px solid #8ad919;
+    width: 75px;
+    height: 34px;
+    padding: 20px;
+    position: relative;
+    top: 65px;
+    left: 500px;
+    background: #FFF;
+    display: inline-block;
+}
+#core-internal-dia{
+    border: 1px solid #8ad919;
+    width: 75px;
+    height: 34px;
+    padding: 20px;
+    position: relative;
+    top: 65px;
+    left: 360px;
+    background: #FFF;
+    display: inline-block;
+}
+#core-thickness{
+    border: 1px solid #8ad919;
+    width: 75px;
+    height: 34px;
+    padding: 20px;
+    position: relative;
+    top: 210px;
+    left: 240px;
+    background: #FFF;
+    display: inline-block;
+}
 .login-panel-body{
     background:  #FFF;
     width: 360px;

@@ -1,6 +1,7 @@
 <?php
 
 App::uses('AppController', 'Controller');
+App::uses('File', 'Utility');
 
 /**
  * ProductSpecifications Controller
@@ -77,6 +78,40 @@ class ProductSpecificationsController extends AppController {
         if ($this->request->is(array('post', 'put'))) {
             $date = date('Y-m-d', strtotime($this->request->data['ProductSpecification']['date']));
             $this->request->data['ProductSpecification']['date'] = $date;
+            
+            //image upload part
+            $uploaddir = '../webroot/img/uploaded/';
+
+            //check image already uploaded or not
+            if (!empty($this->request->data['ProductSpecification']['additional_information']['name'])) {
+                move_uploaded_file($this->data['ProductSpecification']['additional_information']['tmp_name'], $uploaddir . $this->data['ProductSpecification']['additional_information']['name']);
+                $this->request->data['ProductSpecification']['additional_information'] = $this->request->data['ProductSpecification']['additional_information']['name'];
+            } else {
+                unset($this->request->data['ProductSpecification']['additional_information']);
+            }
+
+            if (!empty($this->request->data['ProductSpecification']['bag_artwork']['name'])) {
+                move_uploaded_file($this->data['ProductSpecification']['bag_artwork']['tmp_name'], $uploaddir . $this->data['ProductSpecification']['bag_artwork']['name']);
+                $this->request->data['ProductSpecification']['bag_artwork'] = $this->request->data['ProductSpecification']['bag_artwork']['name'];
+            } else {
+                unset($this->request->data['ProductSpecification']['bag_artwork']);
+            }
+
+            if (!empty($this->request->data['ProductSpecification']['ctn_artwork']['name'])) {
+                move_uploaded_file($this->data['ProductSpecification']['ctn_artwork']['tmp_name'], $uploaddir . $this->data['ProductSpecification']['ctn_artwork']['name']);
+                $this->request->data['ProductSpecification']['ctn_artwork'] = $this->request->data['ProductSpecification']['ctn_artwork']['name'];
+            } else {
+                unset($this->request->data['ProductSpecification']['ctn_artwork']);
+            }
+
+            if (!empty($this->request->data['ProductSpecification']['label_artwork']['name'])) {
+                move_uploaded_file($this->data['ProductSpecification']['label_artwork']['tmp_name'], $uploaddir . $this->data['ProductSpecification']['label_artwork']['name']);
+                $this->request->data['ProductSpecification']['label_artwork'] = $this->request->data['ProductSpecification']['label_artwork']['name'];
+            } else {
+                unset($this->request->data['ProductSpecification']['label_artwork']);
+            }
+
+            
             if ($this->ProductSpecification->save($this->request->data)) {
                 $this->Session->setFlash(__('The product specification has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
