@@ -74,6 +74,23 @@ class QfExtFirstOffDetailsController extends AppController {
             throw new NotFoundException(__('Invalid qf ext first off detail'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            //image upload part
+            $uploaddir = '../webroot/img/uploaded/';
+
+            //check image already uploaded or not
+            if (!empty($this->request->data['QfExtFirstOffDetail']['artwork_detail']['name'])) {
+                move_uploaded_file($this->data['QfExtFirstOffDetail']['artwork_detail']['tmp_name'], $uploaddir . $this->data['QfExtFirstOffDetail']['artwork_detail']['name']);
+                $this->request->data['QfExtFirstOffDetail']['artwork_detail'] = $this->request->data['QfExtFirstOffDetail']['artwork_detail']['name'];
+            } else {
+                unset($this->request->data['QfExtFirstOffDetail']['artwork_detail']);
+            }
+            if (!empty($this->request->data['QfExtFirstOffDetail']['sample_bag_attachment']['name'])) {
+                move_uploaded_file($this->data['QfExtFirstOffDetail']['sample_bag_attachment']['tmp_name'], $uploaddir . $this->data['QfExtFirstOffDetail']['sample_bag_attachment']['name']);
+                $this->request->data['QfExtFirstOffDetail']['sample_bag_attachment'] = $this->request->data['QfExtFirstOffDetail']['sample_bag_attachment']['name'];
+            } else {
+                unset($this->request->data['QfExtFirstOffDetail']['sample_bag_attachment']);
+            }
+            
             if ($this->QfExtFirstOffDetail->save($this->request->data)) {
                 $this->Session->setFlash(__('The qf ext first off detail has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));

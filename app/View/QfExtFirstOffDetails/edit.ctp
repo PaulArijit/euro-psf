@@ -1,6 +1,8 @@
 <?php
 $conf_categories = Configure::read('CATEGORY');
 $category = $conf_categories[$this->request->data['Item']['category']];
+
+$imgdirPath = 'app/webroot/img/uploaded/';
 ?>
 <div class="row">
     <div class="col-xs-12">
@@ -48,7 +50,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="row">
-                            <?php echo $this->Form->create('QfExtFirstOffDetail'); ?>
+                            <?php echo $this->Form->create('QfExtFirstOffDetail', array('enctype' => 'multipart/form-data')); ?>
                             <?php echo $this->Form->input('id'); ?>
                             <?php echo $this->Form->input('item_id', array('type' => 'hidden')); ?>
                             <h1 class="text-center">Ext First Off Dfs</h1>
@@ -245,10 +247,16 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                 <div><label>Artwork Details</label></div>
                                 <div class="panel fresh-color panel-default">                                    
                                     <div style="height: 415px;" class="panel-body text-center">
-                                        upload
+                                        <?php
+                                            if($this->request->data['QfExtFirstOffDetail']['artwork_detail'] == ''){
+                                                echo 'No preview available';
+                                            }else{
+                                                 echo '<img src="'.SITE_URL . $imgdirPath . $this->request->data['QfExtFirstOffDetail']['artwork_detail'] .'" width="1000" height="370">';                                  
+                                            }
+                                        ?>
                                     </div>
                                     <div class="panel-footer text-center">
-                                        <button class="btn btn-info" type="button">Upload</button>
+                                        <?php  echo $this->Form->file('artwork_detail'); ?>
                                     </div>
                                 </div>
                                 <div style="display: inline-block; border: 1px solid silver; width: 20px; height: 20px;"></div>
@@ -544,10 +552,16 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                 <div><label>Sample Bag Attachment</label></div>
                                 <div class="panel fresh-color panel-default">                                    
                                     <div style="height: 215px;" class="panel-body text-center">
-                                        upload
+                                        <?php
+                                            if($this->request->data['QfExtFirstOffDetail']['sample_bag_attachment'] == ''){
+                                                echo 'No preview available';
+                                            }else{
+                                                 echo '<img src="'.SITE_URL . $imgdirPath . $this->request->data['QfExtFirstOffDetail']['sample_bag_attachment'] .'" width="400" height="180">';                                  
+                                            }
+                                        ?>
                                     </div>
                                     <div class="panel-footer text-center">
-                                        <button class="btn btn-info" type="button">Upload</button>
+                                       <?php  echo $this->Form->file('sample_bag_attachment'); ?>
                                     </div>
                                 </div>                                
                                 <label>ORIGINAL: QA FILE – CONTROLLED COPY: DISPLAY </label><br/>
