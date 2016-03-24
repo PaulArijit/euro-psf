@@ -7,7 +7,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <div class="title">Add New Item <a href="javascript:void(0)" onclick="printData('core-details')" class="print print-btn1" rel="core-details"><i class="fa fa-print"></i>&nbsp;Print</a></div>
+                    <div class="title">Add New Item <a href="javascript:void(0)" onclick="printStyled('core-details')" class="print print-btn1" rel="core-details"><i class="fa fa-print"></i>&nbsp;Print</a></div>
                 </div>
             </div>
             <div class="card-body">
