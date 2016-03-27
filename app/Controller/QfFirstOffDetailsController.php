@@ -71,7 +71,54 @@ class QfFirstOffDetailsController extends AppController {
 		if (!$this->Item->exists($itemId)) {
 			throw new NotFoundException(__('Invalid qf first off detail'));
 		}
-		if ($this->request->is(array('post', 'put'))) {
+		if ($this->request->is(array('post', 'put'))) {                    
+                        //image upload part
+                        $uploaddir = '../webroot/img/uploaded/';
+
+                        //check image already uploaded or not
+                        if (!empty($this->request->data['QfFirstOffDetail']['ctn_marking']['name'])) {
+                            move_uploaded_file($this->data['QfFirstOffDetail']['ctn_marking']['tmp_name'], $uploaddir . $this->data['QfFirstOffDetail']['ctn_marking']['name']);
+                            $this->request->data['QfFirstOffDetail']['ctn_marking'] = $this->request->data['QfFirstOffDetail']['ctn_marking']['name'];
+                        } else {
+                            unset($this->request->data['QfFirstOffDetail']['ctn_marking']);
+                        }
+                        if (!empty($this->request->data['QfFirstOffDetail']['upload_two']['name'])) {
+                            move_uploaded_file($this->data['QfFirstOffDetail']['upload_two']['tmp_name'], $uploaddir . $this->data['QfFirstOffDetail']['upload_two']['name']);
+                            $this->request->data['QfFirstOffDetail']['upload_two'] = $this->request->data['QfFirstOffDetail']['upload_two']['name'];
+                        } else {
+                            unset($this->request->data['QfFirstOffDetail']['upload_two']);
+                        }
+                        if (!empty($this->request->data['QfFirstOffDetail']['upload_three']['name'])) {
+                            move_uploaded_file($this->data['QfFirstOffDetail']['upload_three']['tmp_name'], $uploaddir . $this->data['QfFirstOffDetail']['upload_three']['name']);
+                            $this->request->data['QfFirstOffDetail']['upload_three'] = $this->request->data['QfFirstOffDetail']['upload_three']['name'];
+                        } else {
+                            unset($this->request->data['QfFirstOffDetail']['upload_three']);
+                        }
+                        if (!empty($this->request->data['QfFirstOffDetail']['upload_four']['name'])) {
+                            move_uploaded_file($this->data['QfFirstOffDetail']['upload_four']['tmp_name'], $uploaddir . $this->data['QfFirstOffDetail']['upload_four']['name']);
+                            $this->request->data['QfFirstOffDetail']['upload_four'] = $this->request->data['QfFirstOffDetail']['upload_four']['name'];
+                        } else {
+                            unset($this->request->data['QfFirstOffDetail']['upload_four']);
+                        }
+                        if (!empty($this->request->data['QfFirstOffDetail']['knife_design']['name'])) {
+                            move_uploaded_file($this->data['QfFirstOffDetail']['knife_design']['tmp_name'], $uploaddir . $this->data['QfFirstOffDetail']['knife_design']['name']);
+                            $this->request->data['QfFirstOffDetail']['knife_design'] = $this->request->data['QfFirstOffDetail']['knife_design']['name'];
+                        } else {
+                            unset($this->request->data['QfFirstOffDetail']['knife_design']);
+                        }
+                        if (!empty($this->request->data['QfFirstOffDetail']['artwork']['name'])) {
+                            move_uploaded_file($this->data['QfFirstOffDetail']['artwork']['tmp_name'], $uploaddir . $this->data['QfFirstOffDetail']['artwork']['name']);
+                            $this->request->data['QfFirstOffDetail']['artwork'] = $this->request->data['QfFirstOffDetail']['artwork']['name'];
+                        } else {
+                            unset($this->request->data['QfFirstOffDetail']['artwork']);
+                        }
+                        if (!empty($this->request->data['QfFirstOffDetail']['sample_bag_attachment']['name'])) {
+                            move_uploaded_file($this->data['QfFirstOffDetail']['sample_bag_attachment']['tmp_name'], $uploaddir . $this->data['QfFirstOffDetail']['sample_bag_attachment']['name']);
+                            $this->request->data['QfFirstOffDetail']['sample_bag_attachment'] = $this->request->data['QfFirstOffDetail']['sample_bag_attachment']['name'];
+                        } else {
+                            unset($this->request->data['QfFirstOffDetail']['sample_bag_attachment']);
+                        }
+                    
 			if ($this->QfFirstOffDetail->save($this->request->data)) {
 				$this->Session->setFlash(__('The qf first off detail has been saved.'), 'flash_success');
 				return $this->redirect(array('action' => 'edit', $itemId));
