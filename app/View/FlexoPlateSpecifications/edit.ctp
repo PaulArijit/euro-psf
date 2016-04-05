@@ -7,7 +7,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <div class="title">Add New Item</div>
+                    <div class="title">Add New Item <a href="javascript:void(0)" onclick="printData('flexo-plate-print')" class="print print-btn1" rel="flexo-plate-print"><i class="fa fa-print"></i>&nbsp;Print</a></div>
                 </div>
             </div>
             <div class="card-body">
@@ -197,59 +197,138 @@ $category = $conf_categories[$this->request->data['Item']['category']];
     </div>
 </div>
 
-
-
-
-<!--<div class="flexoPlateSpecifications form">
-<?php echo $this->Form->create('FlexoPlateSpecification'); ?>
-        <fieldset>
-                <legend><?php echo __('Edit Flexo Plate Specification'); ?></legend>
-<?php
-echo $this->Form->input('id');
-echo $this->Form->input('item_id');
-echo $this->Form->input('npi');
-echo $this->Form->input('ref_no');
-echo $this->Form->input('flim_thickness');
-echo $this->Form->input('bag_width');
-echo $this->Form->input('bag_length');
-echo $this->Form->input('repeat_print');
-echo $this->Form->input('open_bottom_gusset');
-echo $this->Form->input('lip');
-echo $this->Form->input('color');
-echo $this->Form->input('color_one');
-echo $this->Form->input('color_two');
-echo $this->Form->input('color_three');
-echo $this->Form->input('color_four');
-echo $this->Form->input('color_five');
-echo $this->Form->input('color_six');
-echo $this->Form->input('side_printed');
-echo $this->Form->input('front');
-echo $this->Form->input('back');
-echo $this->Form->input('qty_per_set');
-echo $this->Form->input('pic_per_plate');
-echo $this->Form->input('front_back');
-echo $this->Form->input('barcode_no');
-echo $this->Form->input('barcode_format');
-echo $this->Form->input('additional_info');
-echo $this->Form->input('amendment_note');
-echo $this->Form->input('film_substrate');
-echo $this->Form->input('film_color');
-echo $this->Form->input('eyemark_size');
-echo $this->Form->input('eyemark_color');
-echo $this->Form->input('eyemark_location');
-echo $this->Form->input('eyemark_code');
-echo $this->Form->input('dot_mark');
-?>
-        </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<!--Print Section-->
+<div id="flexo-plate-print" class="print-hidden">
+    <center>
+        <h2>Flexo Plate Specification</h2>
+        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="width: 70%; border: 1px solid silver;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Product Description:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['description']; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Product Category:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $category; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Sapcode:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['sapcode']; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Ref No:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->input('ref_no', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                        </tr>                    
+                    </table>
+                </td>
+                <td style="width: 10%;"></td>
+                <td style="width: 20%; border: 1px solid silver;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="text-align: center; border-bottom:  1px solid silver;"><b>Username</b></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;"><?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?></td>
+                        </tr>
+                    </table>
+                </td>            
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td><label>Film Thickness (mu)</label></td>
+                <td><label>Bag Width (mm)</label></td>
+                <td><label>Bag Length (mm)</label></td>
+                <td><label>Repeat print (mm)</label></td>
+                <td><label>Open bottom Gusset (mm)</label></td>
+                <td><label>Lip (mm)</label></td>
+            </tr>
+            <tr>
+                <td><?php echo $this->Form->input('flim_thickness', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->input('bag_width', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->input('bag_length', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->input('repeat_print', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->input('open_bottom_gusset', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->input('lip', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="15%"><label>Color</label></td>
+                <td width="60px"><?php echo $this->Form->input('color', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td class="text-center"><label>1</label></td>
+                <td class="text-center"><label>2</label></td>
+                <td class="text-center"><label>3</label></td>
+                <td class="text-center"><label>4</label></td>
+                <td class="text-center"><label>5</label></td>
+                <td class="text-center"><label>6</label></td>
+            </tr>
+            <tr>
+                <td><label>Side printed</label></td>
+                <td width="60px"><?php echo $this->Form->input('side_printed', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td rowspan="3"><?php echo $this->Form->input('color_one', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td rowspan="3"><?php echo $this->Form->input('color_two', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td rowspan="3"><?php echo $this->Form->input('color_three', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td rowspan="3"><?php echo $this->Form->input('color_four', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td rowspan="3"><?php echo $this->Form->input('color_five', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td rowspan="3"><?php echo $this->Form->input('color_six', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+            <tr>
+                <td><label>Front</label></td>
+                <td width="60px"><?php echo $this->Form->input('front', array('class' => 'form-control', 'label' => FALSE)); ?></td>																		
+            </tr>
+            <tr>
+                <td><label>Back</label></td>
+                <td width="60px"><?php echo $this->Form->input('back', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+            </tr>
+            <tr>
+                <td><label>Qty per set (pcs)</label></td>									
+                <td colspan="3"><?php echo $this->Form->input('qty_per_set', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td class="text-center" rowspan="2"><label>Film</label></td>
+                <td><label>Substrate</label></td>
+                <td colspan="2"><?php echo $this->Form->input('film_substrate', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+            <tr>
+                <td><label>Picture per Plate</label></td>									
+                <td colspan="3"><?php echo $this->Form->input('pic_per_plate', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><label>Color</label></td>
+                <td colspan="2"><?php echo $this->Form->input('film_color', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+            <tr>
+                <td><label>Front & Back</label></td>									
+                <td colspan="3"><?php echo $this->Form->input('front_back', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td class="text-center" rowspan="4"><label>Eyemark</label></td>
+                <td><label>Size (mm)</label></td>
+                <td colspan="2"><?php echo $this->Form->input('eyemark_size', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+            <tr>
+                <td><label>Barcode Number</label></td>									
+                <td colspan="3"><?php echo $this->Form->input('barcode_no', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td><label>color</label></td>
+                <td colspan="2"><?php echo $this->Form->input('eyemark_color', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+            <tr>
+                <td><label>Barcode Format</label></td>									
+                <td colspan="3"><?php echo $this->Form->input('barcode_format', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td><label>Location</label></td>
+                <td colspan="2"><?php echo $this->Form->input('eyemark_location', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+            <tr>
+                <td><label>Additional Info</label></td>									
+                <td colspan="3"><?php echo $this->Form->input('additional_info', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td>Code</td>
+                <td colspan="2"><?php echo $this->Form->input('eyemark_code', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+            <tr>
+                <td><label>Amendment Note</label></td>									
+                <td colspan="3"><?php echo $this->Form->input('amendment_note', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea', 'rows' => '3')); ?></td>
+                <td class="text-center"><label>Dot Mark</label></td>
+                <td colspan="3"><?php echo $this->Form->input('dot_mark', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+            </tr>
+        </table>
+    </center>
 </div>
-<div class="actions">
-        <h3><?php echo __('Actions'); ?></h3>
-        <ul>
-
-                <li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('FlexoPlateSpecification.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('FlexoPlateSpecification.id'))); ?></li>
-                <li><?php echo $this->Html->link(__('List Flexo Plate Specifications'), array('action' => 'index')); ?></li>
-                <li><?php echo $this->Html->link(__('List Items'), array('controller' => 'items', 'action' => 'index')); ?> </li>
-                <li><?php echo $this->Html->link(__('New Item'), array('controller' => 'items', 'action' => 'add')); ?> </li>
-        </ul>
-</div>-->

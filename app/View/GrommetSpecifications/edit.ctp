@@ -7,7 +7,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <div class="title">Add New Item</div>
+                    <div class="title">Add New Item <a href="javascript:void(0)" onclick="printData('grommet-print')" class="print print-btn1" rel="grommet-print"><i class="fa fa-print"></i>&nbsp;Print</a></div>
                 </div>
             </div>
             <div class="card-body">
@@ -83,7 +83,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                 <div class="panel fresh-color panel-success">
                                     <div class="panel-heading text-center">User</div>
                                     <div class="panel-body text-center">
-                                       <?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?>
+                                        <?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?>
                                     </div>
                                 </div>
                             </div>
@@ -140,35 +140,82 @@ $category = $conf_categories[$this->request->data['Item']['category']];
     </div>
 </div>
 
-
-<!--<div class="grommetSpecifications form">
-<?php echo $this->Form->create('GrommetSpecification'); ?>
-        <fieldset>
-                <legend><?php echo __('Edit Grommet Specification'); ?></legend>
-<?php
-echo $this->Form->input('id');
-echo $this->Form->input('item_id');
-echo $this->Form->input('npi');
-echo $this->Form->input('ref_no');
-echo $this->Form->input('size_diameter');
-echo $this->Form->input('size_hole_diameter');
-echo $this->Form->input('material');
-echo $this->Form->input('color');
-echo $this->Form->input('similar_grommet');
-echo $this->Form->input('compression_strength');
-echo $this->Form->input('amendment_note');
-echo $this->Form->input('remarks');
-?>
-        </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<!--Print Section-->
+<div id="grommet-print" class="print-hidden">
+    <center>
+        <h2>Grommet Specification</h2>
+        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="width: 70%; border: 1px solid silver;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Product Description:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['description']; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Product Category:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $category; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Sapcode:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['sapcode']; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Ref No:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->input('ref_no', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                        </tr>                    
+                    </table>
+                </td>
+                <td style="width: 10%;"></td>
+                <td style="width: 20%; border: 1px solid silver;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="text-align: center; border-bottom:  1px solid silver;"><b>Username</b></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;"><?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?></td>
+                        </tr>
+                    </table>
+                </td>            
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td rowspan="2"><label>Size(mm)</label></td>
+                <td><label>Diameter</label></td>
+                <td><?php echo $this->Form->input('size_diameter', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td rowspan="6" valign="top">
+                    <label>Amendment Note:</label>
+                    <?php echo $this->Form->input('amendment_note', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea', 'rows' => '8')); ?>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Hole Diameter</label></td>
+                <td><?php echo $this->Form->input('size_hole_diameter', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>Material</label></td>
+                <td><?php echo $this->Form->input('material', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>Color</label></td>
+                <td><?php echo $this->Form->input('color', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+            </tr>
+            <tr>
+                <td colspan="2"><label>Similar Grommet</label></td>
+                <td><?php echo $this->Form->input('similar_grommet', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+            </tr>
+            <tr>
+                <td colspan="2"><label>Compression Strength(kg)</label></td>
+                <td><?php echo $this->Form->input('compression_strength', array('class' => 'form-control', 'label' => FALSE)); ?></td>			
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <label>Remarks:</label>
+                    <?php echo $this->Form->input('remarks', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea', 'rows' => '3')); ?>
+                </td>
+            </tr>
+        </table>        
+    </center>
 </div>
-<div class="actions">
-        <h3><?php echo __('Actions'); ?></h3>
-        <ul>
-
-                <li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('GrommetSpecification.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('GrommetSpecification.id'))); ?></li>
-                <li><?php echo $this->Html->link(__('List Grommet Specifications'), array('action' => 'index')); ?></li>
-                <li><?php echo $this->Html->link(__('List Items'), array('controller' => 'items', 'action' => 'index')); ?> </li>
-                <li><?php echo $this->Html->link(__('New Item'), array('controller' => 'items', 'action' => 'add')); ?> </li>
-        </ul>
-</div>-->

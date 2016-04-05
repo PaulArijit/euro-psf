@@ -7,7 +7,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <div class="title">Add New Item</div>
+                    <div class="title">Add New Item <a href="javascript:void(0)" onclick="printData('fusset-print')" class="print print-btn1" rel="fusset-print"><i class="fa fa-print"></i>&nbsp;Print</a></div>
                 </div>
             </div>
             <div class="card-body">
@@ -136,34 +136,78 @@ $category = $conf_categories[$this->request->data['Item']['category']];
     </div>
 </div>
 
-
-<!--<div class="fussetSpecifications form">
-<?php echo $this->Form->create('FussetSpecification'); ?>
-        <fieldset>
-                <legend><?php echo __('Edit Fusset Specification'); ?></legend>
-<?php
-echo $this->Form->input('id');
-echo $this->Form->input('item_id');
-echo $this->Form->input('npi');
-echo $this->Form->input('ref_no');
-echo $this->Form->input('material');
-echo $this->Form->input('size');
-echo $this->Form->input('color_body');
-echo $this->Form->input('color_cap');
-echo $this->Form->input('compression_strength');
-echo $this->Form->input('amendment_note');
-echo $this->Form->input('remarks');
-?>
-        </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<!--Print Section-->
+<div id="fusset-print" class="print-hidden">
+    <center>
+        <h2>Fusset Specification</h2>
+        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="width: 70%; border: 1px solid silver;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Product Description:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['description']; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Product Category:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $category; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Sapcode:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['sapcode']; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Ref No:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->input('ref_no', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                        </tr>                    
+                    </table>
+                </td>
+                <td style="width: 10%;"></td>
+                <td style="width: 20%; border: 1px solid silver;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="text-align: center; border-bottom:  1px solid silver;"><b>Username</b></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;"><?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?></td>
+                        </tr>
+                    </table>
+                </td>            
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td colspan="2"><label>Material</label></td>
+                <td><?php echo $this->Form->input('material', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td rowspan="5">
+                    <label><label>Amendment Note:</label></label>
+                    <?php echo $this->Form->input('amendment_note', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea', 'rows' => '6')); ?>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>Size</label></td>
+                <td><?php echo $this->Form->input('size', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+            <tr>
+                <td rowspan="2"><label>Material</label></td>
+                <td><label>Body</label></td>
+                <td><?php echo $this->Form->input('color_body', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+            <tr>
+                <td><label>Cap</label></td>
+                <td><?php echo $this->Form->input('color_cap', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>Compression Strength(kg)</label></td>
+                <td><?php echo $this->Form->input('compression_strength', array('class' => 'form-control', 'label' => FALSE)); ?></td>	
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <label><label>Remarks:</label></label>
+                    <?php echo $this->Form->input('remarks', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea', 'rows' => '3')); ?>
+                </td>								
+            </tr>
+        </table>        
+    </center>
 </div>
-<div class="actions">
-        <h3><?php echo __('Actions'); ?></h3>
-        <ul>
-
-                <li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('FussetSpecification.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('FussetSpecification.id'))); ?></li>
-                <li><?php echo $this->Html->link(__('List Fusset Specifications'), array('action' => 'index')); ?></li>
-                <li><?php echo $this->Html->link(__('List Items'), array('controller' => 'items', 'action' => 'index')); ?> </li>
-                <li><?php echo $this->Html->link(__('New Item'), array('controller' => 'items', 'action' => 'add')); ?> </li>
-        </ul>
-</div>-->

@@ -7,7 +7,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <div class="title">Add New Item <a href="javascript:void(0)" onclick="printStyled('core-details')" class="print print-btn1" rel="core-details"><i class="fa fa-print"></i>&nbsp;Print</a></div>
+                    <div class="title">Add New Item <a href="javascript:void(0)" onclick="printData('core-details-print')" class="print print-btn1" rel="core-details-print"><i class="fa fa-print"></i>&nbsp;Print</a></div>
                 </div>
             </div>
             <div class="card-body">
@@ -46,7 +46,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                         <?php echo $this->element('tab_navigation'); ?>
                     </ul>    
                     <!-- Tab panes -->
-                    <div class="tab-content" id="core-details">
+                    <div class="tab-content">
                         <div class="row">
                             <?php echo $this->Form->create('CoreSpecification'); ?>
                             <?php echo $this->Form->input('id'); ?>
@@ -155,7 +155,83 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                            
         });
 </script>
-
+<!--Print Section-->
+<div id="core-details-print" class="print-hidden">
+<center>
+    <h2>Core Specification</h2>
+    <table style="width: 100%;" cellpadding="0" cellspacing="0">
+        <tr>
+            <td style="width: 70%; border: 1px solid silver;">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="20%" style="text-align: center; background: #EEE;">Product Description:</td>
+                        <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['description']; ?></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: center; background: #EEE;">Product Category:</td>
+                        <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $category; ?></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: center; background: #EEE;">Sapcode:</td>
+                        <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['sapcode']; ?></td>
+                    </tr>
+                    <tr>
+                        <td width="20%" style="text-align: center; background: #EEE;">Ref No:</td>
+                        <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->input('ref_no', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                    </tr>                    
+                </table>
+            </td>
+            <td style="width: 10%;"></td>
+            <td style="width: 20%; border: 1px solid silver;">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td style="text-align: center; border-bottom:  1px solid silver;"><b>Username</b></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?></td>
+                    </tr>
+                </table>
+            </td>            
+        </tr>
+    </table>
+    <br/>
+    <table style="width: 100%;" cellpadding="0" cellspacing="0">
+        <td width="55%" valign="top">
+            <table class="tabprint" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td rowspan="2"><label>Size (mm)</label></td>
+                    <td><label>Internal Diameter</label></td>
+                    <td><label>Length</label></td>
+                    <td><label>Thickness</label></td>
+                </tr>
+                <tr>
+                    <td><?php echo $this->Form->input('internal_diameter', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                    <td><?php echo $this->Form->input('length', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                    <td><?php echo $this->Form->input('thickness', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                </tr>								
+            </table>
+        </td>
+        <td width="5%"></td>
+        <td width="40%">
+            <table class="tabprint" cellpadding="0" cellspacing="0">								
+                <tr>
+                    <td><label>Core required per carton</label></td>
+                    <td><?php echo $this->Form->input('core_required_per_ctn', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                </tr>
+                <tr>
+                    <td><label>Additional Requirement</label></td>
+                    <td><?php echo $this->Form->input('additional_requirement', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                </tr>
+                <tr>
+                    <td><label>Amendment Note</label></td>
+                    <td><?php echo $this->Form->input('amendment_note', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea')); ?></td>
+                </tr>
+            </table>
+        </td>
+    </table>
+</center>
+</div>
+<!--Print Section-->
 
 <!--<div class="coreSpecifications form">
 <?php echo $this->Form->create('CoreSpecification'); ?>
