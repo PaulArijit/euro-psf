@@ -445,47 +445,47 @@ $imgdirPath = 'app/webroot/img/uploaded/';
         <table class="tabprint" cellpadding="0" cellspacing="0">
             <tr>
                 <td><label>Prepared By</label></td>
-                <td><?php echo $this->Form->input('prepared_by', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?></td>
+                <td><?php echo $this->Form->value('prepared_by'); ?></td>
                 <td><label>Film Type</label></td>
-                <td><?php echo $this->Form->input('film_type', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('film_type'); ?></td>
                 <td><label>Printed</label></td>
-                <td><?php echo $this->Form->input('printed', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('printed'); ?></td>
                 <td><label>Safety Holes</label></td>
-                <td><?php echo $this->Form->input('safety_hole', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('safety_hole'); ?></td>
             </tr>
             <tr>
                 <td><label>Date</label></td>
-                <td><?php echo $this->Form->input('date', array('class' => 'date form-control', 'label' => FALSE, 'id' => 'productSpecificationDate', 'type' => 'text')); ?></td>
+                <td><?php echo $this->Form->value('date'); ?></td>
                 <td><label>Film Color</label></td>
-                <td><?php echo $this->Form->input('film_color', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('film_color'); ?></td>
                 <td><label>No. of Colors</label></td>
-                <td><?php echo $this->Form->input('no_of_color', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('no_of_color'); ?></td>
                 <td><label>Hanging Holes</label></td>
-                <td><?php echo $this->Form->input('hanging_hole', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('hanging_hole'); ?></td>
             </tr>
             <tr>
                 <td><label>Issue No.</label></td>
-                <td><?php echo $this->Form->input('issue_no', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('issue_no'); ?></td>
                 <td><label>Loop Color</label></td>
-                <td><?php echo $this->Form->input('loop_color', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('loop_color'); ?></td>
                 <td><label>No of sides printed</label></td>
-                <td><?php echo $this->Form->input('no_of_sides_printed', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('no_of_sides_printed'); ?></td>
                 <td><label>Embossed</label></td>
-                <td><?php echo $this->Form->input('embossed', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('embossed'); ?></td>
             </tr>
             <tr>
                 <td><label>Customer Ref</label></td>
-                <td><?php echo $this->Form->input('customer_ref', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('customer_ref'); ?></td>
                 <td rowspan="2"><label>Printing Pantone Ref</label></td>									
-                <td rowspan="2" colspan="3"><?php echo $this->Form->input('printing_pantone_ref', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td rowspan="2" colspan="3"><?php echo $this->Form->value('printing_pantone_ref'); ?></td>
                 <td><label>Glue Spot</label></td>
-                <td><?php echo $this->Form->input('glue_spot', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('glue_spot'); ?></td>
             </tr>
             <tr>
                 <td><label>Data ID</label></td>								
-                <td><?php echo $this->Form->input('dataid', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('dataid'); ?></td>
                 <td><label>Diagonal Corner Seal</label></td>
-                <td><?php echo $this->Form->input('diagonal_corner_seal', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('diagonal_corner_seal'); ?></td>
             </tr>
         </table>
         <br/>
@@ -500,73 +500,73 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                         </tr>
                         <tr>
                             <td><label>Closed Width (mm)</label></td>
-                            <td><?php echo $this->Form->input('closed_width_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('closed_width_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('closed_width_specification'); ?></td>
+                            <td><?php echo $this->Form->value('closed_width_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Open Width (mm)</label></td>
-                            <td><?php echo $this->Form->input('open_width_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('open_width_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('open_width_specification'); ?></td>
+                            <td><?php echo $this->Form->value('open_width_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Length (mm)</label></td>
-                            <td><?php echo $this->Form->input('length_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('length_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('length_specification'); ?></td>
+                            <td><?php echo $this->Form->value('length_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Thickness (mu)</label></td>
-                            <td><?php echo $this->Form->input('thickness_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('thickness_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('thickness_specification'); ?></td>
+                            <td><?php echo $this->Form->value('thickness_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Bag Weight (g)</label></td>
-                            <td><?php echo $this->Form->input('bag_weight_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('bag_weight_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('bag_weight_specification'); ?></td>
+                            <td><?php echo $this->Form->value('bag_weight_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Case Weight (kg)</label></td>
-                            <td><?php echo $this->Form->input('case_weight_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('case_weight_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('case_weight_specification'); ?></td>
+                            <td><?php echo $this->Form->value('case_weight_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Opacity (%)</label></td>
-                            <td><?php echo $this->Form->input('opacity_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('opacity_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('opacity_specification'); ?></td>
+                            <td><?php echo $this->Form->value('opacity_tolerance'); ?></td>
                         </tr>                                    
                         <tr>
                             <td><label>Open Bottom Gusset (mm)</label></td>
-                            <td><?php echo $this->Form->input('open_bottom_gusset_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('open_bottom_gusset_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('open_bottom_gusset_specification'); ?></td>
+                            <td><?php echo $this->Form->value('open_bottom_gusset_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Turn Over Top (mm)</label></td>
-                            <td><?php echo $this->Form->input('turn_over_top_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('turn_over_top_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('turn_over_top_specification'); ?></td>
+                            <td><?php echo $this->Form->value('turn_over_top_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Bag Lip (mm)</label></td>
-                            <td><?php echo $this->Form->input('bag_lip_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('bag_lip_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('bag_lip_specification'); ?></td>
+                            <td><?php echo $this->Form->value('bag_lip_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Loop Thickness (mu)</label></td>
-                            <td><?php echo $this->Form->input('loop_thickness_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('loop_thickness_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('loop_thickness_specification'); ?></td>
+                            <td><?php echo $this->Form->value('loop_thickness_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Ultimate Lift (kg)</label></td>
-                            <td><?php echo $this->Form->input('ultimate_lift_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('ultimate_lift_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('ultimate_lift_specification'); ?></td>
+                            <td><?php echo $this->Form->value('ultimate_lift_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Jog Test (kg)</label></td>
-                            <td><?php echo $this->Form->input('jog_test_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('jog_test_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('jog_test_specification'); ?></td>
+                            <td><?php echo $this->Form->value('jog_test_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Cut Out (%)</label></td>
-                            <td><?php echo $this->Form->input('cut_out_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                            <td><?php echo $this->Form->input('cut_out_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('cut_out_specification'); ?></td>
+                            <td><?php echo $this->Form->value('cut_out_tolerance'); ?></td>
                         </tr>
                     </table>
                 </td>
@@ -591,44 +591,44 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                     <table class="tabprint" cellpadding="0" cellspacing="0">								
                         <tr>
                             <td><label>Packing Type - ie Carton/Vac Pack</label></td>
-                            <td><?php echo $this->Form->input('packing_type', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('packing_type'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Case Quantity (pcs)</label></td>
-                            <td><?php echo $this->Form->input('case_quantity', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('case_quantity'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Without Inner / With Inner</label></td>
-                            <td><?php echo $this->Form->input('with_without_inner', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('with_without_inner'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Quantity per Inner</label></td>
-                            <td><?php echo $this->Form->input('quantity_per_inner', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('quantity_per_inner'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Quantity per Block</label></td>
-                            <td><?php echo $this->Form->input('quantity_per_block', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('quantity_per_block'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Roll Dispensing (Open side first/ bottom side first)</label></td>
-                            <td><?php echo $this->Form->input('roll_dispensing', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('roll_dispensing'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Inner Label / Pack Label Required</label></td>
-                            <td><?php echo $this->Form->input('inner_pack_label_required', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('inner_pack_label_required'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Dispensing Design - ie Thumb block/Bar block/Loose/Ear Block/etc</label></td>
-                            <td><?php echo $this->Form->input('dispencing_design', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('dispencing_design'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Palletize Loading Required</label></td>
-                            <td><?php echo $this->Form->input('palletize_loading_required', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td><?php echo $this->Form->value('palletize_loading_required'); ?></td>
                         </tr>
                         <tr>
                             <td colspan="2">
                                 <label>Applicable Regulations:</label>
-                                <?php echo $this->Form->input('aplicable_regulation', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea')); ?>	
+                                <?php echo $this->Form->value('aplicable_regulation'); ?>	
                             </td>									
                         </tr>								
                     </table>
@@ -672,9 +672,9 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>
             <tr>
                 <td>Placement</td>
-                <td><?php echo $this->Form->input('placement_ctn', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('placement_ctn'); ?></td>
                 <td>Placement</td>
-                <td><?php echo $this->Form->input('placement_label', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('placement_label'); ?></td>
             </tr>
         </table>
         <br/>
@@ -688,36 +688,36 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>
             <tr>
                 <td><label>Length (mm)</label></td>
-                <td><?php echo $this->Form->input('ctn_vacpac_dimension_length', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td><?php echo $this->Form->value('ctn_vacpac_dimension_length'); ?></td>									
                 <td><label>Inner Dia (mm)</label></td>									
-                <td><?php echo $this->Form->input('core_dimension_inner', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('core_dimension_inner'); ?></td>
             </tr>
             <tr>
                 <td><label>Width (mm)</label></td>
-                <td><?php echo $this->Form->input('ctn_vacpac_dimension_width', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('ctn_vacpac_dimension_width'); ?></td>
                 <td><label>Length (mm)</label></td>
-                <td><?php echo $this->Form->input('core_dimension_length', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('core_dimension_length'); ?></td>
                 <td><label>Outer Case</label></td>
-                <td><?php echo $this->Form->input('barcode_outer_case_type', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td><?php echo $this->Form->input('barcode_outer_case_digit', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('barcode_outer_case_type'); ?></td>
+                <td><?php echo $this->Form->value('barcode_outer_case_digit'); ?></td>
             </tr>
             <tr>
                 <td><label>Height (mm)</label></td>
-                <td><?php echo $this->Form->input('ctn_vacpac_dimension_height', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('ctn_vacpac_dimension_height'); ?></td>
                 <td><label>Thickness (mm)</label></td>
-                <td><?php echo $this->Form->input('core_dimension_thickness', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('core_dimension_thickness'); ?></td>
                 <td><label>Inner Pack</label></td>
-                <td><?php echo $this->Form->input('barcode_inner_pack_type', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td><?php echo $this->Form->input('barcode_inner_pack_digit', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('barcode_inner_pack_type'); ?></td>
+                <td><?php echo $this->Form->value('barcode_inner_pack_digit'); ?></td>
             </tr>
             <tr>
                 <td><label>Color</label></td>
-                <td><?php echo $this->Form->input('ctn_vacpac_dimension_color', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('ctn_vacpac_dimension_color'); ?></td>
                 <td><label>Weight (g)</label></td>
-                <td><?php echo $this->Form->input('core_dimension_weight', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('core_dimension_weight'); ?></td>
                 <td><label>Individual Bag</label></td>
-                <td><?php echo $this->Form->input('barcode_individual_bag_type', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td><?php echo $this->Form->input('barcode_individual_bag_digit', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('barcode_individual_bag_type'); ?></td>
+                <td><?php echo $this->Form->value('barcode_individual_bag_digit'); ?></td>
             </tr>
         </table>
         <br/>
@@ -737,103 +737,3 @@ $imgdirPath = 'app/webroot/img/uploaded/';
     </center>
 </div>
 <!--Print Section-->
-
-
-
-<!--<div class="productSpecifications form">
-
-        <fieldset>
-                <legend><?php echo __('Edit Product Specification'); ?></legend>
-<?php
-echo $this->Form->input('id');
-echo $this->Form->input('item_id');
-echo $this->Form->input('prepared_by');
-echo $this->Form->input('date');
-echo $this->Form->input('issue_no');
-echo $this->Form->input('customer_ref');
-echo $this->Form->input('dataid');
-echo $this->Form->input('film_type');
-echo $this->Form->input('film_color');
-echo $this->Form->input('loop_color');
-echo $this->Form->input('printing_pantone_ref');
-echo $this->Form->input('printed');
-echo $this->Form->input('no_of_color');
-echo $this->Form->input('no_of_sides_printed');
-echo $this->Form->input('safty_holes');
-echo $this->Form->input('hanging_hole');
-echo $this->Form->input('embossed');
-echo $this->Form->input('glue_spot');
-echo $this->Form->input('diagonal_corner_seal');
-echo $this->Form->input('closed_width_specification');
-echo $this->Form->input('closed_width_tolerance');
-echo $this->Form->input('open_width_specification');
-echo $this->Form->input('open_width_tolerance');
-echo $this->Form->input('length_specification');
-echo $this->Form->input('length_tolerance');
-echo $this->Form->input('thickness_specification');
-echo $this->Form->input('thickness_tolerance');
-echo $this->Form->input('bag_weight_specification');
-echo $this->Form->input('bag_weight_tolerance');
-echo $this->Form->input('case_weight_specification');
-echo $this->Form->input('case_weight_tolerance');
-echo $this->Form->input('opacity_specification');
-echo $this->Form->input('opacity_tolerance');
-echo $this->Form->input('open_bottom_gusset_specification');
-echo $this->Form->input('open_bottom_gusset_tolerance');
-echo $this->Form->input('turn_over_top_specification');
-echo $this->Form->input('turn_over_top_tolerance');
-echo $this->Form->input('bag_lip_specification');
-echo $this->Form->input('bag_lip_tolerance');
-echo $this->Form->input('loop_thickness_specification');
-echo $this->Form->input('loop_thickness_tolerance');
-echo $this->Form->input('ultimate_lift_specification');
-echo $this->Form->input('ultimate_lift_tolerance');
-echo $this->Form->input('jog_test_specification');
-echo $this->Form->input('jog_test_tolerance');
-echo $this->Form->input('cut_out_specification');
-echo $this->Form->input('cut_out_tolerance');
-echo $this->Form->input('packing_type');
-echo $this->Form->input('case_quantity');
-echo $this->Form->input('with_without_inner');
-echo $this->Form->input('quantity_per_inner');
-echo $this->Form->input('quantity_per_block');
-echo $this->Form->input('roll_dispensing');
-echo $this->Form->input('inner_pack_label_required');
-echo $this->Form->input('dispencing_design');
-echo $this->Form->input('palletize_loading_required');
-echo $this->Form->input('aplicable_regulation');
-echo $this->Form->input('additional_information');
-echo $this->Form->input('bag_artwork');
-echo $this->Form->input('ctn_artwork');
-echo $this->Form->input('label_artwork');
-echo $this->Form->input('placement_ctn');
-echo $this->Form->input('placement_label');
-echo $this->Form->input('ctn_vacpac_dimension_lengthn');
-echo $this->Form->input('ctn_vacpac_dimension_width');
-echo $this->Form->input('ctn_vacpac_dimension_height');
-echo $this->Form->input('ctn_vacpac_dimension_color');
-echo $this->Form->input('core_dimension_inner');
-echo $this->Form->input('core_dimension_length');
-echo $this->Form->input('core_dimension_thickness');
-echo $this->Form->input('core_dimension_weight');
-echo $this->Form->input('barcode_outer_case_type');
-echo $this->Form->input('barcode_outer_case_digit');
-echo $this->Form->input('barcode_inner_pack_type');
-echo $this->Form->input('barcode_inner_pack_digit');
-echo $this->Form->input('barcode_individual_bag_type');
-echo $this->Form->input('barcode_individual_bag_digit');
-echo $this->Form->input('approved_by');
-?>
-        </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>-->
-<!--<div class="actions">
-        <h3><?php echo __('Actions'); ?></h3>
-        <ul>
-
-                <li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('ProductSpecification.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('ProductSpecification.id'))); ?></li>
-                <li><?php echo $this->Html->link(__('List Product Specifications'), array('action' => 'index')); ?></li>
-                <li><?php echo $this->Html->link(__('List Items'), array('controller' => 'items', 'action' => 'index')); ?> </li>
-                <li><?php echo $this->Html->link(__('New Item'), array('controller' => 'items', 'action' => 'add')); ?> </li>
-        </ul>
-</div>-->

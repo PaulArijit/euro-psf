@@ -153,11 +153,11 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                     </li>
                                     <!-- Dropdown-->
                                     <li class="panel panel-default dropdown">
-                                        <a data-toggle="collapse" href="#dropdown-example">
+                                        <a data-toggle="collapse" href="#dropdown-user">
                                             <span class="icon fa fa-user"></span><span class="title">User</span>
                                         </a>
                                         <!-- Dropdown level 1 -->
-                                        <div id="dropdown-example" class="panel-collapse collapse">
+                                        <div id="dropdown-user" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul class="nav navbar-nav">
                                                     <li>

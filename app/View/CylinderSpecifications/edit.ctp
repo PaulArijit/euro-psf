@@ -223,7 +223,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                         </tr>
                         <tr>
                             <td width="20%" style="text-align: center; background: #EEE;">Ref No:</td>
-                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->input('ref_no', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->value('ref_no'); ?></td>
                         </tr>                    
                     </table>
                 </td>
@@ -234,7 +234,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             <td style="text-align: center; border-bottom:  1px solid silver;"><b>Username</b></td>
                         </tr>
                         <tr>
-                            <td style="text-align: center;"><?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?></td>
+                            <td style="text-align: center;"><?php echo $this->Form->value('npi'); ?></td>
                         </tr>
                     </table>
                 </td>            
@@ -250,18 +250,18 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td><label>Cylinder Width (mm)</label></td>
             </tr>
             <tr>
-                <td><?php echo $this->Form->input('repeat_print', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td><?php echo $this->Form->input('bag_width', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td><?php echo $this->Form->input('bag_length', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td><?php echo $this->Form->input('cylinder_circumference', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td><?php echo $this->Form->input('cylinder_width', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('repeat_print'); ?></td>
+                <td><?php echo $this->Form->value('bag_width'); ?></td>
+                <td><?php echo $this->Form->value('bag_length'); ?></td>
+                <td><?php echo $this->Form->value('cylinder_circumference'); ?></td>
+                <td><?php echo $this->Form->value('cylinder_width'); ?></td>
             </tr>
         </table>
         <br/>
         <table class="tabprint" cellpadding="0" cellspacing="0">
             <tr>
                 <td width="15%"><label>Color</label></td>
-                <td width="60px"><?php echo $this->Form->input('color', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td width="60px"><?php echo $this->Form->value('color'); ?></td>
                 <td class="text-center"><label>1</label></td>
                 <td class="text-center"><label>2</label></td>
                 <td class="text-center"><label>3</label></td>
@@ -271,47 +271,47 @@ $category = $conf_categories[$this->request->data['Item']['category']];
             </tr>
             <tr>
                 <td><label>Side printed</label></td>
-                <td width="60px"><?php echo $this->Form->input('side_printed', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td rowspan="3"><?php echo $this->Form->input('color_one', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td rowspan="3"><?php echo $this->Form->input('color_two', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td rowspan="3"><?php echo $this->Form->input('color_three', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td rowspan="3"><?php echo $this->Form->input('color_four', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td rowspan="3"><?php echo $this->Form->input('color_five', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                <td rowspan="3"><?php echo $this->Form->input('color_six', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td width="60px"><?php echo $this->Form->value('side_printed'); ?></td>
+                <td rowspan="3"><?php echo $this->Form->value('color_one'); ?></td>
+                <td rowspan="3"><?php echo $this->Form->value('color_two'); ?></td>
+                <td rowspan="3"><?php echo $this->Form->value('color_three'); ?></td>
+                <td rowspan="3"><?php echo $this->Form->value('color_four'); ?></td>
+                <td rowspan="3"><?php echo $this->Form->value('color_five'); ?></td>
+                <td rowspan="3"><?php echo $this->Form->value('color_six'); ?></td>
             </tr>
             <tr>
                 <td><label>Front (pcs)</label></td>
-                <td width="60px"><?php echo $this->Form->input('front', array('class' => 'form-control', 'label' => FALSE)); ?></td>																		
+                <td width="60px"><?php echo $this->Form->value('front'); ?></td>																		
             </tr>
             <tr>
                 <td><label>Back (pcs)</label></td>
-                <td width="60px"><?php echo $this->Form->input('back', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td width="60px"><?php echo $this->Form->value('back'); ?></td>									
             </tr>
             <tr>
                 <td><label>Qty per set (pcs)</label></td>									
-                <td colspan="3"><?php echo $this->Form->input('qty_per_set', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td colspan="3"><?php echo $this->Form->value('qty_per_set'); ?></td>
                 <td class="text-center" rowspan="2"><label>Film</label></td>
                 <td><label>Substrate</label></td>
-                <td colspan="2"><?php echo $this->Form->input('film_substrate', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td colspan="2"><?php echo $this->Form->value('film_substrate'); ?></td>
             </tr>
             <tr>
                 <td><label>Picture per Cylinder</label></td>									
-                <td colspan="3"><?php echo $this->Form->input('pic_per_cylinder', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td colspan="3"><?php echo $this->Form->value('pic_per_cylinder'); ?></td>
                 <td><label>Color</label></td>
-                <td colspan="2"><?php echo $this->Form->input('film_color', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td colspan="2"><?php echo $this->Form->value('film_color'); ?></td>
             </tr>
             <tr>
                 <td><label>Front & Back</label></td>									
-                <td colspan="3"><?php echo $this->Form->input('front_back', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td colspan="3"><?php echo $this->Form->value('front_back'); ?></td>
                 <td class="text-center" rowspan="4"><label>Eyemark</label></td>
                 <td><label>Size (mm)</label></td>
-                <td colspan="2"><?php echo $this->Form->input('eyemark_size', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td colspan="2"><?php echo $this->Form->value('eyemark_size'); ?></td>
             </tr>
             <tr>
                 <td><label>Barcode Number</label></td>									
-                <td colspan="3"><?php echo $this->Form->input('barcode_no', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td colspan="3"><?php echo $this->Form->value('barcode_no'); ?></td>									
                 <td><label>color</label></td>
-                <td colspan="2"><?php echo $this->Form->input('eyemark_color', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td colspan="2"><?php echo $this->Form->value('eyemark_color'); ?></td>
             </tr>
             <tr>
                 <td><label>Barcode Format</label></td>									

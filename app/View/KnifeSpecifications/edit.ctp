@@ -173,7 +173,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                         </tr>
                         <tr>
                             <td width="20%" style="text-align: center; background: #EEE;">Ref No:</td>
-                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->input('ref_no', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->value('ref_no'); ?></td>
                         </tr>                    
                     </table>
                 </td>
@@ -184,7 +184,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             <td style="text-align: center; border-bottom:  1px solid silver;"><b>Username</b></td>
                         </tr>
                         <tr>
-                            <td style="text-align: center;"><?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?></td>
+                            <td style="text-align: center;"><?php echo $this->Form->value('npi'); ?></td>
                         </tr>
                     </table>
                 </td>            
@@ -194,49 +194,49 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <table class="tabprint" cellpadding="0" cellspacing="0">            
             <tr>
                 <td width="20%"><label>Knife Size (mm)</label></td>
-                <td><?php echo $this->Form->input('knife_size', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('knife_size'); ?></td>
                 <td width="40%" rowspan="9" valign="top">
                     <label>Remarks:</label>
-                    <?php echo $this->Form->input('remarks', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea', 'rows' => '8')); ?>
+                    <?php echo $this->Form->value('remarks'); ?>
                 </td>
             </tr>
 
             <tr>
                 <td><label>Similar Knife</label></td>
-                <td><?php echo $this->Form->input('similar_knife', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('similar_knife'); ?></td>
             </tr>
             <tr>
                 <td><label>Knife Type</label></td>
-                <td><?php echo $this->Form->input('knife_type', array('options' => Configure::read('KNIFETYPE'), 'class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('knife_type'); ?></td>
             </tr>
             <tr>
                 <td><label>M6 Screw Holes</label></td>
-                <td><?php echo $this->Form->input('m6_screw_holes', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td><?php echo $this->Form->value('m6_screw_holes'); ?></td>									
             </tr>								
             <tr>
                 <td><label>Machine Type</label></td>
-                <td><?php echo $this->Form->input('machine_type', array('options' => Configure::read('MACHINETYPE'), 'class' => 'form-control', 'label' => FALSE), array('width' => '20')); ?></td>									
+                <td><?php echo $this->Form->value('machine_type', array('options' => Configure::read('MACHINETYPE'))); ?></td>									
             </tr>
             <tr>
                 <td><label>Base</label></td>
-                <td><?php echo $this->Form->input('base', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td><?php echo $this->Form->value('base'); ?></td>
             </tr>
             <tr>
                 <td><label>Punch Out %</label></td>
-                <td><?php echo $this->Form->input('punchout', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td><?php echo $this->Form->value('punchout'); ?></td>									
             </tr>
             <tr>
                 <td><label>Handle Length (mm)</label></td>
-                <td><?php echo $this->Form->input('handle_length', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td><?php echo $this->Form->value('handle_length'); ?></td>	
             </tr>
             <tr>
                 <td><label>Handle Width (mm)</label></td>
-                <td><?php echo $this->Form->input('handle_width', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td><?php echo $this->Form->input('value'); ?></td>		
             </tr>
             <tr>
                 <td colspan="3">
                     <label>Amendment Note:</label>
-                    <?php echo $this->Form->input('amendment_note', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea', 'rows' => '3')); ?>
+                    <?php echo $this->Form->value('amendment_note'); ?>
                 </td>
             </tr>            
         </table>        

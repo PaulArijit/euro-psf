@@ -177,7 +177,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                     </tr>
                     <tr>
                         <td width="20%" style="text-align: center; background: #EEE;">Ref No:</td>
-                        <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->input('ref_no', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                        <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->value('ref_no'); ?></td>
                     </tr>                    
                 </table>
             </td>
@@ -188,7 +188,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                         <td style="text-align: center; border-bottom:  1px solid silver;"><b>Username</b></td>
                     </tr>
                     <tr>
-                        <td style="text-align: center;"><?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?></td>
+                        <td style="text-align: center;"><?php echo $this->Form->value('npi'); ?></td>
                     </tr>
                 </table>
             </td>            
@@ -205,9 +205,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                     <td><label>Thickness</label></td>
                 </tr>
                 <tr>
-                    <td><?php echo $this->Form->input('internal_diameter', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                    <td><?php echo $this->Form->input('length', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                    <td><?php echo $this->Form->input('thickness', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                    <td><?php echo $this->Form->value('internal_diameter'); ?></td>
+                    <td><?php echo $this->Form->value('length'); ?></td>
+                    <td><?php echo $this->Form->value('thickness'); ?></td>
                 </tr>								
             </table>
         </td>
@@ -216,15 +216,15 @@ $category = $conf_categories[$this->request->data['Item']['category']];
             <table class="tabprint" cellpadding="0" cellspacing="0">								
                 <tr>
                     <td><label>Core required per carton</label></td>
-                    <td><?php echo $this->Form->input('core_required_per_ctn', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                    <td><?php echo $this->Form->value('core_required_per_ctn'); ?></td>
                 </tr>
                 <tr>
                     <td><label>Additional Requirement</label></td>
-                    <td><?php echo $this->Form->input('additional_requirement', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                    <td><?php echo $this->Form->value('additional_requirement'); ?></td>
                 </tr>
                 <tr>
                     <td><label>Amendment Note</label></td>
-                    <td><?php echo $this->Form->input('amendment_note', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea')); ?></td>
+                    <td><?php echo $this->Form->value('amendment_note'); ?></td>
                 </tr>
             </table>
         </td>
@@ -232,33 +232,3 @@ $category = $conf_categories[$this->request->data['Item']['category']];
 </center>
 </div>
 <!--Print Section-->
-
-<!--<div class="coreSpecifications form">
-<?php echo $this->Form->create('CoreSpecification'); ?>
-        <fieldset>
-                <legend><?php echo __('Edit Core Specification'); ?></legend>
-<?php
-echo $this->Form->input('id');
-echo $this->Form->input('item_id');
-echo $this->Form->input('npi');
-echo $this->Form->input('ref_no');
-echo $this->Form->input('internal_diameter');
-echo $this->Form->input('length');
-echo $this->Form->input('thickness');
-echo $this->Form->input('core_required_per_ctn');
-echo $this->Form->input('additional_requirement');
-echo $this->Form->input('amendment_note');
-?>
-        </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-        <h3><?php echo __('Actions'); ?></h3>
-        <ul>
-
-                <li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('CoreSpecification.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('CoreSpecification.id'))); ?></li>
-                <li><?php echo $this->Html->link(__('List Core Specifications'), array('action' => 'index')); ?></li>
-                <li><?php echo $this->Html->link(__('List Items'), array('controller' => 'items', 'action' => 'index')); ?> </li>
-                <li><?php echo $this->Html->link(__('New Item'), array('controller' => 'items', 'action' => 'add')); ?> </li>
-        </ul>
-</div>-->

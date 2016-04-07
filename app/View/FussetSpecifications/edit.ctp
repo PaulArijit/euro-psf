@@ -158,7 +158,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                         </tr>
                         <tr>
                             <td width="20%" style="text-align: center; background: #EEE;">Ref No:</td>
-                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->input('ref_no', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->value('ref_no'); ?></td>
                         </tr>                    
                     </table>
                 </td>
@@ -169,7 +169,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             <td style="text-align: center; border-bottom:  1px solid silver;"><b>Username</b></td>
                         </tr>
                         <tr>
-                            <td style="text-align: center;"><?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?></td>
+                            <td style="text-align: center;"><?php echo $this->Form->value('npi'); ?></td>
                         </tr>
                     </table>
                 </td>            
@@ -179,33 +179,33 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <table class="tabprint" cellpadding="0" cellspacing="0">
             <tr>
                 <td colspan="2"><label>Material</label></td>
-                <td><?php echo $this->Form->input('material', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('material'); ?></td>
                 <td rowspan="5">
                     <label><label>Amendment Note:</label></label>
-                    <?php echo $this->Form->input('amendment_note', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea', 'rows' => '6')); ?>
+                    <?php echo $this->Form->value('amendment_note'); ?>
                 </td>
             </tr>
             <tr>
                 <td colspan="2"><label>Size</label></td>
-                <td><?php echo $this->Form->input('size', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('size'); ?></td>
             </tr>
             <tr>
                 <td rowspan="2"><label>Material</label></td>
                 <td><label>Body</label></td>
-                <td><?php echo $this->Form->input('color_body', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('color_body'); ?></td>
             </tr>
             <tr>
                 <td><label>Cap</label></td>
-                <td><?php echo $this->Form->input('color_cap', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td><?php echo $this->Form->value('color_cap'); ?></td>
             </tr>
             <tr>
                 <td colspan="2"><label>Compression Strength(kg)</label></td>
-                <td><?php echo $this->Form->input('compression_strength', array('class' => 'form-control', 'label' => FALSE)); ?></td>	
+                <td><?php echo $this->Form->value('compression_strength'); ?></td>	
             </tr>
             <tr>
                 <td colspan="4">
                     <label><label>Remarks:</label></label>
-                    <?php echo $this->Form->input('remarks', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea', 'rows' => '3')); ?>
+                    <?php echo $this->Form->value('remarks'); ?>
                 </td>								
             </tr>
         </table>        
