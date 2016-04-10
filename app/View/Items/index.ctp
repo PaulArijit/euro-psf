@@ -3,7 +3,7 @@
         <div class="card" id="list-items">
             <div class="card-header">
                 <div class="card-title">
-                    <div class="title">Items List</div>                    
+                    <div class="title">Items List</div>
                 </div>
             </div>
             <div class="card-body">
@@ -39,6 +39,7 @@
                             <th><?php echo $this->Paginator->sort('sapcode'); ?></th>
                             <th><?php echo $this->Paginator->sort('created'); ?></th>
                             <th><?php echo $this->Paginator->sort('modified'); ?></th>
+                            <th><?php echo 'Status'; ?></th>
                             <th class="actions noprint"><?php echo __('Actions'); ?></th>
                         </tr>
                     </thead>
@@ -55,10 +56,20 @@
                                 <td><?php echo h($item['Item']['sapcode']); ?>&nbsp;</td>
                                 <td><?php echo h($item['Item']['created']); ?>&nbsp;</td>
                                 <td><?php echo h($item['Item']['modified']); ?>&nbsp;</td>
+                                <td><span id="chst<?php echo $item['Item']['id']; ?>" class="change_status <?php echo $item['Item']['status'] == 1 ? 'approved' : 'pending'; ?>" opt="<?php echo $item['Item']['id']; ?>" rel="<?php echo $item['Item']['status']; ?>"><?php echo $item['Item']['status'] == 1 ? 'Approved' : 'Pending'; ?></span>&nbsp;</td>
                                 <td class="actions noprint">
+                                    <?php if($this->Session->read('Auth.User.role') == 100){ ?>
+                                    <span class="label label-success"><?php echo $this->Html->link(__('Approve'), array('action' => 'view', $item['Item']['id'])); ?></span>
+                                    <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'view', $item['Item']['id'])); ?></span>
+                                    <span class="label label-warning"><?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $item['Item']['id'])); ?></span>
+                                    <span class="label label-danger"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['Item']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $item['Item']['id']))); ?></span> 
+                                <?php }else if($this->Session->read('Auth.User.role') == 1){?>
                                     <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'view', $item['Item']['id'])); ?></span>
                                     <span class="label label-warning"><?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $item['Item']['id'])); ?></span>
                                     <span class="label label-danger"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['Item']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $item['Item']['id']))); ?></span>
+                                <?php }else if($this->Session->read('Auth.User.role') == 2){?>
+                                    <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'view', $item['Item']['id'])); ?></span>
+                                <?php } ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
