@@ -238,7 +238,7 @@ Approve pending
 
 .modalDialog > div {
 	width: auto;
-	max-width: 80%;
+	max-width: 40%;
 	position: relative;
 	margin: 10% auto;
 	padding: 5px 20px 13px 20px;
@@ -252,7 +252,7 @@ Approve pending
 	background: #fff;
 }
 .close {
-	background: #606061;
+	background: #F00;
 	color: #FFFFFF;
 	line-height: 25px;
 	position: absolute;
@@ -268,6 +268,7 @@ Approve pending
 	-moz-box-shadow: 1px 1px 3px #000;
 	-webkit-box-shadow: 1px 1px 3px #000;
 	box-shadow: 1px 1px 3px #000;
+        opacity: 1;
 }
 
 .close:hover{ 

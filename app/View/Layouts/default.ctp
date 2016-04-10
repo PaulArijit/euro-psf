@@ -210,9 +210,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         echo $this->Html->script('mode-html.js');
         echo $this->Html->script('theme-github.js');
         echo $this->Html->script('app.js');
-        echo $this->Html->script('index.js');
-        echo $this->Html->script('card.js');
-        echo $this->Html->script('button.js');
+//        echo $this->Html->script('index.js');
+       // echo $this->Html->script('card.js');
+        //echo $this->Html->script('button.js');
         ?>
     </body>
 </html>

@@ -23,7 +23,7 @@
                         <li><?php echo $this->Form->input('value', array('class' => 'form-control input-sm', 'label' => false, 'placeholder' => 'Search')); ?></li>
                         <li><?php echo $this->Form->input('field', array('options' => array('sapcode' => 'Sapcode', 'description' => 'Description', 'id' => 'ID'), 'label' => false, 'class' => 'form-control input-sm')); ?></li>
                         <li><button type="submit" class="btn  btn-info"><i class="fa fa-search"></i></button></li>
-                        <li><?php echo $this->Html->link('<i class="fa fa-refresh"></i>', array('action' => 'index'), array('escape' => FALSE, 'class' =>'btn btn-warning')); ?></li>
+                        <li><?php echo $this->Html->link('<i class="fa fa-refresh"></i>', array('action' => 'index'), array('escape' => FALSE, 'class' => 'btn btn-warning')); ?></li>
                         <li><a href="javascript:void(0)" onclick="printData('list-items')" class="btn  btn-success" rel="list-items"><i class="fa fa-print"></i></a></li>
                     </ul>
                     <div class="input-group srch-btn">
@@ -58,18 +58,16 @@
                                 <td><?php echo h($item['Item']['modified']); ?>&nbsp;</td>
                                 <td><span id="chst<?php echo $item['Item']['id']; ?>" class="change_status <?php echo $item['Item']['status'] == 1 ? 'approved' : 'pending'; ?>" opt="<?php echo $item['Item']['id']; ?>" rel="<?php echo $item['Item']['status']; ?>"><?php echo $item['Item']['status'] == 1 ? 'Approved' : 'Pending'; ?></span>&nbsp;</td>
                                 <td class="actions noprint">
-                                    <?php if($this->Session->read('Auth.User.role') == 100){ ?>
-                                    <span class="label label-success"><?php echo $this->Html->link(__('Approve'), array('action' => 'view', $item['Item']['id'])); ?></span>
-                                    <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'view', $item['Item']['id'])); ?></span>
-                                    <span class="label label-warning"><?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $item['Item']['id'])); ?></span>
-                                    <span class="label label-danger"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['Item']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $item['Item']['id']))); ?></span> 
-                                <?php }else if($this->Session->read('Auth.User.role') == 1){?>
-                                    <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'view', $item['Item']['id'])); ?></span>
-                                    <span class="label label-warning"><?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $item['Item']['id'])); ?></span>
-                                    <span class="label label-danger"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['Item']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $item['Item']['id']))); ?></span>
-                                <?php }else if($this->Session->read('Auth.User.role') == 2){?>
-                                    <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'view', $item['Item']['id'])); ?></span>
-                                <?php } ?>
+                                    <?php if ($this->Session->read('Auth.User.role') == 100) { ?>
+                                        <span class="label label-success"><a href="#openModal" rel="<?php echo h($item['Item']['id']); ?>">Approve</a></span>                                       
+                                        <span class="label label-warning"><?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $item['Item']['id'])); ?></span>
+                                        <span class="label label-danger"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['Item']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $item['Item']['id']))); ?></span> 
+                                    <?php } else if ($this->Session->read('Auth.User.role') == 1) { ?>
+                                        <span class="label label-warning"><?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $item['Item']['id'])); ?></span>
+                                        <span class="label label-danger"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['Item']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $item['Item']['id']))); ?></span>
+                                    <?php } else if ($this->Session->read('Auth.User.role') == 2) { ?>
+                                        <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'edit', $item['Item']['id'])); ?></span>
+                                    <?php } ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -93,10 +91,34 @@
         </div>
     </div>
 </div>
-
+<!-------------Modal-------------------->
+<div id="openModal" class="modalDialog">
+    <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <div id="modalBody"></div>
+    </div>
+</div>
 <script type="text/javascript">
     $(document).ready(function() {
         $('#FilterCalFrom').datepicker({format: 'dd-mm-yyyy'});
         $('#FilterCalTo').datepicker({format: 'dd-mm-yyyy'});
+    });
+    /*Approve*/
+    var xhr = '';
+    $(document).ready(function() {	
+            $('a[href=#openModal]').on('click', function(){ 
+                    var id = $(this).attr('rel');
+                    $('#modalBody').html('Loading...');
+                    $.ajax({
+                            url: '<?= SITE_URL ?>/items/view_modal/'+id,
+                            success: function(response){
+                                    $('#modalBody').html(response);
+                            },
+                            error: function(){
+                                    alert('Something error occurred!!');
+                            }
+                    });
+            });
+
     });
 </script>

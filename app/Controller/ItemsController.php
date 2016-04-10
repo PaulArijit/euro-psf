@@ -185,5 +185,49 @@ class ItemsController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
+    /**
+     * view modal method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function view_modal($id = null) {
+        $this->Item->recursive = 2;
+        $this->layout = 'ajax';
+        if (!$this->Item->exists($id)) {
+            throw new NotFoundException(__('Invalid Item'));
+        }
+        $options = array('conditions' => array('Item.' . $this->Item->primaryKey => $id));
+        $this->set('item', $this->Item->find('first', $options));
+    }
+
+    /**
+     * toggle_status method
+     */
+    public function toggle_status() {
+        $response = array();
+        $this->autoRender = false;
+        $status = $_POST['status'];
+        $item_id = $_POST['item_id'];
+        
+        if ($this->Item->save(array('status' => $status,  'issued_date' => date('Y-m-d H:i:s'), 'approved_by' => $this->Session->read('Auth.User.id'), 'id' => $item_id))) {
+            $response['flag'] = true;
+        } else {
+            $response['flag'] = false;
+        }
+
+        if ($status == 0) {
+            $this->Item->save(array('status' => 1, 'issued_date' => date('Y-m-d H:i:s'), 'approved_by' => $this->Session->read('Auth.User.id'), 'id' => $item_id));
+        } else {
+            $this->Item->save(array('status' => 0, 'id' => $item_id));
+        }
+
+        
+
+        $response['item_id'] = $item_id;
+        echo json_encode($response);
+    }
+
 }
 
