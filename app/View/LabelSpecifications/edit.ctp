@@ -7,7 +7,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <div class="title">Add New Item</div>
+                    <div class="title">Add New Item <a href="javascript:void(0)" onclick="printData('label-print')" class="print print-btn1" rel="label-print"><i class="fa fa-print"></i>&nbsp;Print</a></div>
                 </div>
             </div>
             <div class="card-body">
@@ -147,38 +147,88 @@ $category = $conf_categories[$this->request->data['Item']['category']];
     </div>
 </div>
 
-
-
-<!--<div class="labelSpecifications form">
-<?php echo $this->Form->create('LabelSpecification'); ?>
-        <fieldset>
-                <legend><?php echo __('Edit Label Specification'); ?></legend>
-<?php
-echo $this->Form->input('id');
-echo $this->Form->input('item_id');
-echo $this->Form->input('npi');
-echo $this->Form->input('ref_no');
-echo $this->Form->input('type');
-echo $this->Form->input('size');
-echo $this->Form->input('label_color');
-echo $this->Form->input('wording_color');
-echo $this->Form->input('barcode_number');
-echo $this->Form->input('barcode_format');
-echo $this->Form->input('qty_per_vac_ctn');
-echo $this->Form->input('applied_for');
-echo $this->Form->input('amendment_note');
-echo $this->Form->input('remarks');
-?>
-        </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<div id="label-print" class="print-hidden">
+    <center>
+        <h2>Label Specification</h2>
+        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="width: 70%; border: 1px solid silver;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Product Description:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['description']; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Product Category:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $category; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Sapcode:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['sapcode']; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Ref No:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->value('ref_no'); ?></td>
+                        </tr>                    
+                    </table>
+                </td>
+                <td style="width: 10%;"></td>
+                <td style="width: 20%; border: 1px solid silver;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="text-align: center; border-bottom:  1px solid silver;"><b>Username</b></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;"><?php echo $this->Form->value('npi'); ?></td>
+                        </tr>
+                    </table>
+                </td>            
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td><label>Type</label></td>
+                <td><?php echo $this->Form->value('type'); ?></td>
+                <td rowspan="8" valign="top">
+                    <label>Remarks:</label>
+                    <?php echo $this->Form->value('remarks'); ?>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Size (mm)</label></td>
+                <td><?php echo $this->Form->value('size'); ?></td>
+            </tr>
+            <tr>
+                <td><label>Label Color</label></td>
+                <td><?php echo $this->Form->value('label_color'); ?></td>
+            </tr>
+            <tr>
+                <td><label>Wording Color</label></td>
+                <td><?php echo $this->Form->value('wording_color'); ?></td>									
+            </tr>								
+            <tr>
+                <td><label>Barcode Number</label></td>
+                <td><?php echo $this->Form->value('barcode_number'); ?></td>									
+            </tr>
+            <tr>
+                <td><label>Barcode Format</label></td>
+                <td><?php echo $this->Form->value('barcode_format'); ?></td>									
+            </tr>
+            <tr>
+                <td><label>Qty/Vac or Carton</label></td>
+                <td><?php echo $this->Form->value('qty_per_vac_ctn'); ?></td>									
+            </tr>
+            <tr>
+                <td><label>Applied for</label></td>
+                <td><?php echo $this->Form->value('applied_for'); ?></td>		
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <label>Amendment Note:</label>
+                    <?php echo $this->Form->value('amendment_note'); ?>
+                </td>
+            </tr>
+        </table>
+    </center>
 </div>
-<div class="actions">
-        <h3><?php echo __('Actions'); ?></h3>
-        <ul>
-
-                <li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('LabelSpecification.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('LabelSpecification.id'))); ?></li>
-                <li><?php echo $this->Html->link(__('List Label Specifications'), array('action' => 'index')); ?></li>
-                <li><?php echo $this->Html->link(__('List Items'), array('controller' => 'items', 'action' => 'index')); ?> </li>
-                <li><?php echo $this->Html->link(__('New Item'), array('controller' => 'items', 'action' => 'add')); ?> </li>
-        </ul>
-</div>-->

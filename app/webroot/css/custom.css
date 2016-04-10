@@ -179,3 +179,28 @@ a.bg-danger:hover {
     margin-bottom: 6px;
 }
 .print-hidden{display: none;}
+.search-tab {
+    width: 100%;
+    border: 1px solid silver;
+}
+.search-tab td, th{
+    padding: 4px;
+    border: 1px solid silver;
+}
+.search-tab th{
+    background-color: #EEE; 
+}
+.max{
+    background-color: #ffccff; 
+}
+.min{
+    background-color: #ccffcc; 
+}
+.link-td a{
+    color: #1c94c4;
+    text-decoration: underline;
+    font-size: 14px;
+}
+.link-td a:hover{
+    color: #46b8da;
+}

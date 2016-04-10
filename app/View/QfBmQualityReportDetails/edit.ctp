@@ -7,7 +7,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <div class="title">Add New Item</div>
+                    <div class="title">Add New Item <a href="javascript:void(0)" onclick="printData('bm-quality-report-print')" class="print print-btn1" rel="bm-quality-report-print"><i class="fa fa-print"></i>&nbsp;Print</a></div>
                 </div>
             </div>
             <div class="card-body">
@@ -568,64 +568,537 @@ $category = $conf_categories[$this->request->data['Item']['category']];
     </div>
 </div>
 
+<!--Print Section-->
+<div id="bm-quality-report-print" class="print-hidden">
+    <center>
+        <h2>BM Quality Report Specification</h2>
+        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="width: 100%; border: 1px solid silver;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Product Description:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['description']; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Product Category:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $category; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Sapcode:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['sapcode']; ?></td>
+                        </tr>                   
+                    </table>
+                </td>           
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td colspan="3" rowspan="2"><label>Product Name:<br/>Product Code:</label></td>
+                <td><label>ID No</label></td>
+                <td colspan="3"><?php echo $this->Form->value('id_no'); ?></td>
+                <td><label>M/C No.:</label></td>
+                <td colspan="3"><label>T / L / S - ______________</label></td>
+            </tr>
+            <tr>
+                <td colspan="4" class="text-center"><label>MORNING SHIFT</label></td>
+                <td colspan="4" class="text-center"><label>NIGHT SHIFT</label></td>
+            </tr>
+            <tr class="color-tr">
+                <td class="text-center"><label>DIMENSIONS</label></td>
+                <td class="text-center"><label>UNITS</label></td>
+                <td class="text-center"><label>SPECIFICATION</label></td>
+                <td class="text-center"><label>Left</label></td>
+                <td class="text-center"><label>Right</label></td>
+                <td class="text-center"><label>Left</label></td>
+                <td class="text-center"><label>Right</label></td>
+                <td class="text-center"><label>Left</label></td>
+                <td class="text-center"><label>Right</label></td>
+                <td class="text-center"><label>Left</label></td>
+                <td class="text-center"><label>Right</label></td>
+            </tr>
+            <tr>
+                <td><label>Bag Weight</label></td>
+                <td class="text-center">g</td>
+                <td><?php echo $this->Form->value('bag_weight_specification'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>Carton Weight</label></td>
+                <td class="text-center">kg</td>
+                <td><?php echo $this->Form->value('ctn_weight_specification'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>Closed Width</label></td>
+                <td class="text-center">mm</td>
+                <td><?php echo $this->Form->value('closed_width_specification'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>Open Width</label></td>
+                <td class="text-center">mm</td>
+                <td><?php echo $this->Form->value('open_width_specification'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>Length</label></td>
+                <td class="text-center">mm</td>
+                <td><?php echo $this->Form->value('length_specification'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>Handle Width</label></td>
+                <td class="text-center">mm</td>
+                <td><?php echo $this->Form->value('handle_width_specification'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>Handle Length</label></td>
+                <td class="text-center">mm</td>
+                <td><?php echo $this->Form->value('handle_length_specification'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>Pcs/Block</label></td>
+                <td class="text-center">Counter</td>
+                <td><?php echo $this->Form->value('pcs_block_specification'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>Pcs/Outer</label></td>
+                <td class="text-center">Counter</td>
+                <td><?php echo $this->Form->value('pcs_outer_specification'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>No. Of Outer</label></td>
+                <td class="text-center">Manual</td>
+                <td><?php echo $this->Form->value('no_of_outer_specification'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>Knife Design</label></td>
+                <td class="text-center">/X</td>
+                <td><?php echo $this->Form->value('knife_design_specification'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint">
+            <tr>
+                <td>Knife Design</td>
+                <td><?php echo $this->Form->value('knife_design'); ?></td>
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="color-td text-center" colspan="12"><label>PRINT DETAILS</label></td>
+            </tr>
+            <tr>                                        
+                <td class="text-center" width="6%" rowspan="2"><label>Front</label></td>
+                <td class="text-center" width="7%"><label>Fr. Base</label></td>
+                <td class="text-center" width="5%">mm</td>
+                <td width="30%"><?php echo $this->Form->value('print_front_base'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>                                        
+                <td class="text-center"><label>Fr. Side</label></td>
+                <td class="text-center">mm</td>
+                <td><?php echo $this->Form->value('print_front_side'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="text-center" rowspan="2"><label>Back</label></td>
+                <td class="text-center"><label>Fr. Base</label></td>
+                <td class="text-center">mm</td>
+                <td><?php echo $this->Form->value('print_back_base'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="text-center"><label>Fr. Side</label></td>
+                <td class="text-center">mm</td>
+                <td><?php echo $this->Form->value('print_back_side'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="color-td text-center" colspan="13"><label>PHYSICAL PROPERTIES</label></td>
+            </tr>
+            <tr>                                        
+                <td rowspan="3" width="5%" class="text-center"><label>SEAL</label></td>
+                <td width="7%"><label>Handle L/R</label></td>
+                <td width="5%">Physical</td>
+                <td width="30%" colspan="2"><?php echo $this->Form->value('handle_lr'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>                                        
+                <td><label>Gusset L/R</label></td>
+                <td>Physical</td>
+                <td colspan="2"><?php echo $this->Form->value('gusset_lr'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>                                        
+                <td><label>Bottom/Base</label></td>
+                <td>Physical</td>
+                <td colspan="2"><?php echo $this->Form->value('bottom_base'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>6 Step Checking</label></td>
+                <td>Physical</td>
+                <td colspan="2"><?php echo $this->Form->value('six_step_checking'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>No Blocking</label></td>
+                <td>Physical</td>
+                <td colspan="2"><?php echo $this->Form->value('no_blocking'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>Safety Holes</label></td>
+                <td>Physical</td>
+                <td colspan="2"><?php echo $this->Form->value('safty_hole'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>Hot Pin</label></td>
+                <td>Physical</td>
+                <td colspan="2"><?php echo $this->Form->value('hot_pin'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>Embossed</label></td>
+                <td>Physical</td>
+                <td colspan="2"><?php echo $this->Form->value('embossed'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>Glue Spot</label></td>
+                <td>Visual</td>
+                <td colspan="2"><?php echo $this->Form->value('gluespot'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>Dispenser Test</label></td>
+                <td>Physical</td>
+                <td colspan="2"><?php echo $this->Form->value('dispenser_test'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>Packing</label></td>
+                <td>Visual</td>
+                <td colspan="2"><?php echo $this->Form->value('packing'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>Carton Marking</label></td>
+                <td>Visual</td>
+                <td colspan="2"><?php echo $this->Form->value('ctn_marking'); ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>Jog Test</label></td>
+                <td>kg/15min</td>
+                <td colspan="2"><?php echo $this->Form->value('jog_test'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>                                        
+                <td colspan="2"></td>                                        
+                <td colspan="2"></td>                                        
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>Ultimate Lift</label></td>
+                <td>kg</td>
+                <td colspan="2"><?php echo $this->Form->value('ultimate_lift'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>                                        
+                <td colspan="2"></td>                                        
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>Traceability Code</label></td>
+                <td colspan="2" width="10%"><?php echo $this->Form->value('traceability_code_one'); ?></td>
+                <td width="20%"><?php echo $this->Form->value('traceability_code_two'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>                                        
+                <td colspan="2"></td>                                        
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>Eyemark Code</label></td>
+                <td colspan="2" width="10%"><?php echo $this->Form->value('eyemark_code_one'); ?></td>
+                <td width="20%"><?php echo $this->Form->value('eyemark_code_two'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>                                        
+                <td colspan="2"></td>                                        
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="13">**<u><b>Dispenser Test - Bag opened when pull, perforation must cut at the seal, no blocking & debris</b></u></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>On Hold/Remarks</label></td>
+                <td colspan="2" width="10%"><?php echo $this->Form->value('onhold_remark_one'); ?></td>
+                <td width="20%"><?php echo $this->Form->value('onhold_remark_two'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>                                        
+                <td colspan="2"></td>                                        
+                <td colspan="2"></td>
+            </tr>
+        </table>
+        <br/>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td colspan="2">
+                    <table cellpadding="0" cellspacing="0" class="tabprint">
+                        <tr>
+                            <td class="text-center color-td" colspan="2"><label>MORNING SHIFT</label></td>
+                        </tr>
+                        <tr>
+                            <td width="50%" class="text-center color-td"><label>Checked By</label></td>
+                            <td width="50%" class="text-center color-td"><label>Approved By</label></td>
+                        </tr>
+                        <tr>
+                            <td style="height: 80px;"></td>
+                            <td></td>                                        
+                        </tr>
+                        <tr>
+                            <td class="text-left" style="height: 30px;"><label>Date:</label></td>
+                            <td class="text-left" style="height: 30px;"><label>Date:</label></td>
+                        </tr>
+                    </table> 
+                </td>
+                <td width="10%"></td>
+                <td colspan="2">
+                    <table cellpadding="0" cellspacing="0" class="tabprint">
+                        <tr>
+                            <td class="text-center color-td" colspan="2"><label>NIGHT SHIFT</label></td>
+                        </tr>
+                        <tr>
+                            <td width="50%" class="text-center color-td"><label>Checked By</label></td>
+                            <td width="50%" class="text-center color-td"><label>Approved By</label></td>
+                        </tr>
+                        <tr>
+                            <td style="height: 80px;"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="text-left" style="height: 30px;"><label>Date:</label></td>
+                            <td class="text-left" style="height: 30px;"><label>Date:</label></td>
+                        </tr>
+                    </table> 
+                </td>
+            </tr>
+            <tr>
+                <td width="10%"></td>
+                <td></td>
+                <td width="10%"></td>
+                <td width="10%">Leader or Above</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td width="10%">Last Revision Date:</td>
+                <td></td>
+                <td width="10%"></td>
+                <td width="10%">Version:</td>
+                <td><?php echo $this->Form->value('version'); ?></td>
+            </tr>
+        </table>
 
-
-<!--<div class="qfBmQualityReportDetails form">
-<?php echo $this->Form->create('QfBmQualityReportDetail'); ?>
-        <fieldset>
-                <legend><?php echo __('Edit Qf Bm Quality Report Detail'); ?></legend>
-<?php
-echo $this->Form->input('id');
-echo $this->Form->input('item_id');
-echo $this->Form->input('id_no');
-echo $this->Form->input('bag_weight_specification');
-echo $this->Form->input('ctn_weight_specification');
-echo $this->Form->input('closed_width_specification');
-echo $this->Form->input('open_width_specification');
-echo $this->Form->input('length_specification');
-echo $this->Form->input('handle_width_specification');
-echo $this->Form->input('handle_length_specification');
-echo $this->Form->input('pcs_block_specification');
-echo $this->Form->input('pcs_outer_specification');
-echo $this->Form->input('no_of_outer_specification');
-echo $this->Form->input('knife_design_specification');
-echo $this->Form->input('knife_design');
-echo $this->Form->input('print_front_base');
-echo $this->Form->input('print_front_side');
-echo $this->Form->input('print_back_base');
-echo $this->Form->input('print_back_side');
-echo $this->Form->input('handle_lr');
-echo $this->Form->input('gusset_lr');
-echo $this->Form->input('bottom_base');
-echo $this->Form->input('six_step_checking');
-echo $this->Form->input('no_blocking');
-echo $this->Form->input('safty_hole');
-echo $this->Form->input('hot_pin');
-echo $this->Form->input('embossed');
-echo $this->Form->input('gluespot');
-echo $this->Form->input('dispenser_test');
-echo $this->Form->input('packing');
-echo $this->Form->input('ctn_marking');
-echo $this->Form->input('jog_test');
-echo $this->Form->input('ultimate_lift');
-echo $this->Form->input('traceability_code_one');
-echo $this->Form->input('traceability_code_two');
-echo $this->Form->input('eyemark_code_one');
-echo $this->Form->input('eyemark_code_two');
-echo $this->Form->input('onhold_remark_one');
-echo $this->Form->input('onhold_remark_two');
-echo $this->Form->input('version');
-?>
-        </fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+    </center>
 </div>
-<div class="actions">
-        <h3><?php echo __('Actions'); ?></h3>
-        <ul>
-
-                <li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('QfBmQualityReportDetail.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('QfBmQualityReportDetail.id'))); ?></li>
-                <li><?php echo $this->Html->link(__('List Qf Bm Quality Report Details'), array('action' => 'index')); ?></li>
-                <li><?php echo $this->Html->link(__('List Items'), array('controller' => 'items', 'action' => 'index')); ?> </li>
-                <li><?php echo $this->Html->link(__('New Item'), array('controller' => 'items', 'action' => 'add')); ?> </li>
-        </ul>
-</div>-->
+<!--Print Section-->

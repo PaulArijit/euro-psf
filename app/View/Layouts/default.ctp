@@ -124,7 +124,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                 </div>
                                 <ul class="nav navbar-nav">
                                     <li>
-                                        <?php echo $this->Html->link('<span class="icon fa fa-search"></span>' . '<span class="title">Search</span>', array('controller' => 'pages', 'action' => 'index'), array('escape' => FALSE)); ?>
+                                        <?php echo $this->Html->link('<span class="icon fa fa-search"></span>' . '<span class="title">Search</span>', array('controller' => 'Items', 'action' => 'search'), array('escape' => FALSE)); ?>
                                     </li>
                                     <li>
                                         <?php echo $this->Html->link('<span class="icon fa fa-plus"></span>' . '<span class="title">Add Item</span>', array('controller' => 'items', 'action' => 'add'), array('escape' => FALSE)); ?>

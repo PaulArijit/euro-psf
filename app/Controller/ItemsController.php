@@ -57,15 +57,15 @@ class ItemsController extends AppController {
                         } else {
                             $conditions['Item.' . $this->request->params['named']['field'] . ' LIKE '] = "%$value%";
                         }
-                    } else if($name == 'cal_from' && !empty ($value)) {
+                    } else if ($name == 'cal_from' && !empty($value)) {
                         $dateObj = DateTime::createFromFormat('d-m-Y', $value);
                         $conditions['Item.created >='] = $dateObj->format('Y-m-d');
-                    } else if($name == 'cal_to' && !empty ($value)) {
+                    } else if ($name == 'cal_to' && !empty($value)) {
                         $dateObj = DateTime::createFromFormat('d-m-Y', $value);
                         $conditions['Item.created <='] = $dateObj->format('Y-m-d') . ' 23:59:59';
-                    } else if($name == 'category' && strlen($value) > 0) {
+                    } else if ($name == 'category' && strlen($value) > 0) {
                         $conditions['Item.category'] = $value;
-                    }else{
+                    } else {
                         
                     }
                     $this->request->data['Filter'][$name] = $value;
@@ -105,25 +105,25 @@ class ItemsController extends AppController {
      */
     public function add() {
         if ($this->request->is('post')) {
-            /*save blank data*/
+            /* save blank data */
             $this->request->data['ProductSpecification'][0] = array('prepared_by' => $this->Session->read('Auth.User.username'));
-            $this->request->data['CartonSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            $this->request->data['CoreSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            $this->request->data['CylinderSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            $this->request->data['FlexoPlateSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            $this->request->data['FussetSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            $this->request->data['GrommetSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));            
-            $this->request->data['KnifeSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            $this->request->data['LabelSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            $this->request->data['WicketSpecification'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            $this->request->data['QfBmQualityReportDetail'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            $this->request->data['QfExtFirstOffDetail'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            $this->request->data['QfExtFormDetail'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            $this->request->data['QfFirstOffDetail'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            $this->request->data['QfPositiveReleaseDetail'][0]   = array('npi' => $this->Session->read('Auth.User.username'));
-            
+            $this->request->data['CartonSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['CoreSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['CylinderSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['FlexoPlateSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['FussetSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['GrommetSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['KnifeSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['LabelSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['WicketSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['QfBmQualityReportDetail'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['QfExtFirstOffDetail'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['QfExtFormDetail'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['QfFirstOffDetail'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['QfPositiveReleaseDetail'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+
             //pr($this->request->data);
-            
+
             $this->Item->create();
             if ($this->Item->saveAll($this->request->data)) {
                 $lastId = $this->Item->getLastInsertId(); //get last item id created. 
@@ -134,8 +134,6 @@ class ItemsController extends AppController {
                 $this->Session->setFlash(__('The item could not be saved. Please, try again.'), 'flash_warning');
             }
         }
-
-        
     }
 
     /**
@@ -160,9 +158,8 @@ class ItemsController extends AppController {
         } else {
             $options = array('conditions' => array('Item.' . $this->Item->primaryKey => $id));
             $this->request->data = $this->Item->find('first', $options);
-            
         }
-        
+
         $this->set('tab', $tab);
         $this->set('itemId', $id);
     }
@@ -189,3 +186,4 @@ class ItemsController extends AppController {
     }
 
 }
+
