@@ -318,7 +318,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td colspan="2"><?php echo $this->Form->value('eyemark_location'); ?></td>
             </tr>
             <tr>
-                <td><label>Additional Info</label></td>									
+                <td><label>Additional Info</label></td>						
                 <td colspan="3"><?php echo $this->Form->value('additional_info'); ?></td>
                 <td>Code</td>
                 <td colspan="2"><?php echo $this->Form->value('eyemark_code'); ?></td>
@@ -332,3 +332,17 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         </table>
     </center>
 </div>
+<!--disabled text for user2-->
+<input style="display: none;" id="role_val" type="text" value="<?php echo $this->Session->read('Auth.User.role'); ?>"/>
+<script type="text/javascript">
+    $(document).ready(function() {
+        if($('#role_val').val() == 2){
+            $("input").attr('disabled','disabled');
+            $("input[type=file]").attr('disabled','disabled');
+            $("textarea").attr('disabled','disabled');
+        }else{
+            $("input").removeAttr('disabled');
+        }
+    });
+    
+</script>

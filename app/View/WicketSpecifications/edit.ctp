@@ -218,3 +218,18 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         </table>
     </center>
 </div>
+<!--disabled text for user2-->
+<input style="display: none;" id="role_val" type="text" value="<?php echo $this->Session->read('Auth.User.role'); ?>"/>
+<script type="text/javascript">
+    $(document).ready(function() {
+        if($('#role_val').val() == 2){
+            $("input").attr('disabled','disabled');
+            $("input[type=file]").attr('disabled','disabled');
+            $("select").attr('disabled','disabled');
+            $("textarea").attr('disabled','disabled');
+        }else{
+            $("input").removeAttr('disabled');
+        }
+    });
+    
+</script>

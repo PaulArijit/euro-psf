@@ -315,27 +315,41 @@ $category = $conf_categories[$this->request->data['Item']['category']];
             </tr>
             <tr>
                 <td><label>Barcode Format</label></td>									
-                <td colspan="3"><?php echo $this->Form->input('barcode_format', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td colspan="3"><?php echo $this->Form->value('barcode_format'); ?></td>
                 <td><label>Location</label></td>
-                <td colspan="2"><?php echo $this->Form->input('eyemark_location', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td colspan="2"><?php echo $this->Form->value('eyemark_location'); ?></td>
             </tr>
             <tr>
                 <td><label>Additional Info</label></td>									
-                <td colspan="3"><?php echo $this->Form->input('additional_info', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td colspan="3"><?php echo $this->Form->value('additional_info'); ?></td>
                 <td><label>Code</label></td>
-                <td colspan="2"><?php echo $this->Form->input('eyemark_code', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                <td colspan="2"><?php echo $this->Form->value('eyemark_code'); ?></td>
             </tr>
             <tr>
                 <td rowspan="2"><label>Amendment Note</label></td>									
-                <td rowspan="2" colspan="3"><?php echo $this->Form->input('amendment_note', array('class' => 'form-control', 'label' => FALSE, 'type' => 'textarea', 'rows' => '3')); ?></td>
+                <td rowspan="2" colspan="3"><?php echo $this->Form->value('amendment_note'); ?></td>
                 <td class="text-center" rowspan="2"><label>Cross Mark</label></td>
                 <td><label>Size (mm)</label></td>
-                <td colspan="3"><?php echo $this->Form->input('crossmark_size', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td colspan="3"><?php echo $this->Form->value('crossmark_size'); ?></td>
             </tr>
             <tr>
                 <td><label>Position</label></td>
-                <td colspan="2"><?php echo $this->Form->input('crossmark_position', array('class' => 'form-control', 'label' => FALSE)); ?></td>									
+                <td colspan="2"><?php echo $this->Form->value('crossmark_position'); ?></td>
             </tr>
         </table>
     </center>
 </div>
+<!--disabled text for user2-->
+<input style="display: none;" id="role_val" type="text" value="<?php echo $this->Session->read('Auth.User.role'); ?>"/>
+<script type="text/javascript">
+    $(document).ready(function() {
+        if($('#role_val').val() == 2){
+            $("input").attr('disabled','disabled');
+            $("input[type=file]").attr('disabled','disabled');
+            $("textarea").attr('disabled','disabled');
+        }else{
+            $("input").removeAttr('disabled');
+        }
+    });
+    
+</script>
