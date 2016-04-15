@@ -25,8 +25,8 @@ function printData(sourceId){
     w.document.write(prtHead+con+prtFoot);
     w.document.close();
     
-   // w.print();
-    //w.close();
+    w.print();
+    w.close();
 }
 
 //function printStyled(sourceId){

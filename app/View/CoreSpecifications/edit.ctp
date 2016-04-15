@@ -14,23 +14,34 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <div>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <dl>
-                                <dt><?php echo __('Product Description'); ?></dt>
-                                <dd>
-                                    <?php echo $this->request->data['Item']['description']; ?>
-                                    &nbsp;
-                                </dd>
-                                <dt><?php echo __('Product Category'); ?></dt>
-                                <dd>
-                                    <?php echo $category; ?>
-                                    &nbsp;
-                                </dd>
-                                <dt><?php echo __('Sapcode'); ?></dt>
-                                <dd>
-                                    <?php echo $this->request->data['Item']['sapcode']; ?>
-                                    &nbsp;
-                                </dd>
-                            </dl>
+                            <div class="col-xs-10">
+                                <dl>
+                                    <dt><?php echo __('Product Description'); ?></dt>
+                                    <dd>
+                                        <?php echo $this->request->data['Item']['description']; ?>
+                                        &nbsp;
+                                    </dd>
+                                    <dt><?php echo __('Product Category'); ?></dt>
+                                    <dd>
+                                        <?php echo $category; ?>
+                                        &nbsp;
+                                    </dd>
+                                    <dt><?php echo __('Sapcode'); ?></dt>
+                                    <dd>
+                                        <?php echo $this->request->data['Item']['sapcode']; ?>
+                                        &nbsp;
+                                    </dd>
+                                </dl>
+                            </div>    
+                            <div class="col-xs-2">
+                                <?php
+                                if ($this->request->data['Item']['status'] == 1) {
+                                    echo $this->Html->image('approved.jpg', array('alt' => 'Approved', 'height' => '100'));
+                                } else {
+                                    echo $this->Html->image('notapproved.png', array('alt' => 'Not Approved', 'height' => '70'));
+                                }
+                                ?>
+                            </div>
                         </div>
                         <div class="panel-footer text-right">
                             <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', 'controller' => 'Items', $this->request->data['Item']['id']), array('type' => 'button', 'class' => 'btn btn-success')); ?>
@@ -137,112 +148,118 @@ $category = $conf_categories[$this->request->data['Item']['category']];
     </div>
 </div>
 <script type="text/javascript">
-        $(document).ready(function() {
-            
-            $('#core-length').html($('#CoreSpecificationLength').val());
-            $('#core-internal-dia').html($('#CoreSpecificationInternalDiameter').val());
-            $('#core-thickness').html($('#CoreSpecificationThickness').val());
-            
-            $('#CoreSpecificationLength').keyup(function() {
-                $('#core-length').text($(this).val());
-            });
-            $('#CoreSpecificationInternalDiameter').keyup(function() {
-                $('#core-internal-dia').text($(this).val());
-            });
-            $('#CoreSpecificationThickness').keyup(function() {
-                $('#core-thickness').text($(this).val());
-            });
-                           
-        });
+                        $(document).ready(function() {
+
+                            $('#core-length').html($('#CoreSpecificationLength').val());
+                            $('#core-internal-dia').html($('#CoreSpecificationInternalDiameter').val());
+                            $('#core-thickness').html($('#CoreSpecificationThickness').val());
+
+                            $('#CoreSpecificationLength').keyup(function() {
+                                $('#core-length').text($(this).val());
+                            });
+                            $('#CoreSpecificationInternalDiameter').keyup(function() {
+                                $('#core-internal-dia').text($(this).val());
+                            });
+                            $('#CoreSpecificationThickness').keyup(function() {
+                                $('#core-thickness').text($(this).val());
+                            });
+
+                        });
 </script>
 <!--Print Section-->
 <div id="core-details-print" class="print-hidden">
-<center>
-    <h2>Core Specification</h2>
-    <table style="width: 100%;" cellpadding="0" cellspacing="0">
-        <tr>
-            <td style="width: 70%; border: 1px solid silver;">
-                <table cellpadding="0" cellspacing="0">
+    <center>
+        <table>
+            <tr>
+                <td width="90%" style="text-align: center;"><h2>Core Specification</h2></td>
+                <td><?php echo $this->Html->image('logo-print.jpg', array('alt' => 'logo', 'height' => '100')); ?></td>
+            </tr>
+        </table>
+        <br/>
+        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="width: 70%; border: 1px solid silver;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Product Description:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['description']; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Product Category:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $category; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Sapcode:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['sapcode']; ?></td>
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Ref No:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->value('ref_no'); ?></td>
+                        </tr>                    
+                    </table>
+                </td>
+                <td style="width: 10%;"></td>
+                <td style="width: 20%; border: 1px solid silver;">
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="text-align: center; border-bottom:  1px solid silver;"><b>Username</b></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;"><?php echo $this->Form->value('npi'); ?></td>
+                        </tr>
+                    </table>
+                </td>            
+            </tr>
+        </table>
+        <br/>
+        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+            <td width="55%" valign="top">
+                <table class="tabprint" cellpadding="0" cellspacing="0">
                     <tr>
-                        <td width="20%" style="text-align: center; background: #EEE;">Product Description:</td>
-                        <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['description']; ?></td>
+                        <td rowspan="2"><label>Size (mm)</label></td>
+                        <td><label>Internal Diameter</label></td>
+                        <td><label>Length</label></td>
+                        <td><label>Thickness</label></td>
                     </tr>
                     <tr>
-                        <td width="20%" style="text-align: center; background: #EEE;">Product Category:</td>
-                        <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $category; ?></td>
-                    </tr>
-                    <tr>
-                        <td width="20%" style="text-align: center; background: #EEE;">Sapcode:</td>
-                        <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['sapcode']; ?></td>
-                    </tr>
-                    <tr>
-                        <td width="20%" style="text-align: center; background: #EEE;">Ref No:</td>
-                        <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->value('ref_no'); ?></td>
-                    </tr>                    
+                        <td><?php echo $this->Form->value('internal_diameter'); ?></td>
+                        <td><?php echo $this->Form->value('length'); ?></td>
+                        <td><?php echo $this->Form->value('thickness'); ?></td>
+                    </tr>								
                 </table>
             </td>
-            <td style="width: 10%;"></td>
-            <td style="width: 20%; border: 1px solid silver;">
-                <table cellpadding="0" cellspacing="0">
+            <td width="5%"></td>
+            <td width="40%">
+                <table class="tabprint" cellpadding="0" cellspacing="0">								
                     <tr>
-                        <td style="text-align: center; border-bottom:  1px solid silver;"><b>Username</b></td>
+                        <td><label>Core required per carton</label></td>
+                        <td><?php echo $this->Form->value('core_required_per_ctn'); ?></td>
                     </tr>
                     <tr>
-                        <td style="text-align: center;"><?php echo $this->Form->value('npi'); ?></td>
+                        <td><label>Additional Requirement</label></td>
+                        <td><?php echo $this->Form->value('additional_requirement'); ?></td>
+                    </tr>
+                    <tr>
+                        <td><label>Amendment Note</label></td>
+                        <td><?php echo $this->Form->value('amendment_note'); ?></td>
                     </tr>
                 </table>
-            </td>            
-        </tr>
-    </table>
-    <br/>
-    <table style="width: 100%;" cellpadding="0" cellspacing="0">
-        <td width="55%" valign="top">
-            <table class="tabprint" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td rowspan="2"><label>Size (mm)</label></td>
-                    <td><label>Internal Diameter</label></td>
-                    <td><label>Length</label></td>
-                    <td><label>Thickness</label></td>
-                </tr>
-                <tr>
-                    <td><?php echo $this->Form->value('internal_diameter'); ?></td>
-                    <td><?php echo $this->Form->value('length'); ?></td>
-                    <td><?php echo $this->Form->value('thickness'); ?></td>
-                </tr>								
-            </table>
-        </td>
-        <td width="5%"></td>
-        <td width="40%">
-            <table class="tabprint" cellpadding="0" cellspacing="0">								
-                <tr>
-                    <td><label>Core required per carton</label></td>
-                    <td><?php echo $this->Form->value('core_required_per_ctn'); ?></td>
-                </tr>
-                <tr>
-                    <td><label>Additional Requirement</label></td>
-                    <td><?php echo $this->Form->value('additional_requirement'); ?></td>
-                </tr>
-                <tr>
-                    <td><label>Amendment Note</label></td>
-                    <td><?php echo $this->Form->value('amendment_note'); ?></td>
-                </tr>
-            </table>
-        </td>
-    </table>
-</center>
+            </td>
+        </table>
+    </center>
 </div>
 <!--Print Section-->
 <!--disabled text for user2-->
 <input style="display: none;" id="role_val" type="text" value="<?php echo $this->Session->read('Auth.User.role'); ?>"/>
 <script type="text/javascript">
     $(document).ready(function() {
-        if($('#role_val').val() == 2){
-            $("input").attr('disabled','disabled');
-            $("input[type=file]").attr('disabled','disabled');
-            $("textarea").attr('disabled','disabled');
-        }else{
+        if ($('#role_val').val() == 2) {
+            $("input").attr('disabled', 'disabled');
+            $("input[type=file]").attr('disabled', 'disabled');
+            $("textarea").attr('disabled', 'disabled');
+        } else {
             $("input").removeAttr('disabled');
         }
     });
-    
+
 </script>

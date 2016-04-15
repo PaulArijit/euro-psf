@@ -12,25 +12,36 @@ $category = $conf_categories[$this->request->data['Item']['category']];
             </div>
             <div class="card-body">
                 <div>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default">                        
                         <div class="panel-body">
-                            <dl>
-                                <dt><?php echo __('Product Description'); ?></dt>
-                                <dd>
-                                    <?php echo $this->request->data['Item']['description']; ?>
-                                    &nbsp;
-                                </dd>
-                                <dt><?php echo __('Product Category'); ?></dt>
-                                <dd>
-                                    <?php echo $category; ?>
-                                    &nbsp;
-                                </dd>
-                                <dt><?php echo __('Sapcode'); ?></dt>
-                                <dd>
-                                    <?php echo $this->request->data['Item']['sapcode']; ?>
-                                    &nbsp;
-                                </dd>
-                            </dl>
+                            <div class="col-xs-10">
+                                <dl>
+                                    <dt><?php echo __('Product Description'); ?></dt>
+                                    <dd>
+                                        <?php echo $this->request->data['Item']['description']; ?>
+                                        &nbsp;
+                                    </dd>
+                                    <dt><?php echo __('Product Category'); ?></dt>
+                                    <dd>
+                                        <?php echo $category; ?>
+                                        &nbsp;
+                                    </dd>
+                                    <dt><?php echo __('Sapcode'); ?></dt>
+                                    <dd>
+                                        <?php echo $this->request->data['Item']['sapcode']; ?>
+                                        &nbsp;
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-xs-2">
+                                <?php
+                                if ($this->request->data['Item']['status'] == 1) {
+                                    echo $this->Html->image('approved.jpg', array('alt' => 'Approved', 'height' => '100'));
+                                } else {
+                                    echo $this->Html->image('notapproved.png', array('alt' => 'Not Approved', 'height' => '70'));
+                                }
+                                ?>
+                            </div>
                         </div>
                         <div class="panel-footer text-right">
                             <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', 'controller' => 'Items', $this->request->data['Item']['id']), array('type' => 'button', 'class' => 'btn btn-success')); ?>
@@ -255,15 +266,15 @@ $category = $conf_categories[$this->request->data['Item']['category']];
 <!--disabled text for user2-->
 <input style="display: none;" id="role_val" type="text" value="<?php echo $this->Session->read('Auth.User.role'); ?>"/>
 <script type="text/javascript">
-    $(document).ready(function() {
-        if($('#role_val').val() == 2){
-            $("input").attr('disabled','disabled');
-            $("input[type=file]").attr('disabled','disabled');
-            $("textarea").attr('disabled','disabled');
-        }else{
-            $("input").removeAttr('disabled');
-        }
-    });
-    
+                        $(document).ready(function() {
+                            if ($('#role_val').val() == 2) {
+                                $("input").attr('disabled', 'disabled');
+                                $("input[type=file]").attr('disabled', 'disabled');
+                                $("textarea").attr('disabled', 'disabled');
+                            } else {
+                                $("input").removeAttr('disabled');
+                            }
+                        });
+
 </script>
 

@@ -9,30 +9,41 @@ $imgdirPath = 'app/webroot/img/uploaded/';
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <div class="title">Add New Item</div>
+                    <div class="title">Add New Item <a href="javascript:void(0)" onclick="printData('ext-first-off-print')" class="print print-btn1" rel="ext-first-off-print"><i class="fa fa-print"></i>&nbsp;Print</a></div>
                 </div>
             </div>
             <div class="card-body">
                 <div>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <dl>
-                                <dt><?php echo __('Product Description'); ?></dt>
-                                <dd>
-                                    <?php echo $this->request->data['Item']['description']; ?>
-                                    &nbsp;
-                                </dd>
-                                <dt><?php echo __('Product Category'); ?></dt>
-                                <dd>
-                                    <?php echo $category; ?>
-                                    &nbsp;
-                                </dd>
-                                <dt><?php echo __('Sapcode'); ?></dt>
-                                <dd>
-                                    <?php echo $this->request->data['Item']['sapcode']; ?>
-                                    &nbsp;
-                                </dd>
-                            </dl>
+                            <div class="col-xs-10">
+                                <dl>
+                                    <dt><?php echo __('Product Description'); ?></dt>
+                                    <dd>
+                                        <?php echo $this->request->data['Item']['description']; ?>
+                                        &nbsp;
+                                    </dd>
+                                    <dt><?php echo __('Product Category'); ?></dt>
+                                    <dd>
+                                        <?php echo $category; ?>
+                                        &nbsp;
+                                    </dd>
+                                    <dt><?php echo __('Sapcode'); ?></dt>
+                                    <dd>
+                                        <?php echo $this->request->data['Item']['sapcode']; ?>
+                                        &nbsp;
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-xs-2">
+                                <?php
+                                if ($this->request->data['Item']['status'] == 1) {
+                                    echo $this->Html->image('approved.jpg', array('alt' => 'Approved', 'height' => '100'));
+                                } else {
+                                    echo $this->Html->image('notapproved.png', array('alt' => 'Not Approved', 'height' => '70'));
+                                }
+                                ?>
+                            </div>
                         </div>
                         <div class="panel-footer text-right">
                             <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', 'controller' => 'Items', $this->request->data['Item']['id']), array('type' => 'button', 'class' => 'btn btn-success')); ?>
@@ -248,15 +259,15 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                                 <div class="panel fresh-color panel-default">                                    
                                     <div style="height: 415px;" class="panel-body text-center">
                                         <?php
-                                            if($this->request->data['QfExtFirstOffDetail']['artwork_detail'] == ''){
-                                                echo 'No preview available';
-                                            }else{
-                                                 echo '<img src="'.SITE_URL . $imgdirPath . $this->request->data['QfExtFirstOffDetail']['artwork_detail'] .'" width="1000" height="370">';                                  
-                                            }
+                                        if ($this->request->data['QfExtFirstOffDetail']['artwork_detail'] == '') {
+                                            echo 'No preview available';
+                                        } else {
+                                            echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfExtFirstOffDetail']['artwork_detail'] . '" width="1000" height="370">';
+                                        }
                                         ?>
                                     </div>
                                     <div class="panel-footer text-center">
-                                        <?php  echo $this->Form->file('artwork_detail'); ?>
+                                        <?php echo $this->Form->file('artwork_detail'); ?>
                                     </div>
                                 </div>
                                 <div style="display: inline-block; border: 1px solid silver; width: 20px; height: 20px;"></div>
@@ -553,15 +564,15 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                                 <div class="panel fresh-color panel-default">                                    
                                     <div style="height: 215px;" class="panel-body text-center">
                                         <?php
-                                            if($this->request->data['QfExtFirstOffDetail']['sample_bag_attachment'] == ''){
-                                                echo 'No preview available';
-                                            }else{
-                                                 echo '<img src="'.SITE_URL . $imgdirPath . $this->request->data['QfExtFirstOffDetail']['sample_bag_attachment'] .'" width="400" height="180">';                                  
-                                            }
+                                        if ($this->request->data['QfExtFirstOffDetail']['sample_bag_attachment'] == '') {
+                                            echo 'No preview available';
+                                        } else {
+                                            echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfExtFirstOffDetail']['sample_bag_attachment'] . '" width="400" height="180">';
+                                        }
                                         ?>
                                     </div>
                                     <div class="panel-footer text-center">
-                                       <?php  echo $this->Form->file('sample_bag_attachment'); ?>
+                                        <?php echo $this->Form->file('sample_bag_attachment'); ?>
                                     </div>
                                 </div>                                
                                 <label>ORIGINAL: QA FILE – CONTROLLED COPY: DISPLAY </label><br/>
@@ -613,15 +624,558 @@ $imgdirPath = 'app/webroot/img/uploaded/';
 <!--disabled text for user2-->
 <input style="display: none;" id="role_val" type="text" value="<?php echo $this->Session->read('Auth.User.role'); ?>"/>
 <script type="text/javascript">
-    $(document).ready(function() {
-        if($('#role_val').val() == 2){
-            $("input").attr('disabled','disabled');
-            $("input[type=file]").attr('disabled','disabled');
-            $("select").attr('disabled','disabled');
-            $("textarea").attr('disabled','disabled');
-        }else{
-            $("input").removeAttr('disabled');
-        }
-    });
-    
+                        $(document).ready(function() {
+                            if ($('#role_val').val() == 2) {
+                                $("input").attr('disabled', 'disabled');
+                                $("input[type=file]").attr('disabled', 'disabled');
+                                $("select").attr('disabled', 'disabled');
+                                $("textarea").attr('disabled', 'disabled');
+                            } else {
+                                $("input").removeAttr('disabled');
+                            }
+                        });
+
 </script>
+
+<!--Print Section-->
+<div id="ext-first-off-print" class="print-hidden">
+    <center>
+        <table>
+            <tr>
+                <td width="90%" style="text-align: center;"><h2>Ext First Off DFS</h2></td>
+                <td><?php echo $this->Html->image('logo-print.jpg', array('alt' => 'logo', 'height' => '100')); ?></td>
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="15%"><label>M/C No.:P/Q/E/K/NQ</label></td>
+                <td width="25%">_____________________________________</td>
+                <td width="65%">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><label>Product Name:</label></td>
+                <td>_____________________________________</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><label>Sap Code:</label></td>
+                <td>_____________________________________</td>
+            </tr>
+            <tr>
+                <td><label>Previous Product:</label></td>
+                <td><?php echo $this->Form->value('previous_product'); ?></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><label>Date : Time</label></td>
+                <td>___________________ : _________________</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3">                                            
+                    <div style="display: inline-block; border: 1px solid silver; width: 20px; height: 20px;"></div>                        
+                    <label style="margin-right: 20px; "> - Start Up</label>            
+                    <div style="display: inline-block; border: 1px solid silver; width: 20px; height: 20px;"></div>
+                    <label style="margin-right: 20px; margin-left: 15px;"> - Change Order</label>
+                    <div style="display: inline-block; border: 1px solid silver; width: 20px; height: 20px;"></div>
+                    <label style="margin-right: 20px; margin-left: 15px;"> - Change Cylinder (Previous Eyemark _________________)</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">                                            
+                    <div style="display: inline-block; border: 1px solid silver; width: 20px; height: 20px;"></div>                        
+                    <label style="margin-right: 20px; "> - Start Up</label>            
+                    <div style="display: inline-block; border: 1px solid silver; width: 20px; height: 20px;"></div>
+                    <label style="margin-right: 20px; margin-left: 15px; background-color: yellow;"> - All previous product, packaging material, displays and specs have been removed </label>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="text-center color-td" colspan="4"><label>DIMENSION</label></td>
+            </tr>
+            <tr>
+                <td width="25%" class="text-center"><label>DESCRIPTION</label></td>
+                <td width="30%" class="text-center"><label>SPECIFICATION</label></td>
+                <td width="20%" class="text-center"><label>START UP SAMPLE RESULT</label></td>
+                <td width="25%" class="text-center"><label>MASS PRODUCTION SAMPLE RESULT</label></td>
+            </tr>
+            <tr>
+                <td><label>CYLINDER CIRC. (mm) </label></td>
+                <td><?php echo $this->Form->value('cylinder_circ_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>REPEAT PRINT  (mm) </label></td>
+                <td><?php echo $this->Form->value('repeat_print_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>GUSSET  (mm) </label></td>
+                <td><?php echo $this->Form->value('gusset_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>MIDDLE (mm)</label></td>
+                <td><?php echo $this->Form->value('middle_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>CLOSED WIDTH (mm)</label></td>
+                <td><?php echo $this->Form->value('closed_width_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>OPEN WIDTH (mm)</label></td>
+                <td><?php echo $this->Form->value('open_width_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="text-center color-td" colspan="4"><label>FILM PROPERTIES</label></td>
+            </tr>
+            <tr>
+                <td><label>FILM TYPE</label></td>
+                <td><?php echo $this->Form->value('film_type_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>FILM COLOR</label></td>
+                <td><?php echo $this->Form->value('film_color_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>HAND BURST</label></td>
+                <td><label>/X</label></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>FILM PULL TEST</label></td>
+                <td><label>/X</label></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>TEARING TEST (by hand)</label></td>
+                <td><label>/X</label></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>EMBOSSED</label></td>
+                <td><?php echo $this->Form->value('embossed_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="text-center color-td" colspan="4"><label>PROCESSING CONTROLS</label></td>
+            </tr>
+            <tr>
+                <td><label>WT/METER (g)</label></td>
+                <td><?php echo $this->Form->value('wt_meter_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>SCREW (rpm)</label></td>
+                <td><?php echo $this->Form->value('screw_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>TAKE UP SPEED (meter / min)</label></td>
+                <td><?php echo $this->Form->value('take_up_speed_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="text-center color-td" colspan="4"><label>FILM APPEARANCE</label></td>
+            </tr>
+            <tr>
+                <td><label>1- GELS</label></td>
+                <td><?php echo $this->Form->value('gels_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>2- MELT FRACTURE</label></td>
+                <td><?php echo $this->Form->value('metal_fracture_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>3- DIE LINE/MATERIAL LINE</label></td>
+                <td><?php echo $this->Form->value('die_line_specification'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><?php echo $this->Form->value('film_appearance_one'); ?></td>
+                <td><?php echo $this->Form->value('film_appearance_two'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><?php echo $this->Form->value('film_appearance_three'); ?></td>
+                <td><?php echo $this->Form->value('film_appearance_four'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <br/>
+        <div class="col-lg-12">
+            <div style="text-align: left;"><h4>Artwork Details</h4></div>
+            <div class="panel fresh-color panel-default">                                    
+                <div style="height: 415px;" class="panel-body text-center">
+                    <?php
+                    if ($this->request->data['QfExtFirstOffDetail']['artwork_detail'] == '') {
+                        echo 'No preview available';
+                    } else {
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfExtFirstOffDetail']['artwork_detail'] . '" width="1000" height="370">';
+                    }
+                    ?>
+                </div>                
+            </div>
+            <div style="text-align: left;">
+                <div style="display: inline-block; border: 1px solid silver; width: 20px; height: 20px;"></div>
+                <label style="margin-right: 20px; margin-left: 15px; background-color: yellow;"> --	All previous product artwork, inks and solvents (where applicable) have been removed.</label>
+            </div>
+        </div>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="text-center color-td" colspan="4"><label>PRINTING DETAILS</label></td>
+            </tr>
+            <tr>
+                <td width="25%" class="text-center"><label>PANTONE</label></td>
+                <td width="30%" class="text-center"><label>VISCOSITY</label></td>
+                <td width="20%" class="text-center"><label>START UP SAMPLE RESULT</label></td>
+                <td width="25%" class="text-center"><label>MASS PRODUCTION SAMPLE RESULT</label></td>
+            </tr>
+            <tr>
+                <td><?php echo $this->Form->value('pantone_one'); ?></td>
+                <td><?php echo $this->Form->value('viscosity_one'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><?php echo $this->Form->value('pantone_two'); ?></td>
+                <td><?php echo $this->Form->value('viscosity_two'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><?php echo $this->Form->value('pantone_three'); ?></td>
+                <td><?php echo $this->Form->value('viscosity_three'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><?php echo $this->Form->value('pantone_four'); ?></td>
+                <td><?php echo $this->Form->value('viscosity_four'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><?php echo $this->Form->value('pantone_five'); ?></td>
+                <td><?php echo $this->Form->value('viscosity_five'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><?php echo $this->Form->value('pantone_six'); ?></td>
+                <td><?php echo $this->Form->value('viscosity_six'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="4" class="color-td text-center"><label>ARTWORK DETAILS</label></td>
+            </tr>
+            <tr>
+                <td><label>CHECK AGAINST ARTWORK</label></td>
+                <td class="text-center"><label>/X</label></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><label>BARCODE NO. (Scanable) </label></td>
+                <td><?php echo $this->Form->value('barcode_no'); ?></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="text-center color-td" colspan="8"><label>PRINT ADHESION TESTING</label></td>
+            </tr>
+            <tr>
+                <td width="25%" colspan="2" class="text-center" colspan="2"><label>DESCRIPTION</label></td>
+                <td width="30%" colspan="2" class="text-center"><label>SPECIFICATION</label></td>
+                <td width="20%" colspan="2" class="text-center"><label>START UP SAMPLE RESULT</label></td>
+                <td width="25%" colspan="2" class="text-center"><label>MASS PRODUCTION SAMPLE RESULT</label></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>TREATMENT</label></td>
+                <td colspan="2" class="text-center"><label>/X</label></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>TAPE TEST</label></td>
+                <td colspan="2" class="text-center"><label>/X</label></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td class="text-center color-td" colspan="8"><label>LAB TEST RESULTS</label></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>RUB TEST</label></td>
+                <td colspan="2"><?php echo $this->Form->value('rub_test'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>THICKNESS <small>(µm)</small></label></td>
+                <td colspan="2"><?php echo $this->Form->value('thickness'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>OPACITY <small>(%)</small></label></td>
+                <td colspan="2"><?php echo $this->Form->value('opacity'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td rowspan="2"><label>TEAR STRENGTH <small>(mN)</small></label></td>
+                <td><label>MD</label></td>
+                <td colspan="2"><?php echo $this->Form->value('tear_strength_md'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td><label>CD</label></td>
+                <td colspan="2"><?php echo $this->Form->value('tear_strength_cd'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td rowspan="2"><label>TENSILE STRENGTH <small>(N/15mm)</small></label></td>
+                <td><label>MD</label></td>
+                <td colspan="2"><?php echo $this->Form->value('tensile_strength_md'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td><label>CD</label></td>
+                <td colspan="2"><?php echo $this->Form->value('tensile_strength_cd'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td rowspan="2"><label>ELONGATION<small>(%)</small></label></td>
+                <td><label>MD</label></td>
+                <td colspan="2"><?php echo $this->Form->value('elongation_md'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td><label>CD</label></td>
+                <td colspan="2"><?php echo $this->Form->value('elongation_cd'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>TENSILE STRENGTH CD <small>(mm2)</small></label></td>
+                <td colspan="2"><?php echo $this->Form->value('tensile_strength_cd_mml'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>Elongation <small>(%)</small></label></td>
+                <td colspan="2"><?php echo $this->Form->value('elongation'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label>IMPACT STRENGTH <small>(g)</small></label></td>
+                <td><?php echo $this->Form->value('impact_strength_one'); ?></td>
+                <td><?php echo $this->Form->value('impact_strength_two'); ?></td>
+                <td><?php echo $this->Form->value('impact_strength_three'); ?></td>
+                <td><?php echo $this->Form->value('impact_strength_four'); ?></td>
+                <td><?php echo $this->Form->value('impact_strength_five'); ?></td>
+                <td><?php echo $this->Form->value('impact_strength_six'); ?></td>
+            </tr>
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="text-center color-td" colspan="4"><label>PRINT ADHESION TESTING</label></td>
+                <td width="20%" style="text-align: center;"><label>Verified By</label></td>
+            </tr>
+            <tr>
+                <td width="20%" class="text-center"><label>Material Type</label></td>
+                <td width="20%" class="text-center"><label>KG</label></td>
+                <td width="20%" class="text-center"><label>Qty (bag)</label></td>
+                <td width="20%" class="text-center"><label>Percentage (%)</label></td>                
+                <td width="20%" class="text-center" rowspan="12">&nbsp;</td>                
+            </tr>
+            <tr>
+                <td style="height: 10px;">&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>                
+            </tr>
+            <tr>
+                <td style="height: 10px;">&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="height: 10px;">&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="height: 10px;">&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="height: 10px;">&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="height: 10px;">&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="height: 10px;">&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="height: 10px;">&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="height: 10px;">&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="height: 10px;">&nbsp;</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr style="background: #EEE;">
+                <td style="height: 10px;"><label><b>Quantity</b></label></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <br/>
+        <div class="col-lg-12" style="text-align: left;">
+            <div style="display: inline-block; border: 1px solid silver; width: 30px; height: 30px;"></div>
+            <label style="margin-right: 20px; margin-left: 15px; background-color: yellow;"> All previous product, packaging material, displays and specs inks and solvents (where applicable) have been removed prior to running of the next production.</label>
+        </div>
+        <br/>
+        <table width="100%">
+            <tr>
+            <td width="45%">
+                <table cellpadding="0" cellspacing="0" class="tabprint">
+                    <tr>
+                        <td class="text-center color-td" colspan="3"><label>PRODUCTION APPROVAL</label></td>
+                    </tr>
+                    <tr>
+                        <td width="33%" class="text-center color-td"><label>Leader(Initiation)</label></td>
+                        <td width="33%" class="text-center color-td"><label>Pre-Authorization</label></td>
+                        <td class="text-center color-td"><label>Final Authorization</label></td>
+                    </tr>
+                    <tr>
+                        <td style="height: 50px;"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left" style="height: 30px;"><label>Date:</label></td>
+                        <td class="text-left" style="height: 30px;"><label>Date:</label></td>
+                        <td class="text-left" style="height: 30px;"><label>Date:</label></td>
+                    </tr>
+                </table>
+                <br/>
+                <div><label>Sample Bag Attachment</label></div>
+                <div class="panel fresh-color panel-default">                                    
+                    <div style="height: 215px;" class="panel-body text-center">
+                        <?php
+                        if ($this->request->data['QfExtFirstOffDetail']['sample_bag_attachment'] == '') {
+                            echo 'No preview available';
+                        } else {
+                            echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfExtFirstOffDetail']['sample_bag_attachment'] . '" width="400" height="180">';
+                        }
+                        ?>
+                    </div>                   
+                </div>                                
+                <label>ORIGINAL: QA FILE – CONTROLLED COPY: DISPLAY </label><br/>
+                <label>Last Revision Date:</label>
+            </td>
+            <td width="10%"></td>
+            <td width="45%" style="vertical-align: top;">
+                <table cellpadding="0" cellspacing="0" class="tabprint">
+                    <tr>
+                        <td class="text-center color-td" colspan="3"><label>QA DEPARTMENT APPROVAL</label></td>
+                    </tr>
+                    <tr>
+                        <td width="33%" class="text-center color-td"><label>Leader(Initiation)</label></td>
+                        <td width="33%" class="text-center color-td"><label>Pre-Authorization</label></td>
+                        <td class="text-center color-td"><label>Final Authorization</label></td>
+                    </tr>
+                    <tr>
+                        <td style="height: 50px;"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left" style="height: 30px;"><label>Date:</label></td>
+                        <td class="text-left" style="height: 30px;"><label>Date:</label></td>
+                        <td class="text-left" style="height: 30px;"><label>Date:</label></td>
+                    </tr>
+                </table>
+                <br/>
+                <div class="form-group pull-right">
+                    <label class="col-sm-4 control-label">Version:</label>
+                    <div class="col-sm-8">
+                        <?php echo $this->Form->value('version'); ?>
+                    </div>
+                </div>
+            </td>
+            </tr>
+        </table>
+    </center>
+</div>
+<!--Print Section-->
