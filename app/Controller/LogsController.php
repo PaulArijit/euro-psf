@@ -21,7 +21,7 @@ class LogsController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Log->recursive = 0;
+		$this->Log->recursive = 1;
 		$this->set('logs', $this->Paginator->paginate());
 	}
 

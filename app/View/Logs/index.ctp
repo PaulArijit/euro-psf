@@ -1,6 +1,6 @@
 <div class="logs index">
 	<h2><?php echo __('Logs'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" class="table table-bordered">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -10,27 +10,32 @@
 			<th><?php echo $this->Paginator->sort('new_data'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
 	<?php foreach ($logs as $log): ?>
-	<tr>
-		<td><?php echo h($log['Log']['id']); ?>&nbsp;</td>
-		<td><?php echo h($log['Log']['table_name']); ?>&nbsp;</td>
-		<td><?php echo h($log['Log']['field_name']); ?>&nbsp;</td>
-		<td><?php echo h($log['Log']['old_data']); ?>&nbsp;</td>
-		<td><?php echo h($log['Log']['new_data']); ?>&nbsp;</td>
-		<td><?php echo h($log['Log']['created']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($log['User']['id'], array('controller' => 'users', 'action' => 'view', $log['User']['id'])); ?>
-		</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $log['Log']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $log['Log']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $log['Log']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $log['Log']['id']))); ?>
-		</td>
-	</tr>
+        <?php $rowspan = sizeof($log['LogField']) ; ?>
+
+        <?php foreach ($log['LogField'] as $key => $logField): ?>
+        <tr>
+                    <?php if ($key == 0) : ?>
+                        <td rowspan="<?php echo $rowspan ?>"><?php echo h($log['Log']['id']); ?>&nbsp;</td>
+                        <td rowspan="<?php echo $rowspan ?>"><?php echo h($log['Log']['table_name']); ?>&nbsp;</td>
+                    <?php endif;?>
+                    
+                    <td><?php echo h($logField['field_name']); ?>&nbsp;</td>
+                    <td><?php echo h($logField['old_value']); ?>&nbsp;</td>
+                    <td><?php echo h($logField['new_value']); ?>&nbsp;</td>
+                    
+                    <?php if ($key == 0) : ?>
+                        <td rowspan="<?php echo $rowspan ?>"><?php echo h($log['Log']['created']); ?>&nbsp;</td>
+                        <td rowspan="<?php echo $rowspan ?>">
+                                <?php echo $this->Html->link($log['User']['id'], array('controller' => 'users', 'action' => 'view', $log['User']['id'])); ?>
+                        </td>
+                    <?php endif;?>
+                </tr>
+            <?php endforeach; ?>
+        
 <?php endforeach; ?>
 	</tbody>
 	</table>
@@ -56,3 +61,4 @@
 		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?php //pr($logs); ?>

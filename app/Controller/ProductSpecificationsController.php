@@ -182,8 +182,17 @@ class ProductSpecificationsController extends AppController {
                 unset($this->request->data['ProductSpecification']['label_artwork']);
             }
 
-
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->ProductSpecification->findById($this->request->data['ProductSpecification']['id']);
+            ////////
+            
             if ($this->ProductSpecification->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'ProductSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The product specification has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {
@@ -222,5 +231,4 @@ class ProductSpecificationsController extends AppController {
         }
         return $this->redirect(array('action' => 'index'));
     }
-
 }
