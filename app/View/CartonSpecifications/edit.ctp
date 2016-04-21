@@ -59,6 +59,18 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="row">
+                            <div class="col-lg-8"></div>
+                            <div class="col-lg-4 text-right">
+                                <?php if ($this->Session->read('Auth.User.role') == 100) { ?>
+                                    <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Carton Specification</a>
+                                <?php } else if ($this->Session->read('Auth.User.role') == 1) { ?>
+                                    <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Carton Specification</a>                                    
+                                <?php } else if ($this->Session->read('Auth.User.role') == 2) { ?>
+
+                                <?php } ?>                                
+                            </div>
+                        </div>
+                        <div class="row">
                             <?php echo $this->Form->create('CartonSpecification'); ?>
                             <?php echo $this->Form->input('id'); ?>
                             <?php echo $this->Form->input('item_id', array('type' => 'hidden')); ?>
@@ -94,7 +106,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                 <div class="panel fresh-color panel-success">
                                     <div class="panel-heading text-center">User</div>
                                     <div class="panel-body text-center">
-                                        <?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE, 'readonly' => TRUE)); ?>
+                                        <?php echo $this->Form->input('npi', array('class' => 'form-control', 'label' => FALSE)); ?>
                                     </div>
                                 </div>
                             </div>
@@ -269,18 +281,23 @@ $category = $conf_categories[$this->request->data['Item']['category']];
     </center>
 </div>
 <!--Print Section-->
-<!--disabled text for user2-->
-<input style="display: none;" id="role_val" type="text" value="<?php echo $this->Session->read('Auth.User.role'); ?>"/>
+
 <script type="text/javascript">
-                        $(document).ready(function() {
-                            if ($('#role_val').val() == 2) {
-                                $("input").attr('disabled', 'disabled');
-                                $("input[type=file]").attr('disabled', 'disabled');
-                                $("textarea").attr('disabled', 'disabled');
-                            } else {
-                                $("input").removeAttr('disabled');
-                            }
-                        });
+       /********For View**********/
+        $("input").attr("disabled", true);
+        $("textarea").attr("disabled", true);
+        $("select").attr("disabled", true);
+        $('button').attr('disabled', true);
+         $('input#file').attr('disabled', true);
+         
+    $('#editForm').on('click', function(){
+        $('input').removeAttr('disabled');
+        $('textarea').removeAttr('disabled');
+        $('select').removeAttr('disabled');
+        $('input#file').removeAttr('disabled');
+        $('#CartonSpecificationNpi').attr("disabled", true);
+        $('button').removeAttr('disabled');
+    });     
 
 </script>
 

@@ -61,6 +61,18 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="row">
+                            <div class="col-lg-8"></div>
+                            <div class="col-lg-4 text-right">
+                                <?php if ($this->Session->read('Auth.User.role') == 100) { ?>
+                                    <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Qf First Off Details</a>
+                                <?php } else if ($this->Session->read('Auth.User.role') == 1) { ?>
+                                    <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Qf First Off Details</a>                                    
+                                <?php } else if ($this->Session->read('Auth.User.role') == 2) { ?>
+
+                                <?php } ?>                                
+                            </div>
+                        </div>
+                        <div class="row">
                             <?php echo $this->Form->create('QfFirstOffDetail', array('enctype' => 'multipart/form-data')); ?>
                             <?php echo $this->Form->input('id'); ?>
                             <?php echo $this->Form->input('item_id', array('type' => 'hidden')); ?>
@@ -644,21 +656,6 @@ $imgdirPath = 'app/webroot/img/uploaded/';
         </div>
     </div>
 </div>
-
-<!--disabled text for user2-->
-<input style="display: none;" id="role_val" type="text" value="<?php echo $this->Session->read('Auth.User.role'); ?>"/>
-<script type="text/javascript">
-                        $(document).ready(function() {
-                            if ($('#role_val').val() == 2) {
-                                $("input").attr('disabled', 'disabled');
-                                $("input[type=file]").attr('disabled', 'disabled');
-                                $("select").attr('disabled', 'disabled');
-                                $("textarea").attr('disabled', 'disabled');
-                            } else {
-                                $("input").removeAttr('disabled');
-                            }
-                        });
-</script>
 
 <!--Print Section-->
 <div id="first-off-details-print" class="print-hidden">
@@ -1244,3 +1241,20 @@ $imgdirPath = 'app/webroot/img/uploaded/';
     </center>
 </div>
 <!--Print Section-->
+<script type="text/javascript">
+       /********For View**********/
+        $("input").attr("disabled", true);
+        $("textarea").attr("disabled", true);
+        $("select").attr("disabled", true);
+        $('button').attr('disabled', true);
+         $('input#file').attr('disabled', true);
+         
+    $('#editForm').on('click', function(){
+        $('input').removeAttr('disabled');
+        $('textarea').removeAttr('disabled');
+        $('select').removeAttr('disabled');
+        $('input#file').removeAttr('disabled');
+        $('button').removeAttr('disabled');
+    });     
+
+</script>

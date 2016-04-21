@@ -59,6 +59,18 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="row">
+                            <div class="col-lg-8"></div>
+                            <div class="col-lg-4 text-right">
+                                <?php if ($this->Session->read('Auth.User.role') == 100) { ?>
+                                    <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit BM Quality Report</a>
+                                <?php } else if ($this->Session->read('Auth.User.role') == 1) { ?>
+                                    <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit BM Quality Report</a>                                    
+                                <?php } else if ($this->Session->read('Auth.User.role') == 2) { ?>
+
+                                <?php } ?>                                
+                            </div>
+                        </div>
+                        <div class="row">
                             <?php echo $this->Form->create('QfBmQualityReportDetail'); ?>
                             <?php echo $this->Form->input('id'); ?>
                             <?php echo $this->Form->input('item_id', array('type' => 'hidden')); ?>
@@ -582,10 +594,10 @@ $category = $conf_categories[$this->request->data['Item']['category']];
 <!--Print Section-->
 <div id="bm-quality-report-print" class="print-hidden">
     <center>        
-        <table>
+        <table cellpadding="0" cellspacing="0">
             <tr>
                 <td width="90%" style="text-align: center;"><h2>BM Quality Report Specification</h2></td>
-                <td><?php echo $this->Html->image('logo-print.jpg', array('alt' => 'logo', 'height' => '100')); ?></td>
+                <td><?php echo $this->Html->image('logo-print.jpg', array('alt' => 'logo', 'height' => '50')); ?></td>
             </tr>
         </table>
         <br/>
@@ -594,16 +606,16 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td style="width: 100%; border: 1px solid silver;">
                     <table cellpadding="0" cellspacing="0">
                         <tr>
-                            <td width="20%" style="text-align: center; background: #EEE;">Product Description:</td>
-                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['description']; ?></td>
+                            <td width="20%" style="text-align: center; background: #EEE; font-size: 11px;">Product Description:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px; font-size: 9px;"><?php echo $this->request->data['Item']['description']; ?></td>
                         </tr>
                         <tr>
-                            <td width="20%" style="text-align: center; background: #EEE;">Product Category:</td>
-                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $category; ?></td>
+                            <td width="20%" style="text-align: center; background: #EEE; font-size: 11px;">Product Category:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px; font-size: 9px;"><?php echo $category; ?></td>
                         </tr>
                         <tr>
-                            <td width="20%" style="text-align: center; background: #EEE;">Sapcode:</td>
-                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->request->data['Item']['sapcode']; ?></td>
+                            <td width="20%" style="text-align: center; background: #EEE; font-size: 11px;">Sapcode:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px; font-size: 9px;"><?php echo $this->request->data['Item']['sapcode']; ?></td>
                         </tr>                   
                     </table>
                 </td>           
@@ -1074,8 +1086,8 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             <td></td>                                        
                         </tr>
                         <tr>
-                            <td class="text-left" style="height: 30px;"><label>Date:</label></td>
-                            <td class="text-left" style="height: 30px;"><label>Date:</label></td>
+                            <td class="text-left" style="height: 15px;"><label>Date:</label></td>
+                            <td class="text-left" style="height: 15px;"><label>Date:</label></td>
                         </tr>
                     </table> 
                 </td>
@@ -1094,8 +1106,8 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             <td></td>
                         </tr>
                         <tr>
-                            <td class="text-left" style="height: 30px;"><label>Date:</label></td>
-                            <td class="text-left" style="height: 30px;"><label>Date:</label></td>
+                            <td class="text-left" style="height: 15px;"><label>Date:</label></td>
+                            <td class="text-left" style="height: 15px;"><label>Date:</label></td>
                         </tr>
                     </table> 
                 </td>
@@ -1119,16 +1131,20 @@ $category = $conf_categories[$this->request->data['Item']['category']];
     </center>
 </div>
 <!--Print Section-->
-<!--disabled text for user2-->
-<input style="display: none;" id="role_val" type="text" value="<?php echo $this->Session->read('Auth.User.role'); ?>"/>
 <script type="text/javascript">
-                        $(document).ready(function() {
-                            if ($('#role_val').val() == 2) {
-                                $("input").attr('disabled', 'disabled');
-                                $("textarea").attr('disabled', 'disabled');
-                            } else {
-                                $("input").removeAttr('disabled');
-                            }
-                        });
+       /********For View**********/
+        $("input").attr("disabled", true);
+        $("textarea").attr("disabled", true);
+        $("select").attr("disabled", true);
+        $('button').attr('disabled', true);
+         $('input#file').attr('disabled', true);
+         
+    $('#editForm').on('click', function(){
+        $('input').removeAttr('disabled');
+        $('textarea').removeAttr('disabled');
+        $('select').removeAttr('disabled');
+        $('input#file').removeAttr('disabled');
+        $('button').removeAttr('disabled');
+    });     
 
 </script>

@@ -61,6 +61,18 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="row">
+                            <div class="col-lg-8"></div>
+                            <div class="col-lg-4 text-right">
+                                <?php if ($this->Session->read('Auth.User.role') == 100) { ?>
+                                    <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Product Specification</a>
+                                <?php } else if ($this->Session->read('Auth.User.role') == 1) { ?>
+                                    <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Product Specification</a>                                    
+                                <?php } else if ($this->Session->read('Auth.User.role') == 2) { ?>
+
+                                <?php } ?>                                
+                            </div>
+                        </div>
+                        <div class="row">
                             <?php echo $this->Form->create('ProductSpecification', array('enctype' => 'multipart/form-data')); ?>
                             <?php
                             echo $this->Form->input('id');
@@ -594,14 +606,13 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                     if ($this->request->data['ProductSpecification']['additional_information'] == '') {
                         echo 'No preview available';
                     } else {
-                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['additional_information'] . '" width="300" height="370">';
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['additional_information'] . '" width="300" height="280">';
                     }
                     ?>
                 </td>
             </tr>
         </table>
         <br/>
-<!--        <div style="page-break-after:always"></div>-->
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <td width="75%">
@@ -657,13 +668,13 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                     if ($this->request->data['ProductSpecification']['bag_artwork'] == '') {
                         echo 'No preview available';
                     } else {
-                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['bag_artwork'] . '" width="300" height="350">';
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['bag_artwork'] . '" width="300" height="250">';
                     }
                     ?>
                 </td>
             </tr>
         </table>
-        <br/>
+        <div style="page-break-after:always"></div>
         <table class="tabprint" cellpadding="0" cellspacing="0">
             <tr>
                 <td colspan="2">
@@ -754,17 +765,21 @@ $imgdirPath = 'app/webroot/img/uploaded/';
     </center>
 </div>
 <!--Print Section-->
-<!--disabled text for user2-->
-<input style="display: none;" id="role_val" type="text" value="<?php echo $this->Session->read('Auth.User.role'); ?>"/>
 <script type="text/javascript">
-    $(document).ready(function() {
-        if($('#role_val').val() == 2){
-            $("input").attr('disabled','disabled');
-            $("input[type=file]").attr('disabled','disabled');
-            $("textarea").attr('disabled','disabled');
-        }else{
-            $("input").removeAttr('disabled');
-        }
-    });
-    
+       /********For View**********/
+        $("input").attr("disabled", true);
+        $("textarea").attr("disabled", true);
+        $("select").attr("disabled", true);
+        $('button').attr('disabled', true);
+         $('input#file').attr('disabled', true);
+         
+    $('#editForm').on('click', function(){
+        $('input').removeAttr('disabled');
+        $('textarea').removeAttr('disabled');
+        $('select').removeAttr('disabled');
+        $('input#file').removeAttr('disabled');
+        $('#ProductSpecificationPreparedBy').attr("disabled", true);
+        $('button').removeAttr('disabled');
+    });     
+
 </script>
