@@ -74,7 +74,18 @@ class LabelSpecificationsController extends AppController {
             throw new NotFoundException(__('Invalid label specification'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->LabelSpecification->findById($this->request->data['LabelSpecification']['id']);
+            ////////
+            
             if ($this->LabelSpecification->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'LabelSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The label specification has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {

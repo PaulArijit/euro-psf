@@ -91,7 +91,17 @@ class QfExtFirstOffDetailsController extends AppController {
                 unset($this->request->data['QfExtFirstOffDetail']['sample_bag_attachment']);
             }
             
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->QfExtFirstOffDetail->findById($this->request->data['QfExtFirstOffDetail']['id']);
+            ////////
+            
             if ($this->QfExtFirstOffDetail->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'QfExtFirstOffDetail', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The qf ext first off detail has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {

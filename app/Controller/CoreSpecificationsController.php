@@ -74,7 +74,18 @@ class CoreSpecificationsController extends AppController {
             throw new NotFoundException(__('Invalid core specification'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->CoreSpecification->findById($this->request->data['CoreSpecification']['id']);
+            ////////
+            
             if ($this->CoreSpecification->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'CoreSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The core specification has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {

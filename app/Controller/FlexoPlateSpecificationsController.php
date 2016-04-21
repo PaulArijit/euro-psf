@@ -74,7 +74,18 @@ class FlexoPlateSpecificationsController extends AppController {
             throw new NotFoundException(__('Invalid flexo plate specification'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->FlexoPlateSpecification->findById($this->request->data['FlexoPlateSpecification']['id']);
+            ////////
+            
             if ($this->FlexoPlateSpecification->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'FlexoPlateSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The flexo plate specification has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {

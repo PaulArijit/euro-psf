@@ -74,7 +74,18 @@ class QfBmQualityReportDetailsController extends AppController {
             throw new NotFoundException(__('Invalid qf bm quality report detail'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->QfBmQualityReportDetail->findById($this->request->data['QfBmQualityReportDetail']['id']);
+            ////////
+            
             if ($this->QfBmQualityReportDetail->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'QfBmQualityReportDetail', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The qf bm quality report detail has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {

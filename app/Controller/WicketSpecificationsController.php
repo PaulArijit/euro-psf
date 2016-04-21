@@ -74,7 +74,18 @@ class WicketSpecificationsController extends AppController {
             throw new NotFoundException(__('Invalid wicket specification'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->WicketSpecification->findById($this->request->data['WicketSpecification']['id']);
+            ////////
+            
             if ($this->WicketSpecification->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'WicketSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The wicket specification has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {

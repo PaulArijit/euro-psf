@@ -74,7 +74,18 @@ class KnifeSpecificationsController extends AppController {
             throw new NotFoundException(__('Invalid knife specification'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->KnifeSpecification->findById($this->request->data['KnifeSpecification']['id']);
+            ////////
+            
             if ($this->KnifeSpecification->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'KnifeSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The knife specification has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {

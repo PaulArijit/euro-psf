@@ -74,7 +74,18 @@ class CartonSpecificationsController extends AppController {
             throw new NotFoundException(__('Invalid carton specification'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->CartonSpecification->findById($this->request->data['CartonSpecification']['id']);
+            ////////
+            
             if ($this->CartonSpecification->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'CartonSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The carton specification has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {

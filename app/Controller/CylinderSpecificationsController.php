@@ -74,7 +74,18 @@ class CylinderSpecificationsController extends AppController {
             throw new NotFoundException(__('Invalid cylinder specification'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->CylinderSpecification->findById($this->request->data['CylinderSpecification']['id']);
+            ////////
+            
             if ($this->CylinderSpecification->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'CylinderSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The cylinder specification has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {

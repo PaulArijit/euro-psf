@@ -74,7 +74,18 @@ class QfPositiveReleaseDetailsController extends AppController {
             throw new NotFoundException(__('Invalid qf positive release detail'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->QfPositiveReleaseDetail->findById($this->request->data['QfPositiveReleaseDetail']['id']);
+            ////////
+            
             if ($this->QfPositiveReleaseDetail->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'QfPositiveReleaseDetail', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The qf positive release detail has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {

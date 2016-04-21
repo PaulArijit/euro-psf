@@ -74,7 +74,18 @@ class GrommetSpecificationsController extends AppController {
             throw new NotFoundException(__('Invalid grommet specification'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->GrommetSpecification->findById($this->request->data['GrommetSpecification']['id']);
+            ////////
+            
             if ($this->GrommetSpecification->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'GrommetSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The grommet specification has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {

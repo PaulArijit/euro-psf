@@ -74,7 +74,18 @@ class FussetSpecificationsController extends AppController {
             throw new NotFoundException(__('Invalid fusset specification'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            
+            //log//
+            $this->loadModel('Log');
+            $oldData = $this->FussetSpecification->findById($this->request->data['FussetSpecification']['id']);
+            ////////
+            
             if ($this->FussetSpecification->save($this->request->data)) {
+                
+                //log//
+                $this->Log->saveLog(['model' => 'FussetSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                /////////
+                
                 $this->Session->setFlash(__('The fusset specification has been saved.'), 'flash_success');
                 return $this->redirect(array('action' => 'edit', $itemId));
             } else {
