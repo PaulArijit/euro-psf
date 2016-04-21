@@ -151,6 +151,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                             </div>
                                         </div>
                                     </li>
+                                    <li>
+                                        <?php echo $this->Html->link('<span class="icon fa fa-edit"></span>' . '<span class="title">Log Report</span>', array('controller' => 'Logs', 'action' => 'index'), array('escape' => FALSE)); ?>
+                                    </li>
                                     <!-- Dropdown-->
                                     <li class="panel panel-default dropdown">
                                         <a data-toggle="collapse" href="#dropdown-user">

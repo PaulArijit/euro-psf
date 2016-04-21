@@ -25,7 +25,7 @@
                     
                     <td><?php echo h($logField['field_name']); ?>&nbsp;</td>
                     <td style="color: #cc0033"><?php echo h($logField['old_value']); ?>&nbsp;</td>
-                    <td style="color: #00cc66"><?php echo h($logField['new_value']); ?>&nbsp;</td>
+                    <td style="color: #009933"><?php echo h($logField['new_value']); ?>&nbsp;</td>
                     
                     <?php if ($key == 0) : ?>
                         <td rowspan="<?php echo $rowspan ?>"><?php echo h($log['Log']['created']); ?>&nbsp;</td>

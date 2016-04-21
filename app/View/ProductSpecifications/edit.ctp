@@ -431,7 +431,13 @@ $imgdirPath = 'app/webroot/img/uploaded/';
 <!--Print Section-->
 <div id="product-specification" class="print-hidden">
     <center>
-        <h2>Product Specification</h2>
+        <table>
+            <tr>
+                <td width="90%" style="text-align: center;"><h2>Product Specification</h2></td>
+                <td><?php echo $this->Html->image('logo-print.jpg', array('alt' => 'logo', 'height' => '100')); ?></td>
+            </tr>
+        </table>
+        <br/>
         <table style="width: 100%;" cellpadding="0" cellspacing="0">
             <tr>
                 <td style="width: 70%; border: 1px solid silver;">
@@ -595,7 +601,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>
         </table>
         <br/>
-        <div style="page-break-after:always"></div>
+<!--        <div style="page-break-after:always"></div>-->
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <td width="75%">
@@ -732,7 +738,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>
         </table>
         <br/>
-        <div style="page-break-after:always"></div>
+<!--        <div style="page-break-after:always"></div>-->
         <table class="tabprint" cellpadding="0" cellspacing="0">
             <tr>
                 <td valign="top" width="33%" height="150"><label>Authorized By :</label></td>

@@ -211,7 +211,13 @@ $category = $conf_categories[$this->request->data['Item']['category']];
 <!--Print Section-->
 <div id="flexo-plate-print" class="print-hidden">
     <center>
-        <h2>Flexo Plate Specification</h2>
+        <table>
+            <tr>
+                <td width="90%" style="text-align: center;"><h2>Flexo Plate Specification</h2></td>
+                <td><?php echo $this->Html->image('logo-print.jpg', array('alt' => 'logo', 'height' => '100')); ?></td>
+            </tr>
+        </table>
+        <br/>
         <table style="width: 100%;" cellpadding="0" cellspacing="0">
             <tr>
                 <td style="width: 70%; border: 1px solid silver;">
