@@ -829,15 +829,16 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>
         </table>
         <br/>
+        <div style="page-break-after:always"></div>
         <div class="col-lg-12">
             <div style="text-align: left;"><h4>Artwork Details</h4></div>
             <div class="panel fresh-color panel-default">                                    
-                <div style="height: 415px;" class="panel-body text-center">
+                <div style="height: 415px; border: 1px solid silver; padding: 5px;" class="panel-body text-center">
                     <?php
                     if ($this->request->data['QfExtFirstOffDetail']['artwork_detail'] == '') {
                         echo 'No preview available';
                     } else {
-                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfExtFirstOffDetail']['artwork_detail'] . '" width="1000" height="370">';
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfExtFirstOffDetail']['artwork_detail'] . '" width="90%" height="370">';
                     }
                     ?>
                 </div>                
@@ -1127,7 +1128,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                 <br/>
                 <div><label>Sample Bag Attachment</label></div>
                 <div class="panel fresh-color panel-default">                                    
-                    <div style="height: 215px;" class="panel-body text-center">
+                    <div style="height: 215px; border: 1px solid silver; padding: 5px;" class="panel-body text-center">
                         <?php
                         if ($this->request->data['QfExtFirstOffDetail']['sample_bag_attachment'] == '') {
                             echo 'No preview available';

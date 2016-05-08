@@ -520,7 +520,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
         <br/>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <td width="75%">
+                <td width="75%" valign="top">
                     <table class="tabprint" cellpadding="0" cellspacing="0">
                         <tr>
                             <th>Description</th>
@@ -600,13 +600,13 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                     </table>
                 </td>
                 <td width="5%"></td>
-                <td>
+                <td style="border: 1px solid silver; padding: 5px;">
                     <h3>Additional Information</h3>
                     <?php
                     if ($this->request->data['ProductSpecification']['additional_information'] == '') {
                         echo 'No preview available';
                     } else {
-                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['additional_information'] . '" width="300" height="280">';
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['additional_information'] . '" width="300" height="200">';
                     }
                     ?>
                 </td>
@@ -615,11 +615,11 @@ $imgdirPath = 'app/webroot/img/uploaded/';
         <br/>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <td width="75%">
+                <td width="75%" valign="top">
                     <table class="tabprint" cellpadding="0" cellspacing="0">								
                         <tr>
                             <td><label>Packing Type - ie Carton/Vac Pack</label></td>
-                            <td><?php echo $this->Form->value('packing_type'); ?></td>
+                            <td width="70"><?php echo $this->Form->value('packing_type'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Case Quantity (pcs)</label></td>
@@ -654,46 +654,49 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                             <td><?php echo $this->Form->value('palletize_loading_required'); ?></td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="2" height="60">
                                 <label>Applicable Regulations:</label>
+                                <br/>
                                 <?php echo $this->Form->value('aplicable_regulation'); ?>	
                             </td>									
                         </tr>								
                     </table>
                 </td>
                 <td width="5%"></td>
-                <td>
+                <td style="border: 1px solid silver; padding: 5px;">
                     <h3>Bag Artwork</h3>
                     <?php
                     if ($this->request->data['ProductSpecification']['bag_artwork'] == '') {
                         echo 'No preview available';
                     } else {
-                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['bag_artwork'] . '" width="300" height="250">';
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['bag_artwork'] . '" width="300" height="200">';
                     }
                     ?>
                 </td>
             </tr>
         </table>
         <div style="page-break-after:always"></div>
+        <br/>
+        <br/>
         <table class="tabprint" cellpadding="0" cellspacing="0">
             <tr>
-                <td colspan="2">
+                <td colspan="2" style="text-align: center; padding: 5px; height: 240px;">
                     <h3>Carton Artwork</h3>
                     <?php
                     if ($this->request->data['ProductSpecification']['ctn_artwork'] == '') {
                         echo 'No preview available';
                     } else {
-                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['ctn_artwork'] . '" width="350" height="235">';
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['ctn_artwork'] . '" width="300" height="235">';
                     }
                     ?>
                 </td>
-                <td colspan="2">
+                <td colspan="2" style="text-align: center; padding: 5px; height: 240px;">
                     <h3>Label Artwork</h3>
                     <?php
                     if ($this->request->data['ProductSpecification']['label_artwork'] == '') {
                         echo 'No preview available';
                     } else {
-                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['label_artwork'] . '" width="350" height="255">';
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['label_artwork'] . '" width="300" height="235">';
                     }
                     ?>
                 </td>

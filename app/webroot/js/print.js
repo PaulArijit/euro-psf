@@ -10,8 +10,8 @@ function printData(sourceId){
                     table.list th{font-size:13px;font-weight:bold;}\n\
                     table.list td,table.list th{border-right:1px dotted black;border-bottom:1px dotted black;}\n\
                     table.tabprint{border-left:1px solid silver;border-top:1px solid silver;}\n\
-                    table.tabprint th{font-size:11px;font-weight:bold;}\n\
-                    table.tabprint td{font-size:9px;font-weight:normal;}\n\
+                    table.tabprint th{font-size:13px;font-weight:bold;}\n\
+                    table.tabprint td{font-size:12px;font-weight:normal;}\n\
                     table.tabprint td,table.tabprint th{border-right:1px solid silver;border-bottom:1px solid silver; padding: 1px; vertical-align: top;}\n\
                     td.value{border-bottom:1px dotted silver;font-weight:bold;}\n\
                     table.prtlist{border-top:1px dotted silver;border-left:1px dotted silver;} \n\

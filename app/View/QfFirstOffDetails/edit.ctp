@@ -766,6 +766,9 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>
         </table>
         <br/>
+        <div style="page-break-after:always"></div>
+        <br/>
+        <br/>
         <table>
             <tr>
                 <td width="50%">
@@ -933,6 +936,9 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>
         </table>
         <br/>
+        <div style="page-break-after:always"></div>
+        <br/>
+        <br/>
         <div class="col-lg-12 col-md-12">
             <div><label>Knife Design</label></div>
             <div class="panel fresh-color panel-default">                                    
@@ -941,7 +947,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                     if ($this->request->data['QfFirstOffDetail']['knife_design'] == '') {
                         echo 'No preview available';
                     } else {
-                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['knife_design'] . '" width="1020" height="370">';
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['knife_design'] . '" width="1020" height="340">';
                     }
                     ?>
                 </div>
@@ -962,7 +968,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                     if ($this->request->data['QfFirstOffDetail']['artwork'] == '') {
                         echo 'No preview available';
                     } else {
-                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['artwork'] . '" width="1020" height="370">';
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['artwork'] . '" width="1020" height="340">';
                     }
                     ?>
                 </div>                
@@ -974,6 +980,9 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                 </div>
             </div>
         </div>
+        <br/>
+        <div style="page-break-after:always"></div>
+        <br/>
         <br/>
         <table cellpadding="0" cellspacing="0" class="tabprint">
             <tr>
