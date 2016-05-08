@@ -83,7 +83,7 @@ class CartonSpecificationsController extends AppController {
             if ($this->CartonSpecification->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'CartonSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'CartonSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The carton specification has been saved.'), 'flash_success');

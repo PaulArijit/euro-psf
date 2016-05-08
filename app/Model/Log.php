@@ -145,7 +145,7 @@ class Log extends AppModel {
     
     
     public function getAffectedFields($params) {
-        $affected = [];
+        $affected = array();
         $model = $params['model'];
         $AnotherModel = ClassRegistry::init($model);
         

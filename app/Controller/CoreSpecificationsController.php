@@ -83,7 +83,7 @@ class CoreSpecificationsController extends AppController {
             if ($this->CoreSpecification->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'CoreSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'CoreSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The core specification has been saved.'), 'flash_success');

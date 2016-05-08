@@ -83,7 +83,7 @@ class GrommetSpecificationsController extends AppController {
             if ($this->GrommetSpecification->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'GrommetSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'GrommetSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The grommet specification has been saved.'), 'flash_success');

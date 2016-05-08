@@ -83,7 +83,7 @@ class CylinderSpecificationsController extends AppController {
             if ($this->CylinderSpecification->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'CylinderSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'CylinderSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The cylinder specification has been saved.'), 'flash_success');

@@ -83,7 +83,7 @@ class WicketSpecificationsController extends AppController {
             if ($this->WicketSpecification->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'WicketSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'WicketSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The wicket specification has been saved.'), 'flash_success');

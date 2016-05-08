@@ -190,7 +190,7 @@ class ProductSpecificationsController extends AppController {
             if ($this->ProductSpecification->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'ProductSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'ProductSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The product specification has been saved.'), 'flash_success');

@@ -83,7 +83,7 @@ class KnifeSpecificationsController extends AppController {
             if ($this->KnifeSpecification->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'KnifeSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'KnifeSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The knife specification has been saved.'), 'flash_success');

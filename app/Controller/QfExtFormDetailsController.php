@@ -83,7 +83,7 @@ class QfExtFormDetailsController extends AppController {
             if ($this->QfExtFormDetail->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'QfExtFormDetail', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'QfExtFormDetail', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The qf ext form detail has been saved.'), 'flash_success');

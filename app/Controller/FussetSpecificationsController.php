@@ -83,7 +83,7 @@ class FussetSpecificationsController extends AppController {
             if ($this->FussetSpecification->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'FussetSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'FussetSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The fusset specification has been saved.'), 'flash_success');

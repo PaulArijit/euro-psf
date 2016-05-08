@@ -83,7 +83,7 @@ class QfBmQualityReportDetailsController extends AppController {
             if ($this->QfBmQualityReportDetail->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'QfBmQualityReportDetail', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'QfBmQualityReportDetail', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The qf bm quality report detail has been saved.'), 'flash_success');

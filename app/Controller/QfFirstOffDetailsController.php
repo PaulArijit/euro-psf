@@ -129,7 +129,7 @@ class QfFirstOffDetailsController extends AppController {
             if ($this->QfFirstOffDetail->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'QfFirstOffDetail', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'QfFirstOffDetail', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The qf first off detail has been saved.'), 'flash_success');

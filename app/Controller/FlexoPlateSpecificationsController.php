@@ -83,7 +83,7 @@ class FlexoPlateSpecificationsController extends AppController {
             if ($this->FlexoPlateSpecification->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'FlexoPlateSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'FlexoPlateSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The flexo plate specification has been saved.'), 'flash_success');

@@ -83,7 +83,7 @@ class LabelSpecificationsController extends AppController {
             if ($this->LabelSpecification->save($this->request->data)) {
                 
                 //log//
-                $this->Log->saveLog(['model' => 'LabelSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')]);
+                $this->Log->saveLog(array('model' => 'LabelSpecification', 'oldData' => $oldData, 'session' => $this->Session->read('Auth.User')));
                 /////////
                 
                 $this->Session->setFlash(__('The label specification has been saved.'), 'flash_success');
