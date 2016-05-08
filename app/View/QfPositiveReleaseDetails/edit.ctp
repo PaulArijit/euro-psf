@@ -57,7 +57,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                         <?php echo $this->element('tab_navigation'); ?>
                     </ul>    
                     <!-- Tab panes -->
-                    <div class="tab-content" id="qf-positive-release-details">
+                    <div class="tab-content">
                         <div class="row">
                             <div class="col-lg-8"></div>
                             <div class="col-lg-4 text-right">
@@ -586,7 +586,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
     </div>
 </div>
 <!--Print Section-->
-<!--<div id="qf-positive-release-details" class="print-hidden">
+<div id="qf-positive-release-details" class="print-hidden">
     <center>
         <table>
             <tr>
@@ -597,7 +597,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <div class="col-lg-12">
             <div class="panel panel-info">
                 <div class="panel-heading">SELF INSPECTION REPORT</div>
-                <div>
+                <div style="border: 1px solid silver; padding: 10px; text-align: left;">
                     <label>SUPPLIER / FACTORY :</label>_______________________________________<br/>
                     <label>PRODUCT NAME (THICKNESS) :</label>_________________________________<br/>
                     <label>PO NUMBER :</label>_______________________________________<br/>
@@ -611,7 +611,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <br/>
         <table class="tabprint" cellspacing="0" cellpadding="0">
             <tr>
-                <td class="text-center color-td" colspan="17"><label>PHYSICAL TEST</label></td>
+                <td class="text-center color-td" colspan="16"><label>PHYSICAL TEST</label></td>
             </tr>
             <tr class="lab-color-tr">
                 <td width="25%" colspan="2">&nbsp;</td>
@@ -628,8 +628,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td width="5%" class="text-center"><label>7</label></td>
                 <td width="5%" class="text-center"><label>8</label></td>
                 <td width="5%" class="text-center"><label>AVERAGE</label></td>
-                <td width="7%" class="text-center"><label>STD DEV</label></td>
-                <td width="3%" style="color: #00cc66;"><button class="noprint" id="showAllTr"><i class="fa fa-refresh"></i></button></td>
+                <td width="7%" class="text-center"><label>STD DEV</label></td>                
             </tr>
             <tr>
                 <td class="text-center lab-color-td" colspan="2"><label>Bag Weight</label></td>
@@ -647,7 +646,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
             </tr>
             <tr>
                 <td class="text-center lab-color-td" colspan="2"><label>Vacuum Pack Weight</label></td>
@@ -664,8 +662,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
+                <td></td>                
             </tr>
             <tr>
                 <td class="text-center lab-color-td" rowspan="2"><label>Thickness</label></td>
@@ -683,8 +680,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td rowspan="2" class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>                                        
+                <td></td>                                                        
             </tr>
             <tr>
                 <td class="text-center lab-color-td"><label>Spot Thickness</label></td>
@@ -718,8 +714,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
+                <td></td>                
             </tr>
             <tr>
                 <td class="text-center lab-color-td"><label>Dart impact</label></td>
@@ -737,8 +732,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
+                <td></td>                
             </tr>
             <tr>
                 <td class="text-center lab-color-td" rowspan="2"><label>Tensile Strength</label></td>
@@ -756,8 +750,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td rowspan="2" class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>                                        
+                <td></td>                                                       
             </tr>
             <tr>
                 <td class="text-center lab-color-td"><label>CD</label></td>
@@ -789,8 +782,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
+                <td></td>                
             </tr>
             <tr>
                 <td class="text-center lab-color-td" colspan="2"><label>Hot Pin Collection</label></td>
@@ -807,8 +799,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
+                <td></td>                
             </tr>
             <tr>
                 <td class="text-center lab-color-td" colspan="2"><label>Barcode Scanner</label></td>
@@ -823,8 +814,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
+                <td></td>                
             </tr>
             <tr>
                 <td class="text-center lab-color-td" rowspan="2"><label>Printing Perform</label></td>
@@ -840,8 +830,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td rowspan="2" class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>                                        
+                <td></td>                                                       
             </tr>
             <tr>
                 <td class="text-center lab-color-td"><label>Color Fastness</label></td>
@@ -859,7 +848,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
             </tr>
             <tr>
-                <td class="color-td text-center" colspan="17"><label>PERFORMANCE TEST</label></td>
+                <td class="color-td text-center" colspan="16"><label>PERFORMANCE TEST</label></td>
             </tr>
             <tr>
                 <td class="text-center lab-color-td"><label>Jog Test Intertek</label></td>
@@ -877,8 +866,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
+                <td></td>                
             </tr>
             <tr>
                 <td class="text-center lab-color-td" colspan="2"><label>Ultimate lift</label></td>
@@ -895,8 +883,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
+                <td></td>                
             </tr>
             <tr>
                 <td class="text-center lab-color-td" rowspan="6"><label>Bag Dimension</label></td>
@@ -914,8 +901,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td class="text-center" rowspan="6" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
+                <td></td>                
             </tr>
             <tr>
                 <td class="text-center lab-color-td"><label>Handle width</label></td>
@@ -1018,8 +1004,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td class="text-center" rowspan="3" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
+                <td></td>                
             </tr>
             <tr>
                 <td class="text-center lab-color-td"><label>Bottom Gusset Seal</label></td>
@@ -1060,7 +1045,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <table width="100%" cellpadding="0" cellspecing="0">
             <tr>
                 <td width="45%">
-                    <table class="positive-release-tab1" cellpadding="0" cellspacing="0">
+                    <table class="tabprint" cellpadding="0" cellspacing="0">
                         <tr>
                             <td>Inspected By:</td>
                             <td>Verified By:</td>
@@ -1077,7 +1062,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 </td>
                 <td width="10%"></td>
                 <td width="45%">
-                    <table class="positive-release-tab1" cellpadding="0" cellspacing="0">
+                    <table class="tabprint" cellpadding="0" cellspacing="0">
                         <tr>
                             <td>Received By:</label></td>
                             <td>Approved By:</td>
@@ -1095,7 +1080,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
             </tr>
         </table>
     </center>
-</div>-->
+</div>
 <!--Print Section-->
 <script type="text/javascript">
        /********For View**********/
@@ -1114,12 +1099,12 @@ $category = $conf_categories[$this->request->data['Item']['category']];
     });     
 
 </script>
-<script type="text/javascript">
+<!--<script type="text/javascript">
     $("#posReleaseTab").on('click', '.btnRemove', function() {
         $(this).closest('tr').toggle('slow');
     });
     $("#showAllTr").click(function() {
         $("#posReleaseTab tr").show();
     });
-</script>
+</script>-->
 

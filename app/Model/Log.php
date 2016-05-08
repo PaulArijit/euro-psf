@@ -81,6 +81,13 @@ class Log extends AppModel {
             'conditions' => '',
             'fields' => '',
             'order' => ''
+        ),
+        'Item' => array(
+            'className' => 'Item',
+            'foreignKey' => 'item_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
         )
     );
     
