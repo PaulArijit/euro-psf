@@ -1,4 +1,5 @@
 <?php
+
 $conf_categories = Configure::read('CATEGORY');
 $category = $conf_categories[$this->request->data['Item']['category']];
 
@@ -64,9 +65,9 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                             <div class="col-lg-8"></div>
                             <div class="col-lg-4 text-right">
                                 <?php if ($this->Session->read('Auth.User.role') == 100) { ?>
-                                    <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Product Specification</a>
+                                <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Product Specification</a>
                                 <?php } else if ($this->Session->read('Auth.User.role') == 1) { ?>
-                                    <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Product Specification</a>                                    
+                                <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Product Specification</a>                                    
                                 <?php } else if ($this->Session->read('Auth.User.role') == 2) { ?>
 
                                 <?php } ?>                                
@@ -235,17 +236,20 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                             <div class="col-lg-4">
                                 <div class="panel fresh-color panel-info">
                                     <div class="panel-heading text-center"><label>Additional Information</label></div>
-                                    <div style="height: 535px;"  class="panel-body text-center">
+                                    <div style="height: 200px;"  class="panel-body text-center">
                                         <?php
                                         if ($this->request->data['ProductSpecification']['additional_information'] == '') {
                                             echo 'No preview available';
                                         } else {
-                                            echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['additional_information'] . '" width="300" height="435">';
+                                            echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['additional_information'] . '" width="300" height="200">';
                                         }
                                         ?>
                                     </div>
                                     <div class="panel-footer text-center">
                                         <?php echo $this->Form->file('additional_information'); ?>
+                                    </div>
+                                    <div style="height: 200px;"  class="panel-body text-center">
+                                        <?php echo $this->Form->input('additional_text', array('class' => 'form-control', 'label' => FALSE)); ?>
                                     </div>
                                 </div>
                             </div>
@@ -434,11 +438,11 @@ $imgdirPath = 'app/webroot/img/uploaded/';
     </div>
 </div>
 <script type="text/javascript">
-                        $(document).ready(function() {
-                            $('#productSpecificationDate').datepicker({format: 'dd-mm-yyyy'}).datepicker('setDate', new Date()).datepicker('update');
+    $(document).ready(function () {
+        $('#productSpecificationDate').datepicker({format: 'dd-mm-yyyy'}).datepicker('setDate', new Date()).datepicker('update');
 
 
-                        });
+    });
 </script>
 <!--Print Section-->
 <div id="product-specification" class="print-hidden">
@@ -752,7 +756,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>
         </table>
         <br/>
-<!--        <div style="page-break-after:always"></div>-->
+        <!--        <div style="page-break-after:always"></div>-->
         <table class="tabprint" cellpadding="0" cellspacing="0">
             <tr>
                 <td valign="top" width="33%" height="150"><label>Authorized By :</label></td>
@@ -769,20 +773,26 @@ $imgdirPath = 'app/webroot/img/uploaded/';
 </div>
 <!--Print Section-->
 <script type="text/javascript">
-       /********For View**********/
-        $("input").attr("disabled", true);
-        $("textarea").attr("disabled", true);
-        $("select").attr("disabled", true);
-        $('button').attr('disabled', true);
-         $('input#file').attr('disabled', true);
-         
-    $('#editForm').on('click', function(){
+    /********For View**********/
+    $("input").attr("disabled", true);
+    $("textarea").attr("disabled", true);
+    $("select").attr("disabled", true);
+    $('button').attr('disabled', true);
+    $('input#file').attr('disabled', true);
+
+    $('#editForm').on('click', function () {
         $('input').removeAttr('disabled');
         $('textarea').removeAttr('disabled');
         $('select').removeAttr('disabled');
         $('input#file').removeAttr('disabled');
         $('#ProductSpecificationPreparedBy').attr("disabled", true);
+        $('#ProductSpecificationDataid').attr("disabled", true);
         $('button').removeAttr('disabled');
-    });     
+    });
 
+    //set data id from Item id
+    $(document).ready(function () {
+        var item_id = $('#ProductSpecificationItemId').val();
+        $('#ProductSpecificationDataid').val(item_id);
+    });
 </script>

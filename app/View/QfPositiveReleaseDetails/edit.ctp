@@ -92,7 +92,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             <div class="col-lg-12">
                                 <table class="positive-release-tab1" cellspacing="0" cellpadding="0" id="posReleaseTab">
                                     <tr>
-                                        <td class="text-center color-td" colspan="17"><label>PHYSICAL TEST</label></td>
+                                        <td class="text-center color-td" colspan="16"><label>PHYSICAL TEST</label></td>
                                     </tr>
                                     <tr class="lab-color-tr">
                                         <td width="25%" colspan="2">&nbsp;</td>
@@ -110,7 +110,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td width="5%" class="text-center"><label>8</label></td>
                                         <td width="5%" class="text-center"><label>AVERAGE</label></td>
                                         <td width="7%" class="text-center"><label>STD DEV</label></td>
-                                        <td width="3%" style="color: #00cc66;"><button class="noprint" id="showAllTr"><i class="fa fa-refresh"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td" colspan="2"><label>Bag Weight</label></td>
@@ -128,7 +127,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td" colspan="2"><label>Vacuum Pack Weight</label></td>
@@ -146,7 +144,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td" rowspan="2"><label>Thickness</label></td>
@@ -165,7 +162,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td rowspan="2" class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>                                        
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Spot Thickness</label></td>
@@ -200,7 +196,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Dart impact</label></td>
@@ -219,7 +214,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td" rowspan="2"><label>Tensile Strength</label></td>
@@ -238,7 +232,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td rowspan="2" class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>                                        
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td"><label>CD</label></td>
@@ -271,7 +264,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td" colspan="2"><label>Hot Pin Collection</label></td>
@@ -289,7 +281,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td" colspan="2"><label>Barcode Scanner</label></td>
@@ -305,7 +296,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td" rowspan="2"><label>Printing Perform</label></td>
@@ -322,7 +312,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td rowspan="2" class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>                                        
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Color Fastness</label></td>
@@ -359,7 +348,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td" colspan="2"><label>Ultimate lift</label></td>
@@ -377,7 +365,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td" rowspan="6"><label>Bag Dimension</label></td>
@@ -396,7 +383,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center" rowspan="6" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Handle width</label></td>
@@ -500,7 +486,6 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td class="text-center" rowspan="3" style="color: red;"><button class="btnRemove noprint"><i class="fa fa-close"></i></button></td>
                                     </tr>
                                     <tr>
                                         <td class="text-center lab-color-td"><label>Bottom Gusset Seal</label></td>
