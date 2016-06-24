@@ -15,7 +15,7 @@ if ($user['User']['status'] == 1) {
     <div class="col-md-12">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <?php echo ucfirst(h($user['User']['username'])); ?>
+                <?php echo ucfirst(h($user['User']['username'])); ?> <?php echo $this->Html->link('Change Password', array('controller' => 'users', 'action' => 'change_password'), array('escape' => FALSE)); ?>
             </div>
             <div class="panel-body">
                 <dl>
