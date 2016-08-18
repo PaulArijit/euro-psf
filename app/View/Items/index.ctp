@@ -39,7 +39,7 @@
                             <th><?php echo $this->Paginator->sort('sapcode'); ?></th>
                             <th><?php echo $this->Paginator->sort('created'); ?></th>
                             <th><?php echo $this->Paginator->sort('modified'); ?></th>
-                            <th><?php echo 'Status'; ?></th>
+                            <th><?php echo $this->Paginator->sort('status'); ?></th>
                             <th class="actions noprint"><?php echo __('Actions'); ?></th>
                         </tr>
                     </thead>

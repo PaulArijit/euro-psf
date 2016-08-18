@@ -30,8 +30,7 @@
         </thead>
         <tbody>
             <?php foreach ($logs as $log): ?>
-                <?php $rowspan = sizeof($log['LogField']); ?>
-
+                <?php $rowspan = sizeof($log['LogField']); ?>                
                 <?php foreach ($log['LogField'] as $key => $logField): ?>
                     <tr>
                         <?php if ($key == 0) : ?>
