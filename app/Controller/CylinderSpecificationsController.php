@@ -75,6 +75,17 @@ class CylinderSpecificationsController extends AppController {
         }
         if ($this->request->is(array('post', 'put'))) {
             
+            //image upload part
+            $uploaddir = '../webroot/img/uploaded/';
+
+            //check image already uploaded or not
+            if (!empty($this->request->data['CylinderSpecification']['additional_information']['name'])) {
+                move_uploaded_file($this->data['CylinderSpecification']['additional_information']['tmp_name'], $uploaddir . $this->data['CylinderSpecification']['additional_information']['name']);
+                $this->request->data['CylinderSpecification']['additional_information'] = $this->request->data['CylinderSpecification']['additional_information']['name'];
+            } else {
+                unset($this->request->data['CylinderSpecification']['additional_information']);
+            }
+            
             //log//
             $this->loadModel('Log');
             $oldData = $this->CylinderSpecification->findById($this->request->data['CylinderSpecification']['id']);
