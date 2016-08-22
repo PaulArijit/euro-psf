@@ -1,6 +1,7 @@
 <?php
 $conf_categories = Configure::read('CATEGORY');
 $category = $conf_categories[$this->request->data['Item']['category']];
+$imgdirPath = 'app/webroot/img/uploaded/';
 ?>
 <div class="row">
     <div class="col-xs-12">
@@ -71,7 +72,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             </div>
                         </div>
                         <div class="row">
-                            <?php echo $this->Form->create('CoreSpecification'); ?>
+                            <?php echo $this->Form->create('CoreSpecification', array('enctype' => 'multipart/form-data')); ?>
                             <?php echo $this->Form->input('id'); ?>
                             <?php echo $this->Form->input('item_id', array('type' => 'hidden')); ?>
                             <h1 class="text-center">Core</h1>
@@ -122,7 +123,23 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td><?php echo $this->Form->input('internal_diameter', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td><?php echo $this->Form->input('length', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td><?php echo $this->Form->input('thickness', array('class' => 'form-control', 'label' => FALSE)); ?></td>
-                                    </tr>								
+                                    </tr>
+                                    <tr>
+                                        <td><label>Additional Information</label></td>
+                                        <td colspan="3" style="height: 200px; vertical-align: top">
+                                            <p style="height: 180px;"><?php
+                                                if ($this->request->data['CoreSpecification']['additional_information'] == '') {
+                                                    echo 'No preview available';
+                                                } else {
+                                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['CoreSpecification']['additional_information'] . '" width="300" height="200">';
+                                                }
+                                                ?>
+                                            </p>
+                                            <p style="padding-top: 20px;">
+                                                <?php echo $this->Form->file('additional_information'); ?>
+                                            </p>
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                             <div class="col-xs-6 col-md-6">
@@ -253,7 +270,20 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                         <td><?php echo $this->Form->value('internal_diameter'); ?></td>
                         <td><?php echo $this->Form->value('length'); ?></td>
                         <td><?php echo $this->Form->value('thickness'); ?></td>
-                    </tr>								
+                    </tr>
+                    <tr>
+                        <td><label>Additional Information</label></td>
+                        <td colspan="3" style="height: 200px; vertical-align: top">
+                            <p style="height: 180px;"><?php
+                                if ($this->request->data['CoreSpecification']['additional_information'] == '') {
+                                    echo 'No preview available';
+                                } else {
+                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['CoreSpecification']['additional_information'] . '" width="300" height="200">';
+                                }
+                                ?>
+                            </p>
+                        </td>
+                    </tr>
                 </table>
             </td>
             <td width="5%"></td>

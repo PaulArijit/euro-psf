@@ -75,6 +75,17 @@ class CartonSpecificationsController extends AppController {
         }
         if ($this->request->is(array('post', 'put'))) {
             
+            //image upload part
+            $uploaddir = '../webroot/img/uploaded/';
+
+            //check image already uploaded or not
+            if (!empty($this->request->data['CartonSpecification']['additional_information']['name'])) {
+                move_uploaded_file($this->data['CartonSpecification']['additional_information']['tmp_name'], $uploaddir . $this->data['CartonSpecification']['additional_information']['name']);
+                $this->request->data['CartonSpecification']['additional_information'] = $this->request->data['CartonSpecification']['additional_information']['name'];
+            } else {
+                unset($this->request->data['CartonSpecification']['additional_information']);
+            }
+            
             //log//
             $this->loadModel('Log');
             $oldData = $this->CartonSpecification->findById($this->request->data['CartonSpecification']['id']);

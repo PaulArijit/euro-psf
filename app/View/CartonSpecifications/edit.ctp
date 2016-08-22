@@ -1,6 +1,7 @@
 <?php
 $conf_categories = Configure::read('CATEGORY');
 $category = $conf_categories[$this->request->data['Item']['category']];
+$imgdirPath = 'app/webroot/img/uploaded/';
 ?>
 <div class="row">
     <div class="col-xs-12">
@@ -71,7 +72,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             </div>
                         </div>
                         <div class="row">
-                            <?php echo $this->Form->create('CartonSpecification'); ?>
+                            <?php echo $this->Form->create('CartonSpecification', array('enctype' => 'multipart/form-data')); ?>
                             <?php echo $this->Form->input('id'); ?>
                             <?php echo $this->Form->input('item_id', array('type' => 'hidden')); ?>
                             <h1 class="text-center">Carton</h1>
@@ -127,6 +128,22 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     <tr>
                                         <td><label>Barcode Number</label></td>
                                         <td><?php echo $this->Form->input('barcode_number', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Additional Information</label></td>
+                                        <td style="height: 200px; vertical-align: top">
+                                            <p style="height: 180px;"><?php
+                                                if ($this->request->data['CartonSpecification']['additional_information'] == '') {
+                                                    echo 'No preview available';
+                                                } else {
+                                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['CartonSpecification']['additional_information'] . '" width="300" height="200">';
+                                                }
+                                                ?>
+                                            </p>
+                                            <p style="padding-top: 20px;">
+                                                <?php echo $this->Form->file('additional_information'); ?>
+                                            </p>
+                                        </td>
                                     </tr>
                                 </table>
                             </div>
@@ -241,6 +258,19 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                         <td><label>Barcode Number</label></td>
                         <td><?php echo $this->Form->value('barcode_number'); ?></td>
                     </tr>
+                    <tr>
+                        <td><label>Additional Information</label></td>
+                        <td style="height: 200px; vertical-align: top">
+                            <p style="height: 180px;"><?php
+                                if ($this->request->data['CartonSpecification']['additional_information'] == '') {
+                                    echo 'No preview available';
+                                } else {
+                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['CartonSpecification']['additional_information'] . '" width="300" height="200">';
+                                }
+                                ?>
+                            </p>
+                        </td>
+                    </tr>
                 </table>
             </td>
             <td width="5%"></td>
@@ -283,21 +313,21 @@ $category = $conf_categories[$this->request->data['Item']['category']];
 <!--Print Section-->
 
 <script type="text/javascript">
-       /********For View**********/
-        $("input").attr("disabled", true);
-        $("textarea").attr("disabled", true);
-        $("select").attr("disabled", true);
-        $('button').attr('disabled', true);
-         $('input#file').attr('disabled', true);
-         
-    $('#editForm').on('click', function(){
+    /********For View**********/
+    $("input").attr("disabled", true);
+    $("textarea").attr("disabled", true);
+    $("select").attr("disabled", true);
+    $('button').attr('disabled', true);
+    $('input#file').attr('disabled', true);
+
+    $('#editForm').on('click', function () {
         $('input').removeAttr('disabled');
         $('textarea').removeAttr('disabled');
         $('select').removeAttr('disabled');
         $('input#file').removeAttr('disabled');
         $('#CartonSpecificationNpi').attr("disabled", true);
         $('button').removeAttr('disabled');
-    });     
+    });
 
 </script>
 

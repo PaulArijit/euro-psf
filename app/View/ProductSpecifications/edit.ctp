@@ -1,5 +1,4 @@
 <?php
-
 $conf_categories = Configure::read('CATEGORY');
 $category = $conf_categories[$this->request->data['Item']['category']];
 
@@ -65,9 +64,9 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                             <div class="col-lg-8"></div>
                             <div class="col-lg-4 text-right">
                                 <?php if ($this->Session->read('Auth.User.role') == 100) { ?>
-                                <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Product Specification</a>
+                                    <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Product Specification</a>
                                 <?php } else if ($this->Session->read('Auth.User.role') == 1) { ?>
-                                <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Product Specification</a>                                    
+                                    <a id="editForm" href="javascript:void(0)" style="font-size:18px; color: #ff9900" title="Edit Form" ><i class="fa fa-edit"></i> Edit Product Specification</a>                                    
                                 <?php } else if ($this->Session->read('Auth.User.role') == 2) { ?>
 
                                 <?php } ?>                                
@@ -613,7 +612,10 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                         echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['ProductSpecification']['additional_information'] . '" width="300" height="200">';
                     }
                     ?>
-                </td>
+                    <p>
+                        <?php echo $this->Form->value('additional_text', array('class' => 'form-control', 'label' => FALSE)); ?>
+                    </p>
+                </td>          
             </tr>
         </table>
         <br/>

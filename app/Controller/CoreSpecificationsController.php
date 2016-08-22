@@ -75,6 +75,17 @@ class CoreSpecificationsController extends AppController {
         }
         if ($this->request->is(array('post', 'put'))) {
             
+            //image upload part
+            $uploaddir = '../webroot/img/uploaded/';
+
+            //check image already uploaded or not
+            if (!empty($this->request->data['CoreSpecification']['additional_information']['name'])) {
+                move_uploaded_file($this->data['CoreSpecification']['additional_information']['tmp_name'], $uploaddir . $this->data['CoreSpecification']['additional_information']['name']);
+                $this->request->data['CoreSpecification']['additional_information'] = $this->request->data['CoreSpecification']['additional_information']['name'];
+            } else {
+                unset($this->request->data['CoreSpecification']['additional_information']);
+            }
+            
             //log//
             $this->loadModel('Log');
             $oldData = $this->CoreSpecification->findById($this->request->data['CoreSpecification']['id']);
