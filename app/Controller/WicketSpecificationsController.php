@@ -75,6 +75,17 @@ class WicketSpecificationsController extends AppController {
         }
         if ($this->request->is(array('post', 'put'))) {
             
+            //image upload part
+            $uploaddir = '../webroot/img/uploaded/';
+
+            //check image already uploaded or not
+            if (!empty($this->request->data['WicketSpecification']['additional_information']['name'])) {
+                move_uploaded_file($this->data['WicketSpecification']['additional_information']['tmp_name'], $uploaddir . $this->data['WicketSpecification']['additional_information']['name']);
+                $this->request->data['WicketSpecification']['additional_information'] = $this->request->data['WicketSpecification']['additional_information']['name'];
+            } else {
+                unset($this->request->data['WicketSpecification']['additional_information']);
+            }
+            
             //log//
             $this->loadModel('Log');
             $oldData = $this->WicketSpecification->findById($this->request->data['WicketSpecification']['id']);

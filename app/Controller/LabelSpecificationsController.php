@@ -75,6 +75,17 @@ class LabelSpecificationsController extends AppController {
         }
         if ($this->request->is(array('post', 'put'))) {
             
+            //image upload part
+            $uploaddir = '../webroot/img/uploaded/';
+
+            //check image already uploaded or not
+            if (!empty($this->request->data['LabelSpecification']['additional_information']['name'])) {
+                move_uploaded_file($this->data['LabelSpecification']['additional_information']['tmp_name'], $uploaddir . $this->data['LabelSpecification']['additional_information']['name']);
+                $this->request->data['LabelSpecification']['additional_information'] = $this->request->data['LabelSpecification']['additional_information']['name'];
+            } else {
+                unset($this->request->data['LabelSpecification']['additional_information']);
+            }
+            
             //log//
             $this->loadModel('Log');
             $oldData = $this->LabelSpecification->findById($this->request->data['LabelSpecification']['id']);

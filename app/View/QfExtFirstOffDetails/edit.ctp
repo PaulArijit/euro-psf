@@ -1128,7 +1128,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                 <br/>
                 <div><label>Sample Bag Attachment</label></div>
                 <div class="panel fresh-color panel-default">                                    
-                    <div style="height: 215px; border: 1px solid silver; padding: 5px;" class="panel-body text-center">
+                    <div style="height: 215px; border: 0px solid silver; padding: 5px;" class="panel-body text-center">
                         <?php
                         if ($this->request->data['QfExtFirstOffDetail']['sample_bag_attachment'] == '') {
                             echo 'No preview available';
