@@ -1,6 +1,7 @@
 <?php
 $conf_categories = Configure::read('CATEGORY');
 $category = $conf_categories[$this->request->data['Item']['category']];
+$imgdirPath = 'app/webroot/img/uploaded/';
 ?>
 <div class="row">
     <div class="col-xs-12">
@@ -71,7 +72,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             </div>
                         </div>
                         <div class="row">
-                            <?php echo $this->Form->create('GrommetSpecification'); ?>
+                            <?php echo $this->Form->create('GrommetSpecification', array('enctype' => 'multipart/form-data')); ?>
                             <?php echo $this->Form->input('id'); ?>
                             <?php echo $this->Form->input('item_id', array('type' => 'hidden')); ?>
                             <h1 class="text-center">Grommet</h1>
@@ -148,6 +149,29 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         </td>
                                     </tr>
                                 </table>
+                            </div>
+                            <div class="col-lg-12 ">
+                                <br/>
+                                <div class="pull-left">
+                                    <table class="cylinder-tab2">
+                                        <tr>
+                                            <td><label>Additional Information</label></td>
+                                            <td  style="height: 200px; vertical-align: top; text-align: center;">
+                                                <p style="height: 180px;"><?php
+                                                    if ($this->request->data['GrommetSpecification']['additional_information'] == '') {
+                                                        echo 'No preview available';
+                                                    } else {
+                                                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['GrommetSpecification']['additional_information'] . '" width="300" height="200">';
+                                                    }
+                                                    ?>
+                                                </p>
+                                                <p style="padding-top: 20px;">
+                                                    <?php echo $this->Form->file('additional_information'); ?>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
                             <div class="col-lg-12 ">
                                 <div class="pull-right">
@@ -245,7 +269,23 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                     <?php echo $this->Form->value('remarks'); ?>
                 </td>
             </tr>
-        </table>        
+        </table>
+        <br/>
+        <table class="tabprint" cellpadding="0" cellspacing="0">
+            <tr>
+                <td><label>Additional Information</label></td>
+                <td style="height: 200px; vertical-align: top; text-align: center;">
+                    <p style="height: 180px;"><?php
+                        if ($this->request->data['GrommetSpecification']['additional_information'] == '') {
+                            echo 'No preview available';
+                        } else {
+                            echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['GrommetSpecification']['additional_information'] . '" width="300" height="200">';
+                        }
+                        ?>
+                    </p>                    
+                </td>
+            </tr>
+        </table>
     </center>
 </div>
 <script type="text/javascript">
