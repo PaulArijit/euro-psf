@@ -284,7 +284,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td></td>
                                     </tr>
                                     <tr>                                        
-                                        <td colspan="2" class="text-center"><label>Repeat Print<small>(Bag Length : 530mm)</small></label></td>
+                                        <td colspan="2" class="text-center"><label>Repeat Print</label></td>
                                         <td class="text-center">mm</td>
                                         <td><?php echo $this->Form->input('repeat_print', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td></td>
@@ -596,7 +596,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td></td>
             </tr>
             <tr>                                        
-                <td colspan="2" class="text-center"><label>Repeat Print<small>(Bag Length : 530mm)</small></label></td>
+                <td colspan="2" class="text-center"><label>Repeat Print</label></td>
                 <td class="text-center">mm</td>
                 <td><?php echo $this->Form->value('repeat_print'); ?></td>
                 <td></td>

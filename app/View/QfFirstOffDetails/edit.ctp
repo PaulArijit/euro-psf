@@ -715,12 +715,12 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                         <div><label>Carton Marking</label></div>
                         <br/>
                         <div class="panel fresh-color panel-default">                                    
-                            <div style="height: 415px; border: 1px solid silver;" class="panel-body text-center">
+                            <div style="height: 175px; border: 1px solid silver;" class="panel-body text-center">
                                 <?php
                                 if ($this->request->data['QfFirstOffDetail']['ctn_marking'] == '') {
                                     echo 'No preview available';
                                 } else {
-                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['ctn_marking'] . '" width="420" height="370">';
+                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['ctn_marking'] . '" width="420" height="150">';
                                 }
                                 ?>
                             </div>                            
@@ -737,12 +737,12 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                             <label style="margin-right: 20px; margin-left: 15px; ">NOT GOOD</label>
                         </div>
                         <div class="panel fresh-color panel-default">                                    
-                            <div style="height: 415px; border: 1px solid silver;" class="panel-body text-center">
+                            <div style="height: 175px; border: 1px solid silver;" class="panel-body text-center">
                                 <?php
                                 if ($this->request->data['QfFirstOffDetail']['upload_two'] == '') {
                                     echo 'No preview available';
                                 } else {
-                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['upload_two'] . '" width="420" height="370">';
+                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['upload_two'] . '" width="420" height="150">';
                                 }
                                 ?>
                             </div>                            
@@ -765,10 +765,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                 </td>                                        
             </tr>
         </table>
-        <br/>
-        <div style="page-break-after:always"></div>
-        <br/>
-        <br/>
+
         <table>
             <tr>
                 <td width="50%">
@@ -781,12 +778,12 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                             <label style="margin-right: 20px; margin-left: 15px; ">NOT GOOD</label>
                         </div>
                         <div class="panel fresh-color panel-default">                                    
-                            <div style="height: 415px; border: 1px solid silver;" class="panel-body text-center">
+                            <div style="height: 175px; border: 1px solid silver;" class="panel-body text-center">
                                 <?php
                                 if ($this->request->data['QfFirstOffDetail']['upload_three'] == '') {
                                     echo 'No preview available';
                                 } else {
-                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['upload_three'] . '" width="420" height="370">';
+                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['upload_three'] . '" width="420" height="150">';
                                 }
                                 ?>
                             </div>                            
@@ -803,12 +800,12 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                             <label style="margin-right: 20px; margin-left: 15px; ">NOT GOOD</label>
                         </div>
                         <div class="panel fresh-color panel-default">                                    
-                            <div style="height: 415px; border: 1px solid silver;" class="panel-body text-center">
+                            <div style="height: 175px; border: 1px solid silver;" class="panel-body text-center">
                                 <?php
                                 if ($this->request->data['QfFirstOffDetail']['upload_two'] == '') {
                                     echo 'No preview available';
                                 } else {
-                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['upload_two'] . '" width="420" height="370">';
+                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['upload_two'] . '" width="420" height="150">';
                                 }
                                 ?>
                             </div>                            
@@ -850,6 +847,9 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                 <td></td>
             </tr>
         </table>
+        <br/>
+        <div style="page-break-after:always"></div>
+        <br/>
         <br/>
         <table cellpadding="0" cellspacing="0" class="tabprint">
             <tr>
@@ -935,19 +935,17 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                 <td></td>
             </tr>
         </table>
-        <br/>
-        <div style="page-break-after:always"></div>
-        <br/>
+        
         <br/>
         <div class="col-lg-12 col-md-12">
             <div><label>Knife Design</label></div>
             <div class="panel fresh-color panel-default">                                    
-                <div style="height: 415px; border: 1px solid silver;" class="panel-body text-center">
+                <div style="height: 175px; border: 1px solid silver;" class="panel-body text-center">
                     <?php
                     if ($this->request->data['QfFirstOffDetail']['knife_design'] == '') {
                         echo 'No preview available';
                     } else {
-                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['knife_design'] . '" width="1020" height="340">';
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['knife_design'] . '" width="400" height="150">';
                     }
                     ?>
                 </div>
@@ -963,12 +961,12 @@ $imgdirPath = 'app/webroot/img/uploaded/';
         <div class="col-lg-12">
             <div><label>Artwork</label></div>
             <div class="panel fresh-color panel-default">                                    
-                <div style="height: 415px; border: 1px solid silver;" class="panel-body text-center">
+                <div style="height: 175px; border: 1px solid silver;" class="panel-body text-center">
                     <?php
                     if ($this->request->data['QfFirstOffDetail']['artwork'] == '') {
                         echo 'No preview available';
                     } else {
-                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['artwork'] . '" width="1020" height="340">';
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['artwork'] . '" width="400" height="150">';
                     }
                     ?>
                 </div>                
@@ -980,9 +978,6 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                 </div>
             </div>
         </div>
-        <br/>
-        <div style="page-break-after:always"></div>
-        <br/>
         <br/>
         <table cellpadding="0" cellspacing="0" class="tabprint">
             <tr>
@@ -1038,6 +1033,9 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                 <td></td>
             </tr>                                    
         </table>
+        <br/>
+        <div style="page-break-after:always"></div>
+        <br/>
         <br/>
         <table cellpadding="0" cellspacing="0" class="tabprint">
             <tr>
@@ -1199,12 +1197,12 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                         <br/>
                         <div><label>Sample Bag Attachment</label></div>
                         <div class="panel fresh-color panel-default">                                    
-                            <div style="height: 215px; border: 1px solid silver;" class="panel-body text-center">
+                            <div style="height: 105px; border: 0px solid silver;" class="panel-body text-center">
                                 <?php
                                 if ($this->request->data['QfFirstOffDetail']['sample_bag_attachment'] == '') {
                                     echo 'No preview available';
                                 } else {
-                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['sample_bag_attachment'] . '" width="400" height="180">';
+                                    echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfFirstOffDetail']['sample_bag_attachment'] . '" width="200" height="100">';
                                 }
                                 ?>
                             </div>                            
