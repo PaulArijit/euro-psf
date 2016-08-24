@@ -276,3 +276,12 @@ Approve pending
 	color:#FFF;
 }
 /*modal end*/
+/*dashboard*/
+.dashboard h1{
+   text-align: center;
+   margin-top: 100px;
+   font-family: trebuchet ms;
+   font-size: 4em;
+   text-shadow: 1px 1px 4px #AAA;
+   color: #09486b;
+}

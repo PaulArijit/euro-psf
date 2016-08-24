@@ -119,7 +119,8 @@ class Log extends AppModel {
         if (!empty($affectedFields)) {
             $data['Log'] = array(
                 'table_name' => $params['model'],
-                'user_id' => $params['session']['id']
+                'user_id' => $params['session']['id'],
+                'item_id' => $params['oldData'][$params['model']]['item_id']
             );
             
             $data['LogField'] = array();

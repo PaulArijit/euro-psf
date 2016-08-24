@@ -48,7 +48,7 @@
                             <?php echo $this->Form->input('openwidth_min', array('label' => false, 'class' => 'form-control input-sm')); ?>
                         </td>
                         <td class="max">
-<?php echo $this->Form->input('openwidth_min', array('label' => false, 'class' => 'form-control input-sm')); ?>
+<?php echo $this->Form->input('openwidth_max', array('label' => false, 'class' => 'form-control input-sm')); ?>
                         </td>
                     </tr>
                     <tr>
