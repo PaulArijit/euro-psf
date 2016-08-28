@@ -154,7 +154,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                     <li>
                                         <?php echo $this->Html->link('<span class="icon fa fa-edit"></span>' . '<span class="title">Log Report</span>', array('controller' => 'Logs', 'action' => 'index'), array('escape' => FALSE)); ?>
                                     </li>
-                                    <!-- Dropdown-->
+                                    <!--User Dropdown-->
+                                    <?php  if ($this->Session->read('Auth.User.role') == 100){?>
                                     <li class="panel panel-default dropdown">
                                         <a data-toggle="collapse" href="#dropdown-user">
                                             <span class="icon fa fa-user"></span><span class="title">User</span>
@@ -172,7 +173,25 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                                 </ul>
                                             </div>
                                         </div>
-                                    </li>                               
+                                    </li>
+                                    <?php }else if ($this->Session->read('Auth.User.role') == 2){?>
+                                    <li class="panel panel-default dropdown">
+                                        <a data-toggle="collapse" href="#dropdown-user">
+                                            <span class="icon fa fa-user"></span><span class="title">User</span>
+                                        </a>
+                                        <!-- Dropdown level 1 -->
+                                        <div id="dropdown-user" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul class="nav navbar-nav">
+                                                    <li>
+                                                        <?php echo $this->Html->link('<span class="title">Users List</span>', array('controller' => 'users', 'action' => 'index'), array('escape' => FALSE)); ?>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <?php }else if ($this->Session->read('Auth.User.role') == 1){?>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         <?php endif; ?> 

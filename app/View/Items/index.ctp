@@ -49,6 +49,8 @@
                             $conf_categories = Configure::read('CATEGORY');
                             $category = $conf_categories[$item['Item']['category']];
                             ?>
+                        <!--Approve Item List-->
+                        <?php if($this->Session->read('Auth.User.role') == 3) { ?>
                             <tr>
                                 <td><?php echo h($item['Item']['id']); ?>&nbsp;</td>
                                 <td><?php echo h($item['Item']['description']); ?>&nbsp;</td>
@@ -58,18 +60,43 @@
                                 <td><?php echo h($item['Item']['modified']); ?>&nbsp;</td>
                                 <td><span id="chst<?php echo $item['Item']['id']; ?>" class="change_status <?php echo $item['Item']['status'] == 1 ? 'approved' : 'pending'; ?>" opt="<?php echo $item['Item']['id']; ?>" rel="<?php echo $item['Item']['status']; ?>"><?php echo $item['Item']['status'] == 1 ? 'Approved' : 'Pending'; ?></span>&nbsp;</td>
                                 <td class="actions noprint">
-                                    <?php if ($this->Session->read('Auth.User.role') == 100) { ?>
+                                    <?php if ($this->Session->read('Auth.User.role') == 100 || $this->Session->read('Auth.User.role') == 2) { ?>
                                         <span class="label label-success"><a href="#openModal" rel="<?php echo h($item['Item']['id']); ?>">Approve</a></span>                                        
                                         <span class="label label-warning"><?php echo $this->Html->link(__('View & Edit'), array('action' => 'edit', $item['Item']['id'])); ?></span>
                                         <span class="label label-danger"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['Item']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $item['Item']['id']))); ?></span> 
                                     <?php } else if ($this->Session->read('Auth.User.role') == 1) { ?>
                                         <span class="label label-warning"><?php echo $this->Html->link(__('View & Edit'), array('action' => 'edit', $item['Item']['id'])); ?></span>
                                         <span class="label label-danger"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['Item']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $item['Item']['id']))); ?></span>
-                                    <?php } else if ($this->Session->read('Auth.User.role') == 2) { ?>
+                                    <?php } else if ($this->Session->read('Auth.User.role') == 3) { ?>
                                         <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'edit', $item['Item']['id'])); ?></span>
                                     <?php } ?>
                                 </td>
                             </tr>
+                            <?php } else { ?>
+                            <!--All Item List-->
+                            <tr>
+                                <td><?php echo h($item['Item']['id']); ?>&nbsp;</td>
+                                <td><?php echo h($item['Item']['description']); ?>&nbsp;</td>
+                                <td><?php echo $category; ?>&nbsp;</td>
+                                <td><?php echo h($item['Item']['sapcode']); ?>&nbsp;</td>
+                                <td><?php echo h($item['Item']['created']); ?>&nbsp;</td>
+                                <td><?php echo h($item['Item']['modified']); ?>&nbsp;</td>
+                                <td><span id="chst<?php echo $item['Item']['id']; ?>" class="change_status <?php echo $item['Item']['status'] == 1 ? 'approved' : 'pending'; ?>" opt="<?php echo $item['Item']['id']; ?>" rel="<?php echo $item['Item']['status']; ?>"><?php echo $item['Item']['status'] == 1 ? 'Approved' : 'Pending'; ?></span>&nbsp;</td>
+                                <td class="actions noprint">
+                                    <?php if ($this->Session->read('Auth.User.role') == 100 || $this->Session->read('Auth.User.role') == 2) { ?>
+                                        <span class="label label-success"><a href="#openModal" rel="<?php echo h($item['Item']['id']); ?>">Approve</a></span>                                        
+                                        <span class="label label-warning"><?php echo $this->Html->link(__('View & Edit'), array('action' => 'edit', $item['Item']['id'])); ?></span>
+                                        <span class="label label-danger"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['Item']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $item['Item']['id']))); ?></span> 
+                                    <?php } else if ($this->Session->read('Auth.User.role') == 1) { ?>
+                                        <span class="label label-warning"><?php echo $this->Html->link(__('View & Edit'), array('action' => 'edit', $item['Item']['id'])); ?></span>
+                                        <span class="label label-danger"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['Item']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $item['Item']['id']))); ?></span>
+                                    <?php } else if ($this->Session->read('Auth.User.role') == 3) { ?>
+                                        <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'edit', $item['Item']['id'])); ?></span>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                            
+                            <?php } ?>
                         <?php endforeach; ?>
                     </tbody>
                 </table>

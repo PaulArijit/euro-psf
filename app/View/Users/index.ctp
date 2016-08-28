@@ -41,9 +41,13 @@
                                 <td><?php echo h($user['User']['modified']); ?>&nbsp;</td>
                                 <td><?php echo $status; ?>&nbsp;</td>
                                 <td class="actions">
+                                    <?php if ($this->Session->read('Auth.User.role') == 100){ ?>
                                     <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?></span>
                                     <span class="label label-warning"><?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id'])); ?></span>
                                     <span class="label label-danger"><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $user['User']['id']))); ?></span>
+                                    <?php }else if ($this->Session->read('Auth.User.role') == 2){?>
+                                    <span class="label label-info"><?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id'])); ?></span>
+                                    <?php } ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

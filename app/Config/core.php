@@ -392,7 +392,7 @@ define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/euro-psf/');
 
 date_default_timezone_set("Asia/Kolkata");
 
-Configure::write('ROLES', array('0' => '--Select Role--', '1' => 'User(1)', '2' => 'User(2)', '100' => 'Admin'));
+Configure::write('ROLES', array('0' => '--Select Role--', '1' => 'NPI', '2' => 'Verifier', '3' => 'Viewer', '100' => 'Admin'));
 Configure::write('STATUS', array('0' => '--Select Status--', '1' => 'Active','0' => 'Inactive'));
 Configure::write('CATEGORY', array('0' => '--Select Category--', '1' => 'Refuse Sack', '2' => 'Vast Carrier', '3' => 'Flexi Loop', '4' => 'Die Cut', '5' => 'Patch Handle', '6' => 'Cash Bag', '7' => 'Apron', '8' => 'Wine Bag', '9' => 'Bag On Roll', '10' => 'Vest On Roll', '11' => 'Sack On Roll', '12' => 'Header Bag'));
 Configure::write('KNIFETYPE', array('0' => '--Select Type--', '1' => 'Loose', '2' => 'Manual punch', '3' => 'Thumb blocked', '4' => 'Pinch pull', '5' => 'Ear blocked', '6' => 'Bar blocked', '7' => 'Kidney shape', '8' => 'Straight cut punch out', '9' => 'C cut', '10' => 'Header', '11' => 'Perforated knife', '12' => 'Vest On Roll'));
