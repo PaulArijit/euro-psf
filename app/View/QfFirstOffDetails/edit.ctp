@@ -612,7 +612,13 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                                     </div>
                                 </div>                                
                                 <label>ORIGINAL: QA FILE – CONTROLLED COPY: DISPLAY </label><br/>
-                                <label>Last Revision Date:</label>
+                                <div class="form-group pull-left">
+                                    <label>Last Revision Date:</label><br/><br/>
+                                    <label class="col-sm-4 control-label">REV No:</label>
+                                    <div class="col-sm-8">
+                                        <?php echo $this->Form->input('rev_no', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-lg-6">
                                 <table cellpadding="0" cellspacing="0" class="bm-first-off-tab3">
@@ -670,14 +676,14 @@ $imgdirPath = 'app/webroot/img/uploaded/';
         <table class="tabprint" cellpadding="0" cellspacing="0">
             <tr>
                 <td><label>Product Name</label></td>
-                <td colspan="2">__________________________</td>
+                <td colspan="2"><?php echo $this->request->data['Item']['description']; ?></td>
                 <td></td>
                 <td><label>Thickness (mu)</label></td>
                 <td colspan="2">__________________________</td>
             </tr>
             <tr>
                 <td><label>Product Code</label></td>
-                <td colspan="2">__________________________</td>
+                <td colspan="2"><?php echo $this->request->data['Item']['sapcode']; ?></td>
                 <td></td>
                 <td><label>M/C No</label></td>
                 <td colspan="2">__________________________</td>
@@ -935,7 +941,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                 <td></td>
             </tr>
         </table>
-        
+
         <br/>
         <div class="col-lg-12 col-md-12">
             <div><label>Knife Design</label></div>
@@ -1208,7 +1214,9 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                             </div>                            
                         </div>                                
                         <label>ORIGINAL: QA FILE – CONTROLLED COPY: DISPLAY </label><br/>
-                        <label>Last Revision Date:</label>
+                        <label>Last Revision Date:</label><br/>
+                        <label>REV NO:</label>
+                        <?php echo $this->Form->value('rev_no'); ?>
                     </div>
                 </td>
                 <td width="4%">&nbsp;</td>
@@ -1249,19 +1257,19 @@ $imgdirPath = 'app/webroot/img/uploaded/';
 </div>
 <!--Print Section-->
 <script type="text/javascript">
-       /********For View**********/
-        $("input").attr("disabled", true);
-        $("textarea").attr("disabled", true);
-        $("select").attr("disabled", true);
-        $('button').attr('disabled', true);
-         $('input#file').attr('disabled', true);
-         
-    $('#editForm').on('click', function(){
+    /********For View**********/
+    $("input").attr("disabled", true);
+    $("textarea").attr("disabled", true);
+    $("select").attr("disabled", true);
+    $('button').attr('disabled', true);
+    $('input#file').attr('disabled', true);
+
+    $('#editForm').on('click', function () {
         $('input').removeAttr('disabled');
         $('textarea').removeAttr('disabled');
         $('select').removeAttr('disabled');
         $('input#file').removeAttr('disabled');
         $('button').removeAttr('disabled');
-    });     
+    });
 
 </script>

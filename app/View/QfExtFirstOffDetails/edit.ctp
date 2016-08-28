@@ -588,7 +588,13 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                                     </div>
                                 </div>                                
                                 <label>ORIGINAL: QA FILE – CONTROLLED COPY: DISPLAY </label><br/>
-                                <label>Last Revision Date:</label>
+                                <div class="form-group pull-left">
+                                    <label>Last Revision Date:</label><br/><br/>
+                                    <label class="col-sm-4 control-label">REV No:</label>
+                                    <div class="col-sm-8">
+                                        <?php echo $this->Form->input('rev_no', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-lg-6">
                                 <table cellpadding="0" cellspacing="0" class="bm-first-off-tab3">
@@ -651,12 +657,12 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>
             <tr>
                 <td><label>Product Name:</label></td>
-                <td>_____________________________________</td>
+                <td><?php echo $this->request->data['Item']['description']; ?></td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
                 <td><label>Sap Code:</label></td>
-                <td>_____________________________________</td>
+                <td><?php echo $this->request->data['Item']['sapcode']; ?></td>
             </tr>
             <tr>
                 <td><label>Previous Product:</label></td>
@@ -1139,7 +1145,9 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                     </div>                   
                 </div>                                
                 <label>ORIGINAL: QA FILE – CONTROLLED COPY: DISPLAY </label><br/>
-                <label>Last Revision Date:</label>
+                <label>Last Revision Date:</label><br/>
+                <label>REV NO:</label>
+                <?php echo $this->Form->value('rev_no'); ?>
             </td>
             <td width="10%"></td>
             <td width="45%" style="vertical-align: top;">

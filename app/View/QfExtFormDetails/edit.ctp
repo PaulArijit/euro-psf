@@ -356,7 +356,13 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     </tr>
                                 </table>
                                 <br/>                                
-                                <label>Last Revision Date:</label>
+                                <div class="form-group pull-left">
+                                    <label>Last Revision Date:</label><br/>
+                                    <label class="col-sm-4 control-label">REV No:</label>
+                                    <div class="col-sm-8">
+                                        <?php echo $this->Form->input('rev_no', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                    </div>
+                                </div>
                                 <div class="form-group pull-right">
                                     <label class="pull-right">Leader or Above</label><br/>
                                     <label class="col-sm-4 control-label">Version:</label>
@@ -391,7 +397,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <br/>
         <table class="tabprint" cellpadding="0" cellspacing="0">
             <tr>
-                <td colspan="3" rowspan="3"><label>Product Name:<br/>Product Code:</label></td>
+                <td colspan="3" rowspan="3"><label>Product Name: <?php echo $this->request->data['Item']['description']; ?><br/>Product Code: <?php echo $this->request->data['Item']['sapcode']; ?></label></td>
                 <td><label>ID No</label></td>
                 <td colspan="2><?php echo $this->Form->value('id_no'); ?></td>
                     <td><label>M/C No.:</label></td>
@@ -677,6 +683,13 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td width="25%">&nbsp;</td>
                 <td width="10%">version:</td>
                 <td width="25%"><?php echo $this->Form->value('version'); ?></td>
+            </tr>
+            <tr>
+                <td width="15%">REV NO:</td>
+                <td width="25%"><?php echo $this->Form->value('rev_no'); ?></td>
+                <td width="25%">&nbsp;</td>
+                <td width="10%">&nbsp;</td>
+                <td width="25%">&nbsp;</td>
             </tr>
         </table>
     </center>

@@ -547,8 +547,14 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td class="text-left" style="height: 30px;"><label>Date:</label></td>
                                     </tr>
                                 </table>
-                                <br/>                                
-                                <label>Last Revision Date:</label>
+                                <br/>
+                                <div class="form-group pull-left">
+                                    <label>Last Revision Date:</label><br/>
+                                    <label class="col-sm-4 control-label">REV No:</label>
+                                    <div class="col-sm-8">
+                                        <?php echo $this->Form->input('rev_no', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                    </div>
+                                </div>                                
                             </div>
                             <div class="col-lg-6">
                                 <table cellpadding="0" cellspacing="0" class="bm-quality-report-tab1">
@@ -624,7 +630,7 @@ $category = $conf_categories[$this->request->data['Item']['category']];
         <br/>
         <table class="tabprint" cellpadding="0" cellspacing="0">
             <tr>
-                <td colspan="3" rowspan="2"><label>Product Name:<br/>Product Code:</label></td>
+                <td colspan="3" rowspan="2"><label>Product Name: <?php echo $this->request->data['Item']['description']; ?><br/>Product Code: <?php echo $this->request->data['Item']['sapcode']; ?></label></td>
                 <td><label>ID No</label></td>
                 <td colspan="3"><?php echo $this->Form->value('id_no'); ?></td>
                 <td><label>M/C No.:</label></td>
@@ -1070,6 +1076,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
             </tr>
         </table>
         <br/>
+        <div style="page-break-after:always"></div>
+        <br/>
+        <br/>
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <td colspan="2">
@@ -1113,15 +1122,15 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 </td>
             </tr>
             <tr>
-                <td width="10%"></td>
+                <td width="10%">Last Revision Date:</td>
                 <td></td>
                 <td width="10%"></td>
                 <td width="10%">Leader or Above</td>
                 <td></td>
             </tr>
             <tr>
-                <td width="10%">Last Revision Date:</td>
-                <td></td>
+                <td width="10%">REV NO:</td>
+                <td><?php echo $this->Form->value('rev_no'); ?></td>
                 <td width="10%"></td>
                 <td width="10%">Version:</td>
                 <td><?php echo $this->Form->value('version'); ?></td>

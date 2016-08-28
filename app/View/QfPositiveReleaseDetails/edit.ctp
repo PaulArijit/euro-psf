@@ -540,6 +540,12 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                     </tr>
                                 </table>
                                 <br/>
+                                <div class="form-group pull-left">
+                                    <label class="col-sm-4 control-label">REV No:</label>
+                                    <div class="col-sm-8">
+                                        <?php echo $this->Form->input('rev_no', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-lg-6">
                                 <table class="positive-release-tab1" cellpadding="0" cellspacing="0">
@@ -1044,6 +1050,9 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                             <td><label>QA-Executive</label></td>
                         </tr>
                     </table>
+                    <br/>
+                    <label>REV NO:</label>
+                    <?php echo $this->Form->value('rev_no'); ?>
                 </td>
                 <td width="10%"></td>
                 <td width="45%">
@@ -1068,20 +1077,20 @@ $category = $conf_categories[$this->request->data['Item']['category']];
 </div>
 <!--Print Section-->
 <script type="text/javascript">
-       /********For View**********/
-        $("input").attr("disabled", true);
-        $("textarea").attr("disabled", true);
-        $("select").attr("disabled", true);
-        $('button').attr('disabled', true);
-         $('input#file').attr('disabled', true);
-         
-    $('#editForm').on('click', function(){
+    /********For View**********/
+    $("input").attr("disabled", true);
+    $("textarea").attr("disabled", true);
+    $("select").attr("disabled", true);
+    $('button').attr('disabled', true);
+    $('input#file').attr('disabled', true);
+
+    $('#editForm').on('click', function () {
         $('input').removeAttr('disabled');
         $('textarea').removeAttr('disabled');
         $('select').removeAttr('disabled');
         $('input#file').removeAttr('disabled');
         $('button').removeAttr('disabled');
-    });     
+    });
 
 </script>
 <!--<script type="text/javascript">

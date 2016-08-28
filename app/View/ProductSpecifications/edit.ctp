@@ -185,6 +185,11 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                                         <td><?php echo $this->Form->input('bag_weight_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                     </tr>
                                     <tr>
+                                        <td><label>Net Weight (g)</label></td>
+                                        <td><?php echo $this->Form->input('net_weight_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><?php echo $this->Form->input('net_weight_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                    </tr>
+                                    <tr>
                                         <td><label>Case Weight (kg)</label></td>
                                         <td><?php echo $this->Form->input('case_weight_specification', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td><?php echo $this->Form->input('case_weight_tolerance', array('class' => 'form-control', 'label' => FALSE)); ?></td>
@@ -554,6 +559,11 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                             <td><label>Bag Weight (g)</label></td>
                             <td><?php echo $this->Form->value('bag_weight_specification'); ?></td>
                             <td><?php echo $this->Form->value('bag_weight_tolerance'); ?></td>
+                        </tr>
+                        <tr>
+                            <td><label>Net Weight (g)</label></td>
+                            <td><?php echo $this->Form->value('net_weight_specification'); ?></td>
+                            <td><?php echo $this->Form->value('net_weight_tolerance'); ?></td>
                         </tr>
                         <tr>
                             <td><label>Case Weight (kg)</label></td>
