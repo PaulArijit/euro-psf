@@ -1,3 +1,6 @@
+<?php
+$itemId = $this->request->data['Item']['id'];
+?>
 <div class="row">
     <div class="col-xs-12">
         <div class="card">
@@ -42,8 +45,14 @@
                                 ?>
                             </div>
                         </div>
-                        <div class="panel-footer text-right">                            
-                            <button class="btn btn-success" type="submit">Continue</button>
+                        <div class="panel-footer text-right">
+                            <?php if ($this->Session->read('Auth.User.role') == 3) { ?>
+                            <?php
+                            echo'<a class="btn btn-warning" href="http://localhost/euro-psf/ProductSpecifications/edit/' . $itemId . '">Continue</a>';
+                                    ?>
+                            <?php }else{ ?>
+                            <button class="btn btn-success" type="submit">Save & Continue</button>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>                
