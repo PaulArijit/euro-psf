@@ -38,7 +38,14 @@ class User extends AppModel {
         ),
     );
 
-   public function beforeSave($options = array()) {
+    public function checkCurrentPassword($current_password) {
+        $this->id = AuthComponent::user('id');
+        $saved_password = $this->field('password');
+        $hasher = new BlowfishPasswordHasher();
+        return $hasher->check($current_password, $saved_password);
+    }
+
+    public function beforeSave($options = array()) {
         if (isset($this->data[$this->alias]['password'])) {
             $passwordHasher = new BlowfishPasswordHasher();
             $this->data[$this->alias]['password'] = $passwordHasher->hash(

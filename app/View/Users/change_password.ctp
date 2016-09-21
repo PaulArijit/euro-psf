@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-title">
-                    <div class="title">Add New User</div>
+                    <div class="title">Change Password</div>
                 </div>
             </div>
             <div class="card-body">
@@ -16,30 +16,24 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="">Current Password</label>
                                 <div class="col-sm-6">
-                                    <?php echo $this->Form->input('current_password', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                    <?php echo $this->Form->input('current_password', array('class' => 'form-control', 'type' => 'password', 'label' => FALSE)); ?>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label" for="">Password</label>
+                                <label class="col-sm-2 control-label" for="">New Password</label>
                                 <div class="col-sm-6">
-                                    <?php echo $this->Form->input('password', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                    <?php echo $this->Form->input('newpassword', array('class' => 'form-control', 'type' => 'password', 'label' => FALSE)); ?>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label" for="">Role</label>
+                                <label class="col-sm-2 control-label" for="">Re type New Password</label>
                                 <div class="col-sm-6">
-                                    <?php echo $this->Form->input('role', array('options' => Configure::read('ROLES'), 'class' => 'form-control', 'label' => FALSE)); ?>
+                                    <?php echo $this->Form->input('renewpassword', array('class' => 'form-control',  'type' => 'password', 'label' => FALSE)); ?>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="">Status</label>
-                                <div class="col-sm-6">
-                                    <?php echo $this->Form->input('status', array('options' => Configure::read('STATUS'), 'class' => 'form-control', 'label' => FALSE)); ?>
-                                </div>
-                            </div>
+                            </div>                            
                         </div>
                         <div class="panel-footer text-right">
-                            <button class="btn btn-success" type="submit">Save</button>
+                            <button class="btn btn-success" type="submit">Update</button>
                         </div>
                     </div>
                 </div>

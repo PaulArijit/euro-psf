@@ -126,12 +126,20 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                     <li>
                                         <?php echo $this->Html->link('<span class="icon fa fa-search"></span>' . '<span class="title">Search</span>', array('controller' => 'ProductSpecifications', 'action' => 'index'), array('escape' => FALSE)); ?>
                                     </li>
+                                    <?php  if ($this->Session->read('Auth.User.role') != 3): ?>
                                     <li>
                                         <?php echo $this->Html->link('<span class="icon fa fa-plus"></span>' . '<span class="title">Add Item</span>', array('controller' => 'items', 'action' => 'add'), array('escape' => FALSE)); ?>
                                     </li>
+                                    <?php endif; ?>
+                                    <?php  if ($this->Session->read('Auth.User.role') != 3){ ?>
                                     <li>
                                         <?php echo $this->Html->link('<span class="icon fa fa-list"></span>' . '<span class="title">Items List</span>', array('controller' => 'items', 'action' => 'index'), array('escape' => FALSE)); ?>
                                     </li>
+                                    <?php }else{?>
+                                    <li>
+                                        <?php echo $this->Html->link('<span class="icon fa fa-list"></span>' . '<span class="title">Items List</span>', array('controller' => 'items', 'action' => 'index_approved'), array('escape' => FALSE)); ?>
+                                    </li>
+                                    <?php } ?>
                                     <!-- Dropdown-->
                                     <li class="panel panel-default dropdown">
                                         <a data-toggle="collapse" href="#dropdown-example">
@@ -141,9 +149,11 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                         <div id="dropdown-example" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <ul class="nav navbar-nav">
+                                                    <?php  if ($this->Session->read('Auth.User.role') != 3): ?>
                                                     <li>
                                                         <?php echo $this->Html->link('<span class="title">New QC Lab Report Version</span>', array('controller' => 'QcLabReportDetails', 'action' => 'add'), array('escape' => FALSE)); ?>
                                                     </li>
+                                                    <?php endif; ?>
                                                     <li>
                                                         <?php echo $this->Html->link('<span class="title">QC Lab Reports List</span>', array('controller' => 'QcLabReportDetails', 'action' => 'index'), array('escape' => FALSE)); ?>
                                                     </li>
@@ -151,9 +161,11 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                             </div>
                                         </div>
                                     </li>
+                                    <?php  if ($this->Session->read('Auth.User.role') != 3): ?>
                                     <li>
                                         <?php echo $this->Html->link('<span class="icon fa fa-edit"></span>' . '<span class="title">Log Report</span>', array('controller' => 'Logs', 'action' => 'index'), array('escape' => FALSE)); ?>
                                     </li>
+                                    <?php endif; ?>
                                     <!--User Dropdown-->
                                     <?php  if ($this->Session->read('Auth.User.role') == 100){?>
                                     <li class="panel panel-default dropdown">

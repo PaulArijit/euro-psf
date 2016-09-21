@@ -82,6 +82,67 @@ class ItemsController extends AppController {
         //$this->Item->recursive = 0;
         $this->set('items', $this->Paginator->paginate());
     }
+    
+     public function index_approved() {
+        $conditions = array('Item.status' => 1 );
+        $limit = 10;
+        if (($this->request->is('post') || $this->request->is('put')) && isset($this->data['Filter'])) {
+            $filter_url = array();
+            $filter_url['controller'] = $this->request->params['controller'];
+            $filter_url['action'] = $this->request->params['action'];
+            $filter_url['page'] = 1;
+            foreach ($this->data['Filter'] as $name => $value) {
+                if (trim($value)) {
+                    if ($name == 'cal_from' || $name == 'cal_to') {
+                        $filter_url[$name] = urlencode(str_replace('/', '-', $value));
+                    } else {
+                        $filter_url[$name] = urlencode($value);
+                    }
+                }
+            }
+            return $this->redirect($filter_url);
+        } else {
+            foreach ($this->request->params['named'] as $name => $value) {
+                if (!in_array($name, array('page', 'sort', 'direction'))) {
+                    $value = urldecode($value);
+                    if ($name == 'limit') {
+                        $limit = $value;
+                    } else if ($name == 'value' && strlen(trim($value)) > 0) {
+                        if ($this->request->params['named']['field'] == 'id') {
+                            $conditions['Item.' . $this->request->params['named']['field']] = $value;
+                        } elseif ($this->request->params['named']['field'] == 'description') {
+                            $conditions['OR'] = array(
+                                array('Item.description LIKE ' => "%$value%"));
+                        } else if ($this->request->params['named']['field'] == 'sapcode') {
+                            $conditions['Item.' . $this->request->params['named']['field']] = $value;
+                        } else {
+                            $conditions['Item.' . $this->request->params['named']['field'] . ' LIKE '] = "%$value%";
+                        }
+                    } else if ($name == 'cal_from' && !empty($value)) {
+                        $dateObj = DateTime::createFromFormat('d-m-Y', $value);
+                        $conditions['Item.created >='] = $dateObj->format('Y-m-d');
+                    } else if ($name == 'cal_to' && !empty($value)) {
+                        $dateObj = DateTime::createFromFormat('d-m-Y', $value);
+                        $conditions['Item.created <='] = $dateObj->format('Y-m-d') . ' 23:59:59';
+                    } else if ($name == 'category' && strlen($value) > 0) {
+                        $conditions['Item.category'] = $value;
+                    } else {
+                        
+                    }
+                    $this->request->data['Filter'][$name] = $value;
+                }
+            }
+        }
+
+        $this->paginate = array(
+            'limit' => $limit,
+            'order' => 'Item.id DESC',
+            'conditions' => $conditions
+        );
+
+        //$this->Item->recursive = 0;
+        $this->set('items', $this->Paginator->paginate());
+    }
 
     /**
      * view method

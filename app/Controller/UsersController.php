@@ -118,6 +118,40 @@ class UsersController extends AppController {
         return $this->redirect($this->Auth->logout());
     }
 
+    function change_password() {
+        if ($this->request->is(array('post', 'put'))) {
+
+            if ($this->data['User']['renewpassword'] != $this->data['User']['newpassword']) {
+                $this->Session->setFlash('Mismatch Password', 'flash_danger');
+                return;
+            }
+            
+            if (!$this->User->checkCurrentPassword($this->data['User']['current_password'])) {
+                $this->Session->setFlash('Current Password is wrong.', 'flash_danger');
+                return;
+            }
+
+            $saveData = array(
+                'User' => array(
+                    'id' => $this->data['User']['id'],
+                    'password' => $this->data['User']['newpassword']
+                )
+            );
+
+            if (!empty($this->data)) {
+                if ($this->User->save($saveData)) {
+                    $this->Session->setFlash(__('Password has been changed.'), 'flash_success');
+                } else {
+                    $this->Session->setFlash('Password could not be changed.');
+                }
+            } else {
+                $this->data = $this->User->findById($this->Auth->user('id'));
+            }
+        } else {
+            $this->data = $this->User->findById($this->Auth->user('id'));
+        }
+    }
+
     public function beforeFilter() {
         parent::beforeFilter();
         // Allow users to register and logout.
