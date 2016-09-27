@@ -169,16 +169,25 @@ class ItemsController extends AppController {
             /* save blank data */
             $this->request->data['ProductSpecification'][0] = array('prepared_by' => $this->Session->read('Auth.User.username'));
             $this->request->data['CartonSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['DispenserSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['PlaneBoardSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['CartonTopSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['CartonBottomSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['LayerPadSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['CoreSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['CylinderSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['FlexoPlateSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['FussetSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['GrommetSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['KnifeSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['KnifeTopSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['KnifeBottomSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['LabelSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['WicketSpecification'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['QfBmQualityReportDetail'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['QfExtFirstOffDetail'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['QfOuterFirstOffDetail'][0] = array('npi' => $this->Session->read('Auth.User.username'));
+            $this->request->data['QfLoopHandleFirstOffDetail'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['QfExtFormDetail'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['QfFirstOffDetail'][0] = array('npi' => $this->Session->read('Auth.User.username'));
             $this->request->data['QfPositiveReleaseDetail'][0] = array('npi' => $this->Session->read('Auth.User.username'));

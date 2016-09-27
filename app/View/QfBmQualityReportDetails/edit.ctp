@@ -497,6 +497,15 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                                         <td colspan="2"></td>
                                     </tr>
                                     <tr>
+                                        <td colspan="2" class="text-center"><label>Single Handle Lift</label></td>
+                                        <td>kg</td>
+                                        <td colspan="2"><?php echo $this->Form->input('single_handle_lift', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2"></td>                                        
+                                        <td colspan="2"></td>                                        
+                                        <td colspan="2"></td>
+                                    </tr>
+                                    <tr>
                                         <td colspan="2" class="text-center"><label>Traceability Code</label></td>
                                         <td colspan="2" width="10%"><?php echo $this->Form->input('traceability_code_one', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td width="20%"><?php echo $this->Form->input('traceability_code_two', array('class' => 'form-control', 'label' => FALSE)); ?></td>
@@ -1039,6 +1048,15 @@ $category = $conf_categories[$this->request->data['Item']['category']];
                 <td colspan="2" class="text-center"><label>Ultimate Lift</label></td>
                 <td>kg</td>
                 <td colspan="2"><?php echo $this->Form->value('ultimate_lift'); ?></td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>                                        
+                <td colspan="2"></td>                                        
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"><label>Single Handle Lift</label></td>
+                <td>kg</td>
+                <td colspan="2"><?php echo $this->Form->value('single_handle_lift'); ?></td>
                 <td colspan="2"></td>
                 <td colspan="2"></td>                                        
                 <td colspan="2"></td>                                        

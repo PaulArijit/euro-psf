@@ -434,14 +434,15 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                                         <td colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2"><label>TENSILE STRENGTH CD <small>(mm2)</small></label></td>
-                                        <td colspan="2"><?php echo $this->Form->input('tensile_strength_cd_mml', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td rowspan="2"><label>TENSILE STRENGTH <small>(mm2)</small></label></td>
+                                        <td><label>MD</label></td>
+                                        <td colspan="2"><?php echo $this->Form->input('tensile_strength_md_mml', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td colspan="2"></td>
                                         <td colspan="2"></td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2"><label>Elongation <small>(%)</small></label></td>
-                                        <td colspan="2"><?php echo $this->Form->input('elongation', array('class' => 'form-control', 'label' => FALSE)); ?></td>
+                                        <td><label>CD</label></td>
+                                        <td colspan="2"><?php echo $this->Form->input('tensile_strength_cd_mml', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td colspan="2"></td>
                                         <td colspan="2"></td>
                                     </tr>
@@ -1001,14 +1002,15 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                 <td colspan="2"></td>
             </tr>
             <tr>
-                <td colspan="2"><label>TENSILE STRENGTH CD <small>(mm2)</small></label></td>
-                <td colspan="2"><?php echo $this->Form->value('tensile_strength_cd_mml'); ?></td>
+                <td rowspan="2"><label>TENSILE STRENGTH <small>(mm2)</small></label></td>
+                <td><label>MD</label></td>
+                <td colspan="2"><?php echo $this->Form->value('tensile_strength_md_mml'); ?></td>
                 <td colspan="2"></td>
                 <td colspan="2"></td>
             </tr>
             <tr>
-                <td colspan="2"><label>Elongation <small>(%)</small></label></td>
-                <td colspan="2"><?php echo $this->Form->value('elongation'); ?></td>
+                <td><label>CD</label></td>
+                <td colspan="2"><?php echo $this->Form->value('tensile_strength_cd_mml'); ?></td>
                 <td colspan="2"></td>
                 <td colspan="2"></td>
             </tr>

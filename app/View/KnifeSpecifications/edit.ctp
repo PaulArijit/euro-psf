@@ -99,6 +99,10 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                                             <dd>
                                                 <?php echo $this->Form->input('ref_no', array('class' => 'form-control', 'label' => FALSE)); ?>
                                             </dd>
+                                            <dt><?php echo __('Ref No Two'); ?></dt>
+                                            <dd>
+                                                <?php echo $this->Form->input('ref_no_two', array('class' => 'form-control', 'label' => FALSE)); ?>
+                                            </dd>
                                         </dl>
                                     </div>
                                 </div>
@@ -227,7 +231,11 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                         <tr>
                             <td width="20%" style="text-align: center; background: #EEE;">Ref No:</td>
                             <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->value('ref_no'); ?></td>
-                        </tr>                    
+                        </tr>
+                        <tr>
+                            <td width="20%" style="text-align: center; background: #EEE;">Ref No Two:</td>
+                            <td width="50%" style="text-align: left; font-weight: bold; padding-left: 20px;"><?php echo $this->Form->value('ref_no_two'); ?></td>
+                        </tr>
                     </table>
                 </td>
                 <td style="width: 10%;"></td>
@@ -244,6 +252,13 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>
         </table>
         <br/>
+        <?php
+            $knife_type = Configure::read('KNIFETYPE');
+            $knifetypes = $knife_type[$this->Form->value('knife_type')];
+            
+            $machine_type = Configure::read('MACHINETYPE');
+            $machinepes = $machine_type[$this->Form->value('machine_type')];
+        ?>
         <table class="tabprint" cellpadding="0" cellspacing="0">            
             <tr>
                 <td width="20%"><label>Knife Size (mm)</label></td>
@@ -260,7 +275,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>
             <tr>
                 <td><label>Knife Type</label></td>
-                <td><?php echo $this->Form->value('knife_type'); ?></td>
+                <td><?php echo $knifetypes; ?></td>
             </tr>
             <tr>
                 <td><label>M6 Screw Holes</label></td>
@@ -268,7 +283,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>								
             <tr>
                 <td><label>Machine Type</label></td>
-                <td><?php echo $this->Form->value('machine_type', array('options' => Configure::read('MACHINETYPE'))); ?></td>									
+                <td><?php echo $machinepes; ?></td>									
             </tr>
             <tr>
                 <td><label>Base</label></td>
@@ -284,7 +299,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
             </tr>
             <tr>
                 <td><label>Handle Width (mm)</label></td>
-                <td><?php echo $this->Form->input('value'); ?></td>		
+                <td><?php echo $this->Form->value('handle_width'); ?></td>		
             </tr>
             <tr>
                 <td colspan="3">

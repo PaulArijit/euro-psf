@@ -55,6 +55,16 @@ a:hover {
 
 .text-indent {
   text-indent: 1em; }
+/*tab nav style*/
+.nav-tabs > li > a {
+    font-size: 9px !important;
+    padding: 10px 3px !important;
+    text-transform: uppercase;
+}
+.nav-tabs > li > a:hover{
+    color: #00cc66;
+}
+/*tab nav style*/
 
 .navbar {
   z-index: 10001;

@@ -1,8 +1,8 @@
 <?php
 
 $current_tab = $tab;
-$tabNames = array('product', 'carton', 'core', 'cylinder', 'flexo plate', 'fusset', 'grommet', 'knife', 'label', 'wicket', 'qf one', 'qf two', 'qf three', 'qf four', 'qf five');
-$controlName = array('ProductSpecifications', 'CartonSpecifications', 'CoreSpecifications', 'CylinderSpecifications', 'FlexoPlateSpecifications', 'FussetSpecifications', 'GrommetSpecifications', 'KnifeSpecifications', 'LabelSpecifications', 'WicketSpecifications', 'QfBmQualityReportDetails', 'QfExtFirstOffDetails', 'QfExtFormDetails', 'QfFirstOffDetails', 'QfPositiveReleaseDetails');
+$tabNames = array('product', 'carton', 'dispenser', 'plane board', 'carton top', 'carton bottom', 'layer pad', 'core', 'cylinder', 'flexo plate', 'fusset', 'grommet', 'knife', 'knife top', 'knife bottom', 'label', 'wicket', 'bmqr', 'efo', 'ofo', 'lhf', 'efd', 'fod', 'prd');
+$controlName = array('ProductSpecifications', 'CartonSpecifications', 'DispenserSpecifications', 'PlaneBoardSpecifications', 'CartonTopSpecifications', 'CartonBottomSpecifications', 'LayerPadSpecifications', 'CoreSpecifications', 'CylinderSpecifications', 'FlexoPlateSpecifications', 'FussetSpecifications', 'GrommetSpecifications', 'KnifeSpecifications', 'KnifeTopSpecifications', 'KnifeBottomSpecifications', 'LabelSpecifications', 'WicketSpecifications', 'QfBmQualityReportDetails', 'QfExtFirstOffDetails', 'QfLoopHandleFirstOffDetails', 'QfOuterFirstOffDetails', 'QfExtFormDetails', 'QfFirstOffDetails', 'QfPositiveReleaseDetails');
 $active_class = 'active';
 
 foreach ($tabNames as $key => $value) {
