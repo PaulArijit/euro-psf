@@ -164,9 +164,9 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                                 <table cellpadding="0" cellspacing="0" class="bm-first-off-tab2">
                                     <tr>
                                         <td><label>Carton Size</label></td>
-                                        <td width="25%"></td>
+                                        <td width="25%"><?php echo $this->Form->input('carton_size', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                         <td><label>Outer Size</label></td>
-                                        <td width="25%"></td>
+                                        <td width="25%"><?php echo $this->Form->input('outer_size', array('class' => 'form-control', 'label' => FALSE)); ?></td>
                                     </tr>
                                     <tr>
                                         <td colspan="4" style="height: 70px;" valign="top">
@@ -761,9 +761,9 @@ $imgdirPath = 'app/webroot/img/uploaded/';
         <table cellpadding="0" cellspacing="0" class="tabprint">
             <tr>
                 <td><label>Carton Size</label></td>
-                <td width="25%"></td>
+                <td width="25%"><?php echo $this->Form->value('carton_size'); ?></td>
                 <td><label>Outer Size</label></td>
-                <td width="25%"></td>
+                <td width="25%"><?php echo $this->Form->value('outer_size'); ?></td>
             </tr>
             <tr>
                 <td colspan="4" style="height: 70px;" valign="top">

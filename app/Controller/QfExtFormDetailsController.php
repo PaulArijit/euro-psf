@@ -98,7 +98,7 @@ class QfExtFormDetailsController extends AppController {
             $this->request->data = $this->QfExtFormDetail->find('first', $options);
         }
         $this->set('itemId', $itemId);
-        $this->set('tab', 'qf three');
+        $this->set('tab', 'efd');
     }
 
     /**

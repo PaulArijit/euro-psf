@@ -144,7 +144,7 @@ class QfFirstOffDetailsController extends AppController {
             $this->request->data = $this->QfFirstOffDetail->find('first', $options);
         }
         $this->set('itemId', $itemId);
-        $this->set('tab', 'qf four');
+        $this->set('tab', 'fod');
     }
 
     /**

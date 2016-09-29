@@ -98,7 +98,7 @@ class QfPositiveReleaseDetailsController extends AppController {
             $this->request->data = $this->QfPositiveReleaseDetail->find('first', $options);
         }
         $this->set('itemId', $itemId);
-        $this->set('tab', 'qf five');
+        $this->set('tab', 'prd');
     }
 
     /**

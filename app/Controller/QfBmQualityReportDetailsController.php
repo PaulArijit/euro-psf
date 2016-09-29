@@ -98,7 +98,7 @@ class QfBmQualityReportDetailsController extends AppController {
             $this->request->data = $this->QfBmQualityReportDetail->find('first', $options);
         }
         $this->set('itemId', $itemId);
-        $this->set('tab', 'qf one');
+        $this->set('tab', 'bmqr');
     }
 
     /**
