@@ -840,12 +840,12 @@ $imgdirPath = 'app/webroot/img/uploaded/';
         <div class="col-lg-12">
             <div style="text-align: left;"><h4>Artwork Details</h4></div>
             <div class="panel fresh-color panel-default">                                    
-                <div style="height: 415px; border: 1px solid silver; padding: 5px;" class="panel-body text-center">
+                <div style="height: 215px; border: 1px solid silver; padding: 5px;" class="panel-body text-center">
                     <?php
                     if ($this->request->data['QfOuterFirstOffDetail']['artwork_detail'] == '') {
                         echo 'No preview available';
                     } else {
-                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfOuterFirstOffDetail']['artwork_detail'] . '" width="90%" height="370">';
+                        echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfOuterFirstOffDetail']['artwork_detail'] . '" width="90%" height="200">';
                     }
                     ?>
                 </div>                
@@ -1024,6 +1024,7 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                 <td><?php echo $this->Form->value('impact_strength_six'); ?></td>
             </tr>
         </table>
+        <div style="page-break-after:always"></div>
         <br/>
         <table class="tabprint" cellpadding="0" cellspacing="0">
             <tr>
@@ -1136,12 +1137,12 @@ $imgdirPath = 'app/webroot/img/uploaded/';
                 <br/>
                 <div><label>Sample Bag Attachment</label></div>
                 <div class="panel fresh-color panel-default">                                    
-                    <div style="height: 215px; border: 0px solid silver; padding: 5px;" class="panel-body text-center">
+                    <div style="height: 115px; border: 0px solid silver; padding: 5px;" class="panel-body text-center">
                         <?php
                         if ($this->request->data['QfOuterFirstOffDetail']['sample_bag_attachment'] == '') {
                             echo 'No preview available';
                         } else {
-                            echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfOuterFirstOffDetail']['sample_bag_attachment'] . '" width="400" height="180">';
+                            echo '<img src="' . SITE_URL . $imgdirPath . $this->request->data['QfOuterFirstOffDetail']['sample_bag_attachment'] . '" width="400" height="100">';
                         }
                         ?>
                     </div>                   
