@@ -315,7 +315,7 @@ class Item extends AppModel {
 			'counterQuery' => ''
 		),
                 'QfOuterFirstOffDetail' => array(
-			'className' => 'QfLoopHandleFirstOffDetail',
+			'className' => 'QfOuterFirstOffDetail',
 			'foreignKey' => 'item_id',
 			'dependent' => false,
 			'conditions' => '',
